@@ -1,4 +1,5 @@
 import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import Customer from './Customer';
 import Resource from './Resource';
 import Sale from './Sale';
 
@@ -36,6 +37,9 @@ class User {
 
   @OneToMany(() => Sale, (sale: Sale) => sale.user)
   sales: Sale[];
+
+  @OneToMany(() => Customer, (customer: Customer) => customer.user)
+  customers: Customer[];
 }
 
 export default User;
