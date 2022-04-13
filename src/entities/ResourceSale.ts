@@ -1,5 +1,6 @@
 import { Entity, Column, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
-import { Resource, Sale } from './index';
+import Resource from './Resource';
+import Sale from './Sale';
 
 @Entity('resources_sales')
 class ResourceSale {
