@@ -1,6 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
-@Entity()
+@Entity('admins')
 class Admin {
   @PrimaryGeneratedColumn('uuid')
   id_admin: string;
@@ -8,7 +8,7 @@ class Admin {
   @Column()
   name: string;
 
-  @Column()
+  @Column({ unique: true })
   email: string;
 
   @Column()
