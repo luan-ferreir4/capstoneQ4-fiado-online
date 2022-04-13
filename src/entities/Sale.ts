@@ -6,7 +6,7 @@ import {
   ManyToOne,
   JoinColumn,
 } from 'typeorm';
-// import { Customer, ResourceSale, User } from './index';
+import { Customer, ResourceSale, User } from './index';
 
 const currentDate = new Date();
 
@@ -30,17 +30,17 @@ class Sale {
   @Column({ default: false })
   closed: boolean;
 
-  //   @ManyToOne(() => User, (user: User) => user.sales)
-  //   user: User;
+  @ManyToOne(() => User, (user: User) => user.sales)
+  user: User;
 
-  //   @ManyToOne(() => Customer, (customer: Costumer) => customer.sales)
-  //   customer: Customer;
+  @ManyToOne(() => Customer, (customer: Costumer) => customer.sales)
+  customer: Customer;
 
-  //   @OneToMany(
-  //     () => ResourceSale,
-  //     (resources_sales: ResourceSale) => resources_sales.sale
-  //   )
-  //   resources_sales!: ResourceSale[];
+  @OneToMany(
+    () => ResourceSale,
+    (resources_sales: ResourceSale) => resources_sales.sale
+  )
+  resources_sales!: ResourceSale[];
 }
 
 export default Sale;
