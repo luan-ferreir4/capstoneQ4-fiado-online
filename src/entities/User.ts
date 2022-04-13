@@ -1,5 +1,6 @@
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 // import { Resources } from "./Resources"
+// import { Sale } from "./Sale"
 
 @Entity('users')
 class User {
@@ -30,8 +31,11 @@ class User {
   @Column()
   monthly_report_day: number;
 
-  // @OneToMany( type => Resources, resources => resources.user)
-  // resources: Resources[]
+  // @OneToMany( ()  => Resources, resources => resources.user)
+  // resources: Resources[];
+
+  // @OneToMany( ()  => Sale, sales => sales.user)
+  // sales: Sale[];
 }
 
 export default User;
