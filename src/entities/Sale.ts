@@ -4,9 +4,10 @@ import {
   Column,
   OneToMany,
   ManyToOne,
-  JoinColumn,
 } from 'typeorm';
-import { Customer, ResourceSale, User } from './index';
+
+import ResourceSale from './ResourceSale';
+import User from './User';
 
 @Entity('sales')
 class Sale {
@@ -25,8 +26,8 @@ class Sale {
   @ManyToOne(() => User, (user: User) => user.sales)
   user: User;
 
-  @ManyToOne(() => Customer, (customer: Costumer) => customer.sales)
-  customer: Customer;
+  // @ManyToOne(() => Customer, (customer: Costumer) => customer.sales)
+  // customer: Customer;
 
   @OneToMany(
     () => ResourceSale,
