@@ -7,10 +7,10 @@ import {
   // OneToMany,
 } from 'typeorm';
 // import User from './User';
-// import ResourceSales from "./ResourceSales".
+// import ResourceSale from "./ResourceSale".
 
 @Entity('resources')
-class Resources {
+class Resource {
   @PrimaryGeneratedColumn('uuid')
   id_resource: string;
 
@@ -26,17 +26,17 @@ class Resources {
   @Column({ type: 'date', default: () => 'NOW()' })
   createdOn: Date;
 
-  @Column()
+  @Column({ type: 'date', default: () => 'NOW()' })
   updatedAt: Date;
 
-  /*   @ManyToOne(() => User, (user: User) => user.resources)
+  @ManyToOne(() => User, (user: User) => user.resources)
   id_user: string;
 
   @OneToMany(
-    () => ResourcesSales,
-    (resources_sales: ResourceSales) => resources_sales.resource
+    () => ResourceSale,
+    (resources_sales: ResourceSale) => resources_sales.resource
   )
-  resources_sales!: ResourcesSales[]; */
+  resources_sales!: ResourceSale[];
 }
 
-export default Resources;
+export default Resource;
