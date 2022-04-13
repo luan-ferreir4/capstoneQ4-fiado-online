@@ -8,23 +8,15 @@ import {
 } from 'typeorm';
 import { Customer, ResourceSale, User } from './index';
 
-const currentDate = new Date();
-
-const dueDate = new Date(
-  currentDate.getFullYear(),
-  currentDate.getMonth(),
-  currentDate.getDate() + 14
-);
-
 @Entity('sales')
 class Sale {
   @PrimaryGeneratedColumn('uuid')
   id_sale: string;
 
-  @Column({ default: currentDate })
+  @Column()
   sold_at: Date;
 
-  @Column({ default: dueDate })
+  @Column()
   expires_in: Date;
 
   @Column({ default: false })
