@@ -29,7 +29,7 @@ class Resource {
   updatedAt: Date;
 
   @ManyToOne(() => User, (user: User) => user.resources)
-  id_user: string;
+  user: string;
 
   @OneToMany(
     () => ResourceSale,
