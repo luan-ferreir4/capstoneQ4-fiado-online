@@ -5,7 +5,8 @@ import {
   ManyToOne,
   OneToMany,
 } from 'typeorm';
- import {ResourceSale, User} from "./index".
+import User from './User';
+import ResourceSale from './ResourceSale';
 
 @Entity('resources')
 class Resource {
