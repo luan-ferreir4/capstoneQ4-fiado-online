@@ -2,12 +2,10 @@ import {
   Entity,
   PrimaryGeneratedColumn,
   Column,
-  // ManyToOne,
-  // JoinColumn,
-  // OneToMany,
+  ManyToOne,
+  OneToMany,
 } from 'typeorm';
-// import User from './User';
-// import ResourceSale from "./ResourceSale".
+ import {ResourceSale, User} from "./index".
 
 @Entity('resources')
 class Resource {
@@ -23,10 +21,10 @@ class Resource {
   @Column()
   description: string;
 
-  @Column({ type: 'date', default: () => 'NOW()' })
+  @Column()
   createdOn: Date;
 
-  @Column({ type: 'date', default: () => 'NOW()' })
+  @Column()
   updatedAt: Date;
 
   @ManyToOne(() => User, (user: User) => user.resources)
