@@ -25,10 +25,10 @@ class User {
   @Column({ type: 'date', default: () => 'NOW()' })
   createdIn: Date;
 
-  @Column()
+  @Column({ nullable: true })
   weekly_report_day: number;
 
-  @Column()
+  @Column({ nullable: true })
   monthly_report_day: number;
 
   // @OneToMany( ()  => Resources, resources => resources.user)
