@@ -4,8 +4,10 @@ import {
   Column,
   // ManyToOne,
   // JoinColumn,
+  // OneToMany,
 } from 'typeorm';
 // import User from './User';
+// import ResourceSales from "./ResourceSales".
 
 @Entity('resources')
 class Resources {
@@ -27,9 +29,14 @@ class Resources {
   @Column()
   updatedAt: Date;
 
-  /* @ManyToOne(() => User, (user) => user.id)
-  @JoinColumn()
-  id_user: string; */
+  /*   @ManyToOne(() => User, (user: User) => user.resources)
+  id_user: string;
+
+  @OneToMany(
+    () => ResourcesSales,
+    (resources_sales: ResourceSales) => resources_sales.resource
+  )
+  resources_sales!: ResourcesSales[]; */
 }
 
 export default Resources;
