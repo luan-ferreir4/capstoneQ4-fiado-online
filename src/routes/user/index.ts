@@ -7,7 +7,7 @@ const userRouter = Router();
 
 userRouter.post(
   '/register',
-  // validateShape(createUserShape),
+  validateShape(createUserShape),
   createUserController
 );
 
