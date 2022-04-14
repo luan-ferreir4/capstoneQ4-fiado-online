@@ -5,6 +5,7 @@ import {
   OneToMany,
   ManyToOne,
 } from 'typeorm';
+import Customer from './Customer';
 
 import ResourceSale from './ResourceSale';
 import User from './User';
@@ -26,8 +27,8 @@ class Sale {
   @ManyToOne(() => User, (user: User) => user.sales)
   user: User;
 
-  // @ManyToOne(() => Customer, (customer: Costumer) => customer.sales)
-  // customer: Customer;
+  @ManyToOne(() => Customer, (customer: Customer) => customer.sales)
+  customer: Customer;
 
   @OneToMany(
     () => ResourceSale,
