@@ -15,7 +15,7 @@ class User {
   email: string;
 
   @Column({ unique: true })
-  cpf: number;
+  cpf: string;
 
   @Column()
   password: string;
