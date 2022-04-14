@@ -7,8 +7,8 @@ import { ErrorHandler, handleErrors } from './utils';
 dotenv.config();
 
 const app = express();
-app.use('', router);
 app.use(express.json());
+app.use('', router);
 
 app.use(
   (error: ErrorHandler, req: Request, res: Response, _next: NextFunction) => {
