@@ -24,7 +24,7 @@ interface IUser {
 
 interface IUserRepo {
   createUser: (requestDataUser: IUser) => User;
-  saverUser: (user: IUser) => Promise<User>;
+  saveUser: (user: IUser) => Promise<User>;
   deleteUser: (id_user: string) => Promise<void>;
   updateUser: (id_user: string, data: any) => Promise<void>;
   getOneUser: (id_user: string) => Promise<User>;
