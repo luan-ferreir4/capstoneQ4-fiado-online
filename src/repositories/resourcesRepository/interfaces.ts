@@ -1,14 +1,15 @@
 import { DeleteResult, UpdateResult } from 'typeorm';
-import { Resource } from '../../entities';
+import { Resource, ResourceSale } from '../../entities';
 
 interface IResource {
-  id_resource: string;
+  id_resource?: string;
   unit_cost: number;
   units: number;
   description: string;
   createdOn: Date;
   updatedOn: Date;
   id_user: string;
+  resources_sales?: ResourceSale[];
 }
 
 interface IUpdateResource {
