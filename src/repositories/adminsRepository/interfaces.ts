@@ -1,7 +1,7 @@
 import { DeleteResult, UpdateResult } from 'typeorm';
 import { Admin } from '../../entities';
 
-interface AdminI {
+interface IAdmin {
   id_admin?: string;
   name: string;
   email: string;
@@ -9,18 +9,20 @@ interface AdminI {
   isAdm: boolean;
 }
 
-interface UpdateAdminI {
+interface IUpdateAdmin {
   name?: string;
   email?: string;
   password?: string;
 }
 
-interface AdminRepoI {
-  registerAdmin: (adminData: AdminI) => Admin;
+interface IAdminRepo {
+  registerAdmin: (requestAdminData: IAdmin) => Admin;
+
+  saveAdmin: (adminData: IAdmin) => Promise<Admin>;
 
   updateAdmin: (
     adminEmail: string,
-    newAdminData: UpdateAdminI
+    newAdminData: IUpdateAdmin
   ) => Promise<UpdateResult>;
 
   deleteAdmin: (adminEmail: string) => Promise<DeleteResult>;
@@ -30,4 +32,4 @@ interface AdminRepoI {
   getOneAdmin: (adminEmail: string) => Promise<Admin>;
 }
 
-export { AdminRepoI, AdminI, UpdateAdminI };
+export { IAdminRepo, IAdmin, IUpdateAdmin };
