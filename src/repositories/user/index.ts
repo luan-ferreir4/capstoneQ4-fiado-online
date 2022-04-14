@@ -1,4 +1,4 @@
-import { Repository, getRepository, UpdateResult, DeleteResult } from 'typeorm';
+import { Repository, getRepository } from 'typeorm';
 import { User } from '../../entities';
 import { IUser, IUserRepo, JWTConfig } from './interfaces';
 
@@ -11,7 +11,7 @@ class UserRepository implements IUserRepo {
 
   createUser = (requestDataUser: IUser) =>
     this.ormRepository.create(requestDataUser);
-  saverUser = async (user: IUser) => await this.ormRepository.save(user);
+  saveUser = async (user: IUser) => await this.ormRepository.save(user);
   deleteUser = async (id: string) => {
     await this.ormRepository.delete(id);
   };
@@ -27,4 +27,4 @@ class UserRepository implements IUserRepo {
     return await this.ormRepository.findOne(cpf);
   };
 }
-export default UserRepository;
+export { UserRepository, IUser, JWTConfig };

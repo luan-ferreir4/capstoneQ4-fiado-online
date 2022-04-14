@@ -7,7 +7,8 @@ const createUserShape = yup.object().shape({
   email: yup.string().email().lowercase().required(),
   cpf: yup
     .string()
-    .matches(/[0-9]{3}.?[0-9]{3}.?[0-9]{3}-?[0-9]{2}/, 'Invalid CPF format'),
+    .matches(/[0-9]{3}.?[0-9]{3}.?[0-9]{3}-?[0-9]{2}/, 'Invalid CPF format')
+    .required(),
   password: yup
     .string()
     .transform((pwd) => hashSync(pwd, 10))
