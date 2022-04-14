@@ -11,12 +11,13 @@ interface ICustomer {
 }
 
 interface ICustomerRepository {
-  saveCustomer: (customer: ICustomer) => Promise<ICustomer>;
+  createCustomer: (requestCustomerData: ICustomer) => Promise<ICustomer>;
+  saveCustomer: (customerData: ICustomer) => Promise<ICustomer>;
   deleteCustomer: (id: string) => Promise<DeleteResult>;
   updateCustomer: (id: string, data: ICustomer) => Promise<UpdateResult>;
-  findCustomers: () => Promise<ICustomer[]>;
-  findByEmail: (email: string) => Promise<ICustomer>;
-  findById: (id: string) => Promise<ICustomer>;
+  getAllCustomers: () => Promise<ICustomer[]>;
+  getOneByEmail: (email: string) => Promise<ICustomer>;
+  getOneById: (id: string) => Promise<ICustomer>;
 }
 
 export { ICustomer, ICustomerRepository };
