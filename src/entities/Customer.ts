@@ -22,10 +22,10 @@ class Customer {
   @Column()
   phone_number: number;
 
-  @ManyToOne(() => User, (user) => user.customers)
+  @ManyToOne(() => User, (user: User) => user.customers)
   user: User;
 
-  @OneToMany(() => Sale, (sales) => sales.customer)
+  @OneToMany(() => Sale, (sale: Sale) => sale.customer)
   sales: Sale[];
 }
 
