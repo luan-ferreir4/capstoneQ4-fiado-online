@@ -1,0 +1,32 @@
+import { Repository, getRepository, UpdateResult, DeleteResult } from 'typeorm';
+import { Resource } from '../../entities';
+import { IResource, IUpdateResource, IResourceRepo } from './interfaces';
+
+class UserRepository implements IResourceRepo {
+  private ormRepository: Repository<Resource>;
+
+  constructor() {
+    this.ormRepository = getRepository(Resource);
+  }
+
+  createResource = (requestResourceData: IResource) =>
+    this.ormRepository.create(requestResourceData);
+
+  saveResource = async (resourceData: IResource) =>
+    this.ormRepository.save(resourceData);
+
+  updateResource = async (
+    id_resource: string,
+    newResourceData: IUpdateResource
+  ) => this.ormRepository.update({ id_resource }, newResourceData);
+
+  deleteResource = async (id_resource: string) =>
+    this.ormRepository.delete({ id_resource });
+
+  getOneResource = (id_resource: string) =>
+    this.ormRepository.findOne({ id_resource });
+
+  getAllResourcers = () => this.ormRepository.find();
+}
+
+export default UserRepository;
