@@ -6,7 +6,7 @@ interface ResourceToSaleI {
   quantity: number;
 }
 
-interface SaleI {
+interface ISale {
   id_sale?: string;
   sold_at: Date;
   expires_in: Date;
@@ -17,13 +17,13 @@ interface SaleI {
   resources_sales?: ResourceSale[];
 }
 
-interface SaleRepoI {
-  createSale: (requestSaleData: SaleI) => Sale;
-  saveSale: (saleData: SaleI) => Promise<Sale>;
+interface ISaleRepo {
+  createSale: (requestSaleData: ISale) => Sale;
+  saveSale: (saleData: ISale) => Promise<Sale>;
   updateSale: (id_sale: string, updateData: any) => Promise<any>;
   deleteSale: (id_sale: string) => Promise<any>;
   getAllSales: () => Promise<Sale[]>;
   getOneSale: (id_sale: string) => Promise<Sale>;
 }
 
-export { SaleI, SaleRepoI };
+export { ISale, ISaleRepo };
