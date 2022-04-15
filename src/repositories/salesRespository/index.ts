@@ -12,7 +12,7 @@ class SaleRepository implements ISaleRepo {
   createSale = (requestSaleData: ISale) =>
     this.ormRepository.create(requestSaleData);
 
-  saveSale = async (saleData: ISale) => await this.ormRepository.save(saleData);
+  saveSale = async (saleData: Sale) => await this.ormRepository.save(saleData);
 
   updateSale = async (id_sale: string, updateData: any) =>
     await this.ormRepository.update({ id_sale }, updateData);

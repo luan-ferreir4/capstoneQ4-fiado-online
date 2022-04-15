@@ -19,7 +19,7 @@ interface ISale {
 
 interface ISaleRepo {
   createSale: (requestSaleData: ISale) => Sale;
-  saveSale: (saleData: ISale) => Promise<Sale>;
+  saveSale: (saleData: Sale) => Promise<Sale>;
   updateSale: (id_sale: string, updateData: any) => Promise<any>;
   deleteSale: (id_sale: string) => Promise<any>;
   getAllSales: () => Promise<Sale[]>;
