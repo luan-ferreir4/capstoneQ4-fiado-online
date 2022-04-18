@@ -1,13 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { Customer, Resource, Sale, User } from '../../entities';
 
-type ExpiresIN = string | number;
-
-interface JWTConfig {
-  secretKey: string;
-  expiresIn: ExpiresIN;
-}
-
 interface IUser {
   id_user?: string;
   name: string;
@@ -32,4 +25,4 @@ interface IUserRepo {
   findUserByCpf: (cpf: string) => Promise<User>;
 }
 
-export { IUser, IUserRepo, JWTConfig };
+export { IUser, IUserRepo };

@@ -1,4 +1,9 @@
 import { Response } from 'express';
+import { QueryFailedError } from 'typeorm';
+
+interface IDetail extends QueryFailedError {
+  detail: string;
+}
 
 class ErrorHandler extends Error {
   statusCode: number;
@@ -15,4 +20,4 @@ const handleErrors = (error: ErrorHandler, res: Response): Response => {
   return res.status(statusCode).json({ message });
 };
 
-export { ErrorHandler, handleErrors };
+export { ErrorHandler, handleErrors, IDetail };

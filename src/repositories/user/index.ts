@@ -1,6 +1,6 @@
 import { Repository, getRepository } from 'typeorm';
 import { User } from '../../entities';
-import { IUser, IUserRepo, JWTConfig } from './interfaces';
+import { IUser, IUserRepo } from './interfaces';
 
 class UserRepository implements IUserRepo {
   private ormRepository: Repository<User>;
@@ -27,4 +27,4 @@ class UserRepository implements IUserRepo {
     return await this.ormRepository.findOne(cpf);
   };
 }
-export { UserRepository, IUser, JWTConfig };
+export { UserRepository, IUser };

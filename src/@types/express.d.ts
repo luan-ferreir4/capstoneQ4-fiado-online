@@ -1,5 +1,4 @@
-/* eslint-disable no-unused-vars */
-import { Customer, Sale, User } from '../entities';
+import { Admin, Customer, User } from '../entities';
 
 declare global {
   namespace Express {
@@ -7,6 +6,7 @@ declare global {
       validated: any;
       user: User;
       token: string;
+      admin: Admin;
     }
   }
 }

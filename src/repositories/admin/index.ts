@@ -14,11 +14,11 @@ class AdminsRepository implements IAdminRepo {
 
   saveAdmin = (adminData: IAdmin) => this.ormRepository.save(adminData);
 
-  updateAdmin = async (adminEmail: string, newAdminData: IUpdateAdmin) =>
-    await this.ormRepository.update({ email: adminEmail }, newAdminData);
+  updateAdmin = async (id_admin: string, newAdminData: IUpdateAdmin) =>
+    await this.ormRepository.update({ id_admin }, newAdminData);
 
-  deleteAdmin = async (adminEmail: string) =>
-    await this.ormRepository.delete({ email: adminEmail });
+  deleteAdmin = async (id_admin: string) =>
+    await this.ormRepository.delete({ id_admin });
 
   getAllAdmin = async () => await this.ormRepository.find();
 
@@ -26,4 +26,4 @@ class AdminsRepository implements IAdminRepo {
     await this.ormRepository.findOne({ email: adminEmail });
 }
 
-export default AdminsRepository;
+export { AdminsRepository, IAdmin, IUpdateAdmin };
