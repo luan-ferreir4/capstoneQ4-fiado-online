@@ -6,11 +6,23 @@ interface ResourceToSaleI {
   quantity: number;
 }
 
+interface IResourceRequest {
+  resource_name: string;
+  quantity: number;
+}
+
+interface ICreateSaleRequest {
+  resources?: IResourceRequest[];
+  customer_email: string;
+  sold_at: Date;
+  expires_in: Date;
+  closed: boolean;
+}
+
 interface ISale {
   id_sale?: string;
   sold_at: Date;
   expires_in: Date;
-  resources: ResourceToSaleI[];
   closed: boolean;
   user: User;
   customer: Customer;
@@ -26,4 +38,4 @@ interface ISaleRepo {
   getOneSale: (id_sale: string) => Promise<Sale>;
 }
 
-export { ISale, ISaleRepo };
+export { ISale, ISaleRepo, ICreateSaleRequest };
