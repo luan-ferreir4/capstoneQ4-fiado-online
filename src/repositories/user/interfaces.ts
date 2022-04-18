@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { Customer, Resource, Sale, User } from '../../entities';
 
 type ExpiresIN = string | number;
