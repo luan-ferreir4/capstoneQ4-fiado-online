@@ -1,6 +1,6 @@
 import { UserRepository, IUser } from './user';
-import { SaleRepository, ISale } from './salesRespository';
-import { AdminsRepository, IAdmin, IUpdateAdmin } from './adminsRepository';
+import { SaleRepository, ISale } from './sale';
+import { AdminsRepository, IAdmin, IUpdateAdmin } from './admin';
 
 export {
   UserRepository,
