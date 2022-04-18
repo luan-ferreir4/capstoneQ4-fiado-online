@@ -1,11 +1,15 @@
 import { Request, Response } from 'express';
-import { IUser, UserRepository } from '../../repositories';
+import { createUserService } from '../../services/userServices';
+
+import { handleErrors } from '../../utils';
 
 const createUserController = async (req: Request, res: Response) => {
-  const instanceUser = await new UserRepository().createUser(req.validated);
-  const user: IUser = await new UserRepository().saveUser(instanceUser);
-
-  return res.status(201).json(user);
+  try {
+    const user = await createUserService(req.validated);
+    return res.status(201).json(user);
+  } catch (error: any) {
+    return handleErrors(error, res);
+  }
 };
 
 export default createUserController;
