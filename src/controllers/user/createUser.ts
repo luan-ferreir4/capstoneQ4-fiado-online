@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { createUserService } from '../../services/userServices';
+import { createUserService } from '../../services/user';
 
 import { handleErrors } from '../../utils';
 

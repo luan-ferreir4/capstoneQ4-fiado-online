@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { CustomerRepository } from '../../repositories/customerRepository';
+import { CustomerRepository } from '../../repositories/customer';
 
 const deleteCustomerController = async (req: Request, res: Response) => {
   try {
