@@ -1,3 +1,3 @@
-import { ErrorHandler, handleErrors } from './errorHandling';
+import { ErrorHandler, handleErrors, IDetail } from './errorHandling';
 
-export { ErrorHandler, handleErrors };
+export { ErrorHandler, handleErrors, IDetail };
