@@ -6,13 +6,14 @@ import {
   getOneSaleController,
   updateSaleController,
 } from '../../controllers';
-// import { validateShape } from '../../middlewares';
+import { validateShape } from '../../middlewares';
+import { createSaleShape } from '../../shapes';
 
 const salesRouter = Router();
 
 salesRouter.post(
   '/sales',
-  //   validateShape(),
+  validateShape(createSaleShape),
   createSaleController
 );
 
