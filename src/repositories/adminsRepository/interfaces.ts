@@ -21,11 +21,11 @@ interface IAdminRepo {
   saveAdmin: (adminData: IAdmin) => Promise<Admin>;
 
   updateAdmin: (
-    adminEmail: string,
+    id_admin: string,
     newAdminData: IUpdateAdmin
   ) => Promise<UpdateResult>;
 
-  deleteAdmin: (adminEmail: string) => Promise<DeleteResult>;
+  deleteAdmin: (id_admin: string) => Promise<DeleteResult>;
 
   getAllAdmin: () => Promise<Admin[]>;
 
