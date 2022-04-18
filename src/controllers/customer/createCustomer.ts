@@ -1,8 +1,5 @@
 import { Request, Response } from 'express';
-import {
-  CustomerRepository,
-  ICustomer,
-} from '../../repositories/customerRepository';
+import { CustomerRepository, ICustomer } from '../../repositories/customer';
 
 const createCustomController = async (req: Request, res: Response) => {
   const customer: ICustomer = await new CustomerRepository().saveCustomer(

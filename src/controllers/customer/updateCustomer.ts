@@ -1,8 +1,5 @@
 import { Request, Response } from 'express';
-import {
-  CustomerRepository,
-  ICustomer,
-} from '../../repositories/customerRepository';
+import { CustomerRepository, ICustomer } from '../../repositories/customer';
 
 const updateCustomerController = async (req: Request, res: Response) => {
   const { id } = req.params;

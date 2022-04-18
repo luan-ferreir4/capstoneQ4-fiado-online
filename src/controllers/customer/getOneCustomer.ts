@@ -1,8 +1,5 @@
 import { Request, Response } from 'express';
-import {
-  CustomerRepository,
-  ICustomer,
-} from '../../repositories/customerRepository';
+import { CustomerRepository, ICustomer } from '../../repositories/customer';
 
 // eslint-disable-next-line consistent-return
 const getOneCustomerController = async (req: Request, res: Response) => {
