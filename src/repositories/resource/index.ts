@@ -2,7 +2,7 @@ import { Repository, getRepository, UpdateResult, DeleteResult } from 'typeorm';
 import { Resource } from '../../entities';
 import { IResource, IUpdateResource, IResourceRepo } from './interfaces';
 
-class UserRepository implements IResourceRepo {
+class ResourceRepository implements IResourceRepo {
   private ormRepository: Repository<Resource>;
 
   constructor() {
@@ -29,4 +29,4 @@ class UserRepository implements IResourceRepo {
   getAllResourcers = () => this.ormRepository.find();
 }
 
-export default UserRepository;
+export { ResourceRepository, IResource };
