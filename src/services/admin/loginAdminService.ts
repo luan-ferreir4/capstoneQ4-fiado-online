@@ -6,32 +6,34 @@ import { AdminsRepository } from '../../repositories';
 import { ErrorHandler } from '../../utils';
 import { JWTConfig } from '../../configs';
 
-const loginAdminService = async (req: Request) => {
-  const { email, password } = req.body;
+class loginAdminService {
+  async execute(req: Request) {
+    const { email, password } = req.body;
 
-  const admin = await new AdminsRepository().getOneAdmin(email);
+    const admin = await new AdminsRepository().getOneAdmin(email);
 
-  if (!admin) {
-    throw new ErrorHandler(401, 'email or password is incorrect');
+    if (!admin) {
+      throw new ErrorHandler(401, 'email or password is incorrect');
+    }
+
+    const match = bcrypt.compare(password, admin.password);
+
+    if (!match) {
+      throw new ErrorHandler(401, 'email or password is incorrect');
+    }
+
+    const token = jsonwebtoken.sign(
+      {
+        email: admin.email,
+        id_admin: admin.id_admin,
+        isAdm: admin.isAdm,
+      },
+      JWTConfig.secret,
+      { expiresIn: JWTConfig.expiresIn }
+    );
+
+    return token;
   }
-
-  const match = bcrypt.compare(password, admin.password);
-
-  if (!match) {
-    throw new ErrorHandler(401, 'email or password is incorrect');
-  }
-
-  const token = jsonwebtoken.sign(
-    {
-      email: admin.email,
-      id_admin: admin.id_admin,
-      isAdm: admin.isAdm,
-    },
-    JWTConfig.secret,
-    { expiresIn: JWTConfig.expiresIn }
-  );
-
-  return token;
-};
+}
 
 export default loginAdminService;
