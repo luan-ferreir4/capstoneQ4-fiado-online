@@ -8,6 +8,8 @@ import updatedResourceShape from './resource/updatedResourceShape';
 import loginAdmin from './admin/loginAdminShape';
 import createAdmin from './admin/createAdminShape';
 import updateAdmin from './admin/updateAdminShape';
+import createSaleShape from './sale/createSaleShape';
+import updateSaleShape from './sale/updateSaleShape';
 
 export {
   createUserShape,
@@ -20,4 +22,6 @@ export {
   loginAdmin,
   createAdmin,
   updateAdmin,
+  createSaleShape,
+  updateSaleShape,
 };
