@@ -12,7 +12,7 @@ app.use('', router);
 
 app.use(
   (error: ErrorHandler, req: Request, res: Response, _next: NextFunction) => {
-    handleErrors(error, res);
+    return handleErrors(error, res);
   }
 );
 
