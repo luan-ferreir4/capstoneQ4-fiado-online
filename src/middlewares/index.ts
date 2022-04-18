@@ -1,3 +1,3 @@
-import validateShape from './validateShape.middleware';
+import validateShape from './validateShapeMiddleware';
 
 export { validateShape };
