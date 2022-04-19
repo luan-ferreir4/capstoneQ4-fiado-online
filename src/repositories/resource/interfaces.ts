@@ -3,6 +3,7 @@ import { Resource } from '../../entities';
 
 interface IResource {
   id_resource?: string;
+  name: string;
   unit_cost: number;
   units: number;
   description: string;
@@ -12,6 +13,7 @@ interface IResource {
 }
 
 interface IUpdateResource {
+  name?: string;
   unit_cost?: number;
   units?: number;
   description?: string;

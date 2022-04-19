@@ -1,3 +1,4 @@
+import { Resource } from '../../entities';
 import { ResourceRepository } from '../../repositories/resource';
 import { IUpdateResource } from '../../repositories/resource/interfaces';
 
@@ -5,15 +6,16 @@ class UpdateResourceService {
   async execute(
     id_resource: string,
     resourceValidated: IUpdateResource
-  ): Promise<IUpdateResource> {
+  ): Promise<Resource> {
     const resourceRepository = new ResourceRepository();
 
-    const resourceUpdated: any = resourceRepository.updateResource(
-      id_resource,
-      resourceValidated
+    await resourceRepository.updateResource(id_resource, resourceValidated);
+
+    const oneResource: Resource = await resourceRepository.getOneResource(
+      id_resource
     );
 
-    return resourceUpdated;
+    return oneResource;
   }
 }
 
