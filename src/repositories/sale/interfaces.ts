@@ -2,22 +2,9 @@
 import { DeleteResult, UpdateResult } from 'typeorm';
 import { Customer, ResourceSale, Sale, User } from '../../entities';
 
-interface ResourceToSaleI {
-  resource_id: string;
-  quantity: number;
-}
-
 interface IResourceRequest {
   resource_name: string;
   quantity: number;
-}
-
-interface ICreateSaleRequest {
-  resources?: IResourceRequest[];
-  customer_email: string;
-  sold_at: Date;
-  expires_in: Date;
-  closed: boolean;
 }
 
 interface ISale {
@@ -25,8 +12,10 @@ interface ISale {
   sold_at: Date;
   expires_in: Date;
   closed: boolean;
-  user: User;
-  customer: Customer;
+  customer_email: string;
+  user?: User;
+  customer?: Customer;
+  resources?: IResourceRequest[];
   resources_sales?: ResourceSale[];
 }
 
@@ -38,4 +27,4 @@ interface ISaleRepo {
   getOneSale: (id_sale: string) => Promise<Sale>;
 }
 
-export { ISale, ISaleRepo, ICreateSaleRequest };
+export { ISale, ISaleRepo, IResourceRequest };

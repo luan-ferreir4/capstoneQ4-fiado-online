@@ -1,6 +1,6 @@
 import { getRepository, Repository } from 'typeorm';
 import { Sale } from '../../entities';
-import { ISale, ISaleRepo, ICreateSaleRequest } from './interfaces';
+import { ISale, ISaleRepo, IResourceRequest } from './interfaces';
 
 class SaleRepository implements ISaleRepo {
   private ormRepository: Repository<Sale>;
@@ -23,4 +23,4 @@ class SaleRepository implements ISaleRepo {
     await this.ormRepository.findOne({ id_sale });
 }
 
-export { SaleRepository, ISale, ICreateSaleRequest };
+export { SaleRepository, ISale, IResourceRequest };
