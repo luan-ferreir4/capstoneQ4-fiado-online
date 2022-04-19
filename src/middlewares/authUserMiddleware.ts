@@ -1,7 +1,8 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
 import { JWTConfig } from '../configs';
-import { IUser, UserRepository } from '../repositories';
+import { User } from '../entities';
+import { UserRepository } from '../repositories';
 import { ErrorHandler } from '../utils';
 
 const authUser = async (
@@ -15,16 +16,16 @@ const authUser = async (
       throw new ErrorHandler(401, 'missing header authorization.');
     }
 
-    const usersList: IUser[] = await new UserRepository().getAllUsers();
+    const usersList: User[] = await new UserRepository().getAllUsers();
 
     jwt.verify(token, JWTConfig.secret, (error: any, decoded: any) => {
       if (error) {
         throw new ErrorHandler(401, 'invalid token.');
       }
       const foundUser = usersList.find(
-        (user: IUser) => user.cpf === decoded.cpf
+        (user: User) => user.cpf === decoded.cpf
       );
-      req.validated = foundUser;
+      req.user = foundUser;
     });
 
     return next();
