@@ -1,10 +1,9 @@
 import { Request, Response } from 'express';
-import { User } from '../../entities';
 import { UserRepository } from '../../repositories';
 
-const deleteUserController = async(req: Request, res: Response) => {
+const deleteUserController = async (req: Request, res: Response) => {
   const authenticateUser = req.user;
-  await new UserRepository().deleteUser(authenticateUser['user'].id);
+  await new UserRepository().deleteUser(authenticateUser.id_user);
 
   return res.status(204).json('');
 };
