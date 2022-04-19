@@ -3,7 +3,7 @@ import { request } from 'https';
 import jwt from 'jsonwebtoken';
 import { JWTConfig } from '../configs';
 import { User } from '../entities';
-import { IUser, UserRepository } from '../repositories';
+import { UserRepository } from '../repositories';
 import { ErrorHandler } from '../utils';
 
 const authUser = async (
@@ -25,7 +25,7 @@ const authUser = async (
       }
       const foundUser = usersList.find(
         (user: User) => user.cpf === decoded.cpf
-      );
+      );e/user
 
       req.user = foundUser;
     });
