@@ -1,4 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
+import { request } from 'https';
 import jwt from 'jsonwebtoken';
 import { JWTConfig } from '../configs';
 import { User } from '../entities';
@@ -24,7 +25,8 @@ const authUser = async (
       }
       const foundUser = usersList.find(
         (user: User) => user.cpf === decoded.cpf
-      );
+      );e/user
+
       req.user = foundUser;
     });
 

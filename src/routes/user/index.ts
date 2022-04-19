@@ -1,7 +1,17 @@
 import { Router } from 'express';
-import { createUserController, loginUserController } from '../../controllers';
-import { validateShape, checkLogin } from '../../middlewares';
-import { createUserShape, loginUserShape } from '../../shapes';
+import {
+  createUserController,
+  deleteUserController,
+  loginUserController,
+  updateUserController,
+} from '../../controllers';
+
+import { validateShape, checkLogin, authUser } from '../../middlewares';
+import {
+  createUserShape,
+  loginUserShape,
+  upgradeUserShape,
+} from '../../shapes';
 
 const userRouter = Router();
 
@@ -17,4 +27,12 @@ userRouter.post(
   loginUserController
 );
 
+userRouter.patch(
+  '/profile',
+  validateShape(upgradeUserShape),
+  authUser,
+  updateUserController
+);
+
+userRouter.delete('/profile', authUser, deleteUserController);
 export default userRouter;
