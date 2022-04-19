@@ -7,7 +7,7 @@ interface IResource {
   units: number;
   description: string;
   createdOn: Date;
-  updatedOn: Date;
+  updatedAt: Date;
   id_user: string;
 }
 
@@ -15,7 +15,7 @@ interface IUpdateResource {
   unit_cost?: number;
   units?: number;
   description?: string;
-  updatedOn?: Date;
+  updatedAt?: Date;
 }
 
 interface IResourceRepo {

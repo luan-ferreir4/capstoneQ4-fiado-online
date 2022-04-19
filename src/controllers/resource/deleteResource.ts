@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { ResourceRepository } from '../../repositories/resource';
+import { DeleteResourceService } from '../../services';
 
 const deleteResourceController = async (
   req: Request,
@@ -7,10 +7,9 @@ const deleteResourceController = async (
 ): Promise<Response> => {
   const { id_resource } = req.params;
 
-  const deleteResource = await new ResourceRepository().deleteResource(
-    id_resource
-  );
-  return res.status(201).json({ message: 'Resource deleted' });
+  await new DeleteResourceService().execute(id_resource);
+
+  return res.status(204).json('');
 };
 
 export default deleteResourceController;

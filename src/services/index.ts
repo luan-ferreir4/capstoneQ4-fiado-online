@@ -13,6 +13,13 @@ import DeleteSaleService from './sale/deleteSaleService';
 
 import RegisterResourcesOnSale from './resourceSale/registerResourcesOnSale';
 
+import DeleteResourceService from './resource/deleteResourceService';
+import CreateResourceService from './resource/createResourceService';
+import GetAllResourceService from './resource/getAllResourceService';
+import GetOneResourceService from './resource/getOneResourceService';
+import FormatResourceService from './resource/formatResourceService';
+import UpdateResourceService from './resource/updateResourceService';
+
 export { createUserService, LoginUserService };
 
 export {
@@ -30,3 +37,12 @@ export {
 };
 
 export { RegisterResourcesOnSale };
+
+export {
+  CreateResourceService,
+  DeleteResourceService,
+  GetAllResourceService,
+  GetOneResourceService,
+  FormatResourceService,
+  UpdateResourceService,
+};
