@@ -1,5 +1,4 @@
 import { Request, Response, NextFunction } from 'express';
-import { request } from 'https';
 import jwt from 'jsonwebtoken';
 import { JWTConfig } from '../configs';
 import { User } from '../entities';
@@ -10,7 +9,7 @@ const authUser = async (
   req: Request,
   _: Response,
   next: NextFunction
-): Promise<ErrorHandler | any> => {
+): Promise<ErrorHandler | void> => {
   const token = req.headers.authorization?.split(' ')[1];
   try {
     if (!token) {
@@ -19,13 +18,13 @@ const authUser = async (
 
     const usersList: User[] = await new UserRepository().getAllUsers();
 
-    jwt.verify(token, JWTConfig.secret, (error: any, decoded: any) => {
+    jwt.verify(token, JWTConfig.secret, (error: any, decoded: any): void => {
       if (error) {
         throw new ErrorHandler(401, 'invalid token.');
       }
       const foundUser = usersList.find(
         (user: User) => user.cpf === decoded.cpf
-      );e/user
+      );
 
       req.user = foundUser;
     });
