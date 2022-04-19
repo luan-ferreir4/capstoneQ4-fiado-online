@@ -6,6 +6,11 @@ import deleteAdminService from './admin/deleteAdminService';
 import registerAdminService from './admin/registerAdminService';
 import loginAdminService from './admin/loginAdminService';
 
+import CreateSaleService from './sale/createSaleService';
+import FormatSaleService from './sale/formatSaleService';
+import UpdateSaleService from './sale/updateSaleService';
+import DeleteSaleService from './sale/deleteSaleService';
+
 export { createUserService, LoginUserService };
 
 export {
@@ -13,4 +18,11 @@ export {
   deleteAdminService,
   registerAdminService,
   loginAdminService,
+};
+
+export {
+  CreateSaleService,
+  FormatSaleService,
+  UpdateSaleService,
+  DeleteSaleService,
 };

@@ -1,6 +1,6 @@
 import { getRepository, Repository } from 'typeorm';
 import { Sale } from '../../entities';
-import { ISale, ISaleRepo } from './interfaces';
+import { ISale, ISaleRepo, ICreateSaleRequest } from './interfaces';
 
 class SaleRepository implements ISaleRepo {
   private ormRepository: Repository<Sale>;
@@ -14,9 +14,6 @@ class SaleRepository implements ISaleRepo {
 
   saveSale = async (saleData: Sale) => await this.ormRepository.save(saleData);
 
-  updateSale = async (id_sale: string, updateData: any) =>
-    await this.ormRepository.update({ id_sale }, updateData);
-
   deleteSale = async (id_sale: string) =>
     await this.ormRepository.delete({ id_sale });
 
@@ -26,4 +23,4 @@ class SaleRepository implements ISaleRepo {
     await this.ormRepository.findOne({ id_sale });
 }
 
-export { SaleRepository, ISale };
+export { SaleRepository, ISale, ICreateSaleRequest };

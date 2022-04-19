@@ -1,4 +1,3 @@
-import { Request } from 'express';
 import { AdminsRepository } from '../../repositories';
 import { ErrorHandler } from '../../utils';
 
