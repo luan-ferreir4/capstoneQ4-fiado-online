@@ -1,3 +1,4 @@
 import validateShape from './validateShapeMiddleware';
+import verifyExistingSale from './verifyExistingSaleMiddleware';
 
-export { validateShape };
+export { validateShape, verifyExistingSale };
