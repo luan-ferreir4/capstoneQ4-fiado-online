@@ -1,4 +1,5 @@
 import createUserService from './user/createUserService';
+import LoginUserService from './user/loginUserService';
 
 import updateAdminService from './admin/updateAdminService';
 import deleteAdminService from './admin/deleteAdminService';
@@ -12,7 +13,7 @@ import DeleteSaleService from './sale/deleteSaleService';
 
 import RegisterResourcesOnSale from './resourceSale/registerResourcesOnSale';
 
-export { createUserService };
+export { createUserService, LoginUserService };
 
 export {
   updateAdminService,
