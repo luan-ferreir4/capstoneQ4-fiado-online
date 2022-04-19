@@ -1,4 +1,5 @@
-import { Admin, Customer, User } from '../entities';
+/* eslint-disable no-unused-vars */
+import { Admin, User } from '../entities';
 
 declare global {
   namespace Express {

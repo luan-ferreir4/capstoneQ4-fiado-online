@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import { SaleRepository } from '../../repositories';
+import { DeleteSaleService } from '../../services';
 
 const deleteSaleController = async (
   req: Request,
@@ -7,11 +7,9 @@ const deleteSaleController = async (
 ): Promise<Response> => {
   const { id_sale } = req.params;
 
-  const deleteRes = await new SaleRepository().deleteSale(id_sale);
+  await new DeleteSaleService().execute(id_sale);
 
-  return res.json(201).json(deleteRes);
-  // await new SaleRepository().deleteSale(id_sale);
-  // return res.json(204).json('');
+  return res.json(204).json('');
 };
 
 export default deleteSaleController;
