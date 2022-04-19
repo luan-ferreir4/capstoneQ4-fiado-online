@@ -1,5 +1,8 @@
 import createUserController from './user/createUser';
 import loginUserController from './user/loginUser';
+import deleteUserController from './user/deleteUser';
+import updateUserController from './user/upgradeUser';
+import getUserProfileController from './user/getUserProfile';
 
 import createCustomController from './customer/createCustomer';
 import deleteCustomerController from './customer/deleteCustom';
@@ -19,7 +22,13 @@ import getOneResourceController from './resource/getOneResource';
 import getAllResourcesController from './resource/getAllResources';
 import updateResourcesController from './resource/updateResource';
 
-export { createUserController, loginUserController };
+export {
+  createUserController,
+  loginUserController,
+  deleteUserController,
+  updateUserController,
+  getUserProfileController,
+};
 
 export {
   createCustomController,

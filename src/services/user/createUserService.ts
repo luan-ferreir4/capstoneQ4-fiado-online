@@ -14,7 +14,6 @@ const createUserService = async (user: User) => {
     return newUser;
   } catch (error) {
     if (error instanceof QueryFailedError) {
-      console.log(error);
       const resDetail = (error as IDetail).detail;
       if (resDetail.includes('already exists')) {
         throw new ErrorHandler(409, resDetail);

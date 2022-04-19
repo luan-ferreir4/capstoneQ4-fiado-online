@@ -10,6 +10,8 @@ import CreateSaleService from './sale/createSaleService';
 import FormatSaleService from './sale/formatSaleService';
 import UpdateSaleService from './sale/updateSaleService';
 import DeleteSaleService from './sale/deleteSaleService';
+import GetAllSalesService from './sale/getAllSalesService';
+import GetOneSaleService from './sale/getOneSaleService';
 
 import RegisterResourcesOnSale from './resourceSale/registerResourcesOnSale';
 
@@ -34,6 +36,8 @@ export {
   FormatSaleService,
   UpdateSaleService,
   DeleteSaleService,
+  GetAllSalesService,
+  GetOneSaleService,
 };
 
 export { RegisterResourcesOnSale };
