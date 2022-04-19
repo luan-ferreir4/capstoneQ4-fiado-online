@@ -1,4 +1,32 @@
 import createUserService from './user/createUserService';
-import verifyAcceptedKeys from './user/verifyAcceptedKeys';
+import LoginUserService from './user/loginUserService';
 
-export { createUserService, verifyAcceptedKeys };
+import updateAdminService from './admin/updateAdminService';
+import deleteAdminService from './admin/deleteAdminService';
+import registerAdminService from './admin/registerAdminService';
+import loginAdminService from './admin/loginAdminService';
+
+import CreateSaleService from './sale/createSaleService';
+import FormatSaleService from './sale/formatSaleService';
+import UpdateSaleService from './sale/updateSaleService';
+import DeleteSaleService from './sale/deleteSaleService';
+
+import RegisterResourcesOnSale from './resourceSale/registerResourcesOnSale';
+
+export { createUserService, LoginUserService };
+
+export {
+  updateAdminService,
+  deleteAdminService,
+  registerAdminService,
+  loginAdminService,
+};
+
+export {
+  CreateSaleService,
+  FormatSaleService,
+  UpdateSaleService,
+  DeleteSaleService,
+};
+
+export { RegisterResourcesOnSale };

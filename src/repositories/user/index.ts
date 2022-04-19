@@ -1,6 +1,6 @@
 import { Repository, getRepository } from 'typeorm';
 import { User } from '../../entities';
-import { IUser, IUserRepo, JWTConfig } from './interfaces';
+import { IUser, IUserRepo } from './interfaces';
 
 class UserRepository implements IUserRepo {
   private ormRepository: Repository<User>;
@@ -26,5 +26,11 @@ class UserRepository implements IUserRepo {
   findUserByCpf = async (cpf: string) => {
     return await this.ormRepository.findOne(cpf);
   };
+  findUserByEmail = async (email: string) => {
+    return await this.ormRepository.findOne({ where: { email } });
+  };
+  getAllUsers = async () => {
+    return await this.ormRepository.find();
+  };
 }
-export { UserRepository, IUser, JWTConfig };
+export { UserRepository, IUser };

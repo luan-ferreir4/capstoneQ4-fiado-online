@@ -1,4 +1,19 @@
-import { UserRepository, IUser, JWTConfig } from './user';
-import { SaleRepository, ISale } from './sale';
+import { UserRepository, IUser } from './user';
 
-export { UserRepository, IUser, JWTConfig, SaleRepository, ISale };
+import { SaleRepository, ISale, IResourceRequest } from './sale';
+
+import { AdminsRepository, IAdmin, IUpdateAdmin } from './admin';
+
+import {
+  ResourceSaleRepository,
+  IResourceSale,
+  IResourceSaleRepo,
+} from './resourceSale';
+
+export { UserRepository, IUser };
+
+export { AdminsRepository, IAdmin, IUpdateAdmin };
+
+export { SaleRepository, ISale, IResourceRequest };
+
+export { ResourceSaleRepository, IResourceSale, IResourceSaleRepo };

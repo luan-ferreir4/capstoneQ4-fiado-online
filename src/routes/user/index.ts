@@ -1,7 +1,8 @@
 import { Router } from 'express';
-import { createUserController, updateUserController } from '../../controllers';
-import { validateShape } from '../../middlewares';
-import { createUserShape } from '../../shapes';
+import { createUserController, loginUserController } from '../../controllers';
+
+import { validateShape, checkLogin } from '../../middlewares';
+import { createUserShape, loginUserShape } from '../../shapes';
 
 const userRouter = Router();
 
@@ -10,6 +11,12 @@ userRouter.post(
   validateShape(createUserShape),
   createUserController
 );
+userRouter.post(
+  '/login',
+  validateShape(loginUserShape),
+  checkLogin,
+  loginUserController
+);
 
-userRouter.patch('/profile', updateUserController);
+userRouter.patch('/profile');
 export default userRouter;
