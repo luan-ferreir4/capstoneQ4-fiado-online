@@ -1,4 +1,5 @@
 import createUserController from './user/createUser';
+import updateUserController from './user/upgradeUser';
 
 import createCustomController from './customer/createCustomer';
 import deleteCustomerController from './customer/deleteCustom';
@@ -12,7 +13,7 @@ import getAllSalesController from './sale/getAllSales';
 import getOneSaleController from './sale/getOneSale';
 import updateSaleController from './sale/updateSale';
 
-export { createUserController };
+export { createUserController, updateUserController };
 
 export {
   createCustomController,

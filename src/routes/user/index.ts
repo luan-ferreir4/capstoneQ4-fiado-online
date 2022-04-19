@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { createUserController } from '../../controllers';
+import { createUserController, updateUserController } from '../../controllers';
 import { validateShape } from '../../middlewares';
 import { createUserShape } from '../../shapes';
 
@@ -11,4 +11,5 @@ userRouter.post(
   createUserController
 );
 
+userRouter.patch('/profile', updateUserController);
 export default userRouter;
