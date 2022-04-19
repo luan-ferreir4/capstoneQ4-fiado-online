@@ -2,11 +2,17 @@ import { Router } from 'express';
 import {
   createUserController,
   deleteUserController,
+  getUserProfileController,
   loginUserController,
   updateUserController,
 } from '../../controllers';
 
-import { validateShape, checkLogin, authUser } from '../../middlewares';
+import {
+  validateShape,
+  checkLogin,
+  authUser,
+  verifyEmailAlreadyExists,
+} from '../../middlewares';
 import {
   createUserShape,
   loginUserShape,
@@ -27,9 +33,12 @@ userRouter.post(
   loginUserController
 );
 
+userRouter.get('/profile', authUser, getUserProfileController);
+
 userRouter.patch(
   '/profile',
   validateShape(upgradeUserShape),
+  verifyEmailAlreadyExists,
   authUser,
   updateUserController
 );
