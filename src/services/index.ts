@@ -11,6 +11,8 @@ import FormatSaleService from './sale/formatSaleService';
 import UpdateSaleService from './sale/updateSaleService';
 import DeleteSaleService from './sale/deleteSaleService';
 
+import RegisterResourcesOnSale from './resourceSale/registerResourcesOnSale';
+
 export { createUserService, LoginUserService };
 
 export {
@@ -26,3 +28,5 @@ export {
   UpdateSaleService,
   DeleteSaleService,
 };
+
+export { RegisterResourcesOnSale };
