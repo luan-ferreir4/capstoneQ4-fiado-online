@@ -29,5 +29,8 @@ class UserRepository implements IUserRepo {
   findUserByEmail = async (email: string) => {
     return await this.ormRepository.findOne({ where: { email } });
   };
+  getAllUsers = async () => {
+    return await this.ormRepository.find();
+  };
 }
 export { UserRepository, IUser };

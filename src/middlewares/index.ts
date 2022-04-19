@@ -1,4 +1,5 @@
 import validateShape from './validateShapeMiddleware';
-import checkLogin from './checkLogin';
+import checkLogin from './checkLoginMiddleware';
+import authUser from './authUserMiddleware';
 
-export { validateShape, checkLogin };
+export { validateShape, checkLogin, authUser };
