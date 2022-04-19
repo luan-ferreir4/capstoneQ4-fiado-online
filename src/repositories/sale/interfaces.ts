@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+import { DeleteResult, UpdateResult } from 'typeorm';
 import { Customer, ResourceSale, Sale, User } from '../../entities';
 
 interface ResourceToSaleI {
@@ -32,8 +33,7 @@ interface ISale {
 interface ISaleRepo {
   createSale: (requestSaleData: ISale) => Sale;
   saveSale: (saleData: Sale) => Promise<Sale>;
-  updateSale: (id_sale: string, updateData: any) => Promise<any>;
-  deleteSale: (id_sale: string) => Promise<any>;
+  deleteSale: (id_sale: string) => Promise<DeleteResult>;
   getAllSales: () => Promise<Sale[]>;
   getOneSale: (id_sale: string) => Promise<Sale>;
 }
