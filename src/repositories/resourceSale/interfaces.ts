@@ -11,8 +11,10 @@ interface IResourceSale {
 }
 
 interface IResourceSaleRepo {
-  createSale: (resourceSaleData: IResourceSale) => ResourceSale;
-  saveSale: (newResourceSaleData: ResourceSale) => Promise<ResourceSale>;
+  createResourceSale: (resourceSaleData: IResourceSale) => ResourceSale;
+  saveResourceSale: (
+    newResourceSaleData: ResourceSale
+  ) => Promise<ResourceSale>;
 }
 
 export { IResourceSale, IResourceSaleRepo };
