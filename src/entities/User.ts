@@ -17,7 +17,7 @@ class User {
   @Column({ unique: true })
   cpf: string;
 
-  @Column({ select: false })
+  @Column()
   password: string;
 
   @Column()
