@@ -21,7 +21,7 @@ interface IUpdateResource {
 interface IResourceRepo {
   createResource: (requestResourceData: IResource) => Resource;
 
-  saveResource: (resourceData: IResource) => Promise<Resource>;
+  saveResource: (resourceData: Resource) => Promise<Resource>;
 
   updateResource: (
     id_resource: string,
