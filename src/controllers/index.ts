@@ -16,12 +16,21 @@ import getAllSalesController from './sale/getAllSales';
 import getOneSaleController from './sale/getOneSale';
 import updateSaleController from './sale/updateSale';
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> develop
 import createResourceController from './resource/createResource';
 import deleteResourceController from './resource/deleteResource';
 import getOneResourceController from './resource/getOneResource';
 import getAllResourcesController from './resource/getAllResources';
 import updateResourcesController from './resource/updateResource';
 
+<<<<<<< HEAD
+=======
+export { createUserController };
+=======
+>>>>>>> develop
 export {
   createUserController,
   loginUserController,
@@ -29,6 +38,10 @@ export {
   updateUserController,
   getUserProfileController,
 };
+<<<<<<< HEAD
+=======
+>>>>>>> develop
+>>>>>>> develop
 
 export {
   createCustomController,

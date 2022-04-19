@@ -13,6 +13,9 @@ class Resource {
   @PrimaryGeneratedColumn('uuid')
   id_resource: string;
 
+  @Column({ unique: true })
+  name: string;
+
   @Column()
   unit_cost: number;
 
