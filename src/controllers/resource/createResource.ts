@@ -1,9 +1,10 @@
 import { Request, Response } from 'express';
-import { ResourceRepository, IResource } from '../../repositories/resource';
+import CreateResourceService from '../../services/resource/createResourceService';
+import { Resource } from '../../entities';
 
 const createResourceController = async (req: Request, res: Response) => {
-  const resource: IResource = await new ResourceRepository().saveResource(
-    req.validated as IResource
+  const resource: Resource = await new CreateResourceService().execute(
+    req.validated
   );
   return res.status(201).json(resource);
 };

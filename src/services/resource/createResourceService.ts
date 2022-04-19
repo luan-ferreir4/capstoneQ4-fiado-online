@@ -1,8 +1,16 @@
+import { ResourceRepository, IResource } from '../../repositories/resource';
+import { Resource } from '../../entities';
+
 class CreateResourceService {
-  async execute(resourceData: ): Promise<Resource> {
-    const resource: IResource = await new ResourceRepository().saveResource(
-      req.validated as IResource
-    );
-    return resource;
+  async execute(resourceData: IResource): Promise<Resource> {
+    const resourceRepository = new ResourceRepository();
+
+    const newResource: Resource =
+      resourceRepository.createResource(resourceData);
+
+    await resourceRepository.saveResource(newResource);
+    return newResource;
   }
 }
+
+export default CreateResourceService;

@@ -12,7 +12,7 @@ class ResourceRepository implements IResourceRepo {
   createResource = (requestResourceData: IResource) =>
     this.ormRepository.create(requestResourceData);
 
-  saveResource = async (resourceData: IResource) =>
+  saveResource = async (resourceData: Resource) =>
     this.ormRepository.save(resourceData);
 
   updateResource = async (
