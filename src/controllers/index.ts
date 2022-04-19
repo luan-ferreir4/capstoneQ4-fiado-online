@@ -20,6 +20,7 @@ import createResourceController from './resource/createResource';
 import deleteResourceController from './resource/deleteResource';
 import getOneResourceController from './resource/getOneResource';
 import getAllResourcesController from './resource/getAllResources';
+import updateResourcesController from './resource/updateResource';
 
 export {
   createUserController,
@@ -50,4 +51,5 @@ export {
   deleteResourceController,
   getOneResourceController,
   getAllResourcesController,
+  updateResourcesController,
 };

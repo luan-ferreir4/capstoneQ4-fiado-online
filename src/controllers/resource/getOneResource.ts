@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { Resource } from '../../entities';
-import { ResourceRepository } from '../../repositories/resource';
+import { GetOneResourceService } from '../../services';
 
 const getOneResourceController = async (
   req: Request,
@@ -8,7 +8,7 @@ const getOneResourceController = async (
 ): Promise<Response> => {
   const { id_resource } = req.params;
 
-  const resourceFound: Resource = await new ResourceRepository().getOneResource(
+  const resourceFound: Resource = await new GetOneResourceService().execute(
     id_resource
   );
 
