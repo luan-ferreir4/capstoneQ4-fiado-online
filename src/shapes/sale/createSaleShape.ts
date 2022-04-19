@@ -10,7 +10,7 @@ const dueDate = new Date(
 
 const createSaleShape = yup.object().shape({
   resources: yup.array().strict().required(),
-  customer: yup.string().strict().required(),
+  customer_email: yup.string().strict().required(),
   closed: yup.boolean().default(() => false),
   sold_at: yup.date().default(() => currentDate),
   expires_in: yup.date().default(() => dueDate),
