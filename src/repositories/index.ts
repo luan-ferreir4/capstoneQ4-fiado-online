@@ -1,13 +1,19 @@
 import { UserRepository, IUser } from './user';
-import { SaleRepository, ISale } from './sale';
+
+import { SaleRepository, ISale, IResourceRequest } from './sale';
+
 import { AdminsRepository, IAdmin, IUpdateAdmin } from './admin';
 
-export {
-  UserRepository,
-  IUser,
-  SaleRepository,
-  ISale,
-  AdminsRepository,
-  IAdmin,
-  IUpdateAdmin,
-};
+import {
+  ResourceSaleRepository,
+  IResourceSale,
+  IResourceSaleRepo,
+} from './resourceSale';
+
+export { UserRepository, IUser };
+
+export { AdminsRepository, IAdmin, IUpdateAdmin };
+
+export { SaleRepository, ISale, IResourceRequest };
+
+export { ResourceSaleRepository, IResourceSale, IResourceSaleRepo };

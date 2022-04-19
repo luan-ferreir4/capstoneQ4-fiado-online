@@ -1,11 +1,19 @@
 import createUserService from './user/createUserService';
+import LoginUserService from './user/loginUserService';
 
 import updateAdminService from './admin/updateAdminService';
 import deleteAdminService from './admin/deleteAdminService';
 import registerAdminService from './admin/registerAdminService';
 import loginAdminService from './admin/loginAdminService';
 
-export { createUserService };
+import CreateSaleService from './sale/createSaleService';
+import FormatSaleService from './sale/formatSaleService';
+import UpdateSaleService from './sale/updateSaleService';
+import DeleteSaleService from './sale/deleteSaleService';
+
+import RegisterResourcesOnSale from './resourceSale/registerResourcesOnSale';
+
+export { createUserService, LoginUserService };
 
 export {
   updateAdminService,
@@ -13,3 +21,12 @@ export {
   registerAdminService,
   loginAdminService,
 };
+
+export {
+  CreateSaleService,
+  FormatSaleService,
+  UpdateSaleService,
+  DeleteSaleService,
+};
+
+export { RegisterResourcesOnSale };
