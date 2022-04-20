@@ -1,9 +1,9 @@
 import * as yup from 'yup';
 
 const updateAdmin = yup.object().shape({
-  name: yup.string().optional(),
-  email: yup.string().email().lowercase().optional(),
-  password: yup.string().optional(),
+  name: yup.string(),
+  email: yup.string().email().lowercase(),
+  password: yup.string(),
 });
 
 export default updateAdmin;
