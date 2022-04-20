@@ -6,7 +6,7 @@ import { AdminsRepository } from '../../repositories';
 import { ErrorHandler } from '../../utils';
 import { JWTConfig } from '../../configs';
 
-class loginAdminService {
+class LoginAdminService {
   async execute(req: Request) {
     const { email, password } = req.body;
 
@@ -16,7 +16,7 @@ class loginAdminService {
       throw new ErrorHandler(401, 'email or password is incorrect');
     }
 
-    const match = bcrypt.compare(password, admin.password);
+    const match = await bcrypt.compare(password, admin.password);
 
     if (!match) {
       throw new ErrorHandler(401, 'email or password is incorrect');
@@ -36,4 +36,4 @@ class loginAdminService {
   }
 }
 
-export default loginAdminService;
+export default LoginAdminService;

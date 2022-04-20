@@ -8,9 +8,12 @@ const updateResourcesController = async (
   const resourceValidated = req.validated;
   const { id_resource } = req.params;
 
-  await new UpdateResourceService().execute(id_resource, resourceValidated);
+  const resourceUpdated = await new UpdateResourceService().execute(
+    id_resource,
+    resourceValidated
+  );
 
-  return res.status(200).json({ id_resource, ...resourceValidated });
+  return res.status(200).json(resourceUpdated);
 };
 
 export default updateResourcesController;
