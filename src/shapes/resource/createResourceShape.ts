@@ -1,6 +1,7 @@
 import * as yup from 'yup';
 
 const createResourceShape = yup.object().shape({
+  name: yup.string().required(),
   unit_cost: yup.number().required(),
   units: yup.number().required(),
   description: yup.string().required(),
