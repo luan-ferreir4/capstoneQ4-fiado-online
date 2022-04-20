@@ -8,7 +8,7 @@ const verifyExistingResourceMiddleware = async (
   res: Response,
   next: NextFunction
 ): Promise<ErrorHandler | void> => {
-  const { name } = req.params;
+  const { name } = req.validated;
   try {
     const resourceList: Resource[] =
       await new ResourceRepository().getAllResourcers();
