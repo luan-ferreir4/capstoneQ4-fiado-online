@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
-import { Admin, User } from '../entities';
+import { User } from '../entities';
+import { IAdminToken } from '../repositories';
 
 declare global {
   namespace Express {
@@ -7,7 +8,7 @@ declare global {
       validated: any;
       user: User;
       token: string;
-      admin: Admin;
+      admin: IAdminToken;
     }
   }
 }

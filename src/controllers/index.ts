@@ -17,6 +17,12 @@ import getAllSalesController from './sale/getAllSales';
 import getOneSaleController from './sale/getOneSale';
 import updateSaleController from './sale/updateSale';
 
+import getAdminsController from './admin/getAdmins';
+import registerAdminController from './admin/registerAdmin';
+import loginAdminController from './admin/loginAdmin';
+import updateAdminController from './admin/updateAdmin';
+import deleteAdminController from './admin/deleteAdmin';
+
 import createResourceController from './resource/createResource';
 import deleteResourceController from './resource/deleteResource';
 import getOneResourceController from './resource/getOneResource';
@@ -46,6 +52,14 @@ export {
   getAllSalesController,
   getOneSaleController,
   updateSaleController,
+};
+
+export {
+  getAdminsController,
+  registerAdminController,
+  loginAdminController,
+  updateAdminController,
+  deleteAdminController,
 };
 
 export {

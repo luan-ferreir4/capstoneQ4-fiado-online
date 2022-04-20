@@ -1,6 +1,6 @@
 import { getRepository, Repository } from 'typeorm';
 import { Admin } from '../../entities';
-import { IAdmin, IAdminRepo, IUpdateAdmin } from './interfaces';
+import { IAdmin, IAdminRepo, IUpdateAdmin, IAdminToken } from './interfaces';
 
 class AdminsRepository implements IAdminRepo {
   private ormRepository: Repository<Admin>;
@@ -24,6 +24,9 @@ class AdminsRepository implements IAdminRepo {
 
   getOneAdmin = async (adminEmail: string) =>
     await this.ormRepository.findOne({ email: adminEmail });
+
+  getOneAdminById = async (id_admin: string) =>
+    await this.ormRepository.findOne({ where: { id_admin } });
 }
 
-export { AdminsRepository, IAdmin, IUpdateAdmin };
+export { AdminsRepository, IAdmin, IUpdateAdmin, IAdminToken };
