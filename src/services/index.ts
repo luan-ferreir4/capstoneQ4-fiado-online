@@ -1,6 +1,13 @@
 import createUserService from './user/createUserService';
 import LoginUserService from './user/loginUserService';
 
+import CreateCustomerService from './customer/createCustomerService';
+import DeleteCustomerService from './customer/deleteCustomerService';
+import GetAllCustomersPerUserService from './customer/getAllCustomerPerUserService';
+import GetAllCustomersService from './customer/getAllCustomersService';
+import UpdateCustomerService from './customer/updateCustomerService';
+import GetOneCustomerService from './customer/getOneCustomerService';
+
 import updateAdminService from './admin/updateAdminService';
 import deleteAdminService from './admin/deleteAdminService';
 import registerAdminService from './admin/registerAdminService';
@@ -29,6 +36,15 @@ export {
   deleteAdminService,
   registerAdminService,
   loginAdminService,
+};
+
+export {
+  CreateCustomerService,
+  DeleteCustomerService,
+  UpdateCustomerService,
+  GetAllCustomersPerUserService,
+  GetAllCustomersService,
+  GetOneCustomerService,
 };
 
 export {

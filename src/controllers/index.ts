@@ -4,11 +4,12 @@ import deleteUserController from './user/deleteUser';
 import updateUserController from './user/upgradeUser';
 import getUserProfileController from './user/getUserProfile';
 
-import createCustomController from './customer/createCustomer';
-import deleteCustomerController from './customer/deleteCustom';
+import createCustomerController from './customer/createCustomer';
+import deleteCustomerController from './customer/deleteCustomer';
 import getAllCustomersController from './customer/getAllCustomers';
 import updateCustomerController from './customer/updateCustomer';
 import getOneCustomerController from './customer/getOneCustomer';
+import getAllCustomersPerUser from './customer/getAllCustomersPerUser';
 
 import createSaleController from './sale/createSale';
 import deleteSaleController from './sale/deleteSale';
@@ -31,11 +32,12 @@ export {
 };
 
 export {
-  createCustomController,
+  createCustomerController,
   deleteCustomerController,
   getAllCustomersController,
   updateCustomerController,
   getOneCustomerController,
+  getAllCustomersPerUser,
 };
 
 export {

@@ -15,14 +15,17 @@ class CustomerRepository implements ICustomerRepository {
     await this.ormRepository.save(CustomerData);
 
   getAllCustomers = async () => await this.ormRepository.find();
+  getAllPerUser = async (user) =>
+    await this.ormRepository.find({ where: { user } });
 
   getOneByEmail = async (email: string) =>
     await this.ormRepository.findOne({ where: { email } });
 
-  getOneById = async (id: string) =>
-    await this.ormRepository.findOne({ where: { id } });
+  getOneById = async (id_customers: string) =>
+    await this.ormRepository.findOne({ where: { id_customers } });
 
-  deleteCustomer = async (id: string) => await this.ormRepository.delete(id);
+  deleteCustomer = async (id_customers: string) =>
+    await this.ormRepository.delete({ id_customers });
 
   updateCustomer = async (id: string, data: ICustomer) =>
     await this.ormRepository.update(id, data);
