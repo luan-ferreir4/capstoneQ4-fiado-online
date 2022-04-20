@@ -1,6 +1,7 @@
 import { createConnection } from 'typeorm';
 import expressListEndpoints from 'express-list-endpoints';
 import app from './app';
+import dbConfig from './db/ormconfig';
 
 const port = process.env.PORT ?? 3000;
 
@@ -9,7 +10,7 @@ console.table(
     return { methods, path };
   })
 );
-createConnection()
+createConnection(dbConfig)
   .then(() => {
     app.listen(port, () => {
       console.log(`Running in http://localhost:${port}`);
