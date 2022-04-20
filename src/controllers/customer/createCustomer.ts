@@ -1,11 +1,12 @@
 import { Request, Response } from 'express';
+import { ICustomer } from '../../repositories';
 import { CreateCustomerService } from '../../services';
 
 const createCustomController = async (req: Request, res: Response) => {
-  const requestCustomerData = req.validated;
+  const requestCustomerData: ICustomer = req.validated;
   const { user } = req;
 
-  const newCustomer = await new CreateCustomerService().execute(
+  const newCustomer: ICustomer = await new CreateCustomerService().execute(
     requestCustomerData,
     user
   );

@@ -4,6 +4,7 @@ import {
   deleteCustomerController,
   getAllCustomersController,
   getAllCustomersPerUser,
+  getOneCustomerController,
   updateCustomerController,
 } from '../../controllers';
 import { authUser, validateShape } from '../../middlewares';
@@ -19,6 +20,7 @@ customerRouter.post(
 );
 customerRouter.get('/user', authUser, getAllCustomersPerUser);
 customerRouter.get('', authUser, getAllCustomersController);
+customerRouter.get('/:id_customer', authUser, getOneCustomerController);
 customerRouter.patch(
   '/:id_customer',
   validateShape(updateCustomerShape),

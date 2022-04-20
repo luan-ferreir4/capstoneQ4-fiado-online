@@ -6,6 +6,7 @@ import DeleteCustomerService from './customer/deleteCustomerService';
 import GetAllCustomersPerUserService from './customer/getAllCustomerPerUserService';
 import GetAllCustomersService from './customer/getAllCustomersService';
 import UpdateCustomerService from './customer/updateCustomerService';
+import GetOneCustomerService from './customer/getOneCustomerService';
 
 import updateAdminService from './admin/updateAdminService';
 import deleteAdminService from './admin/deleteAdminService';
@@ -19,12 +20,7 @@ import DeleteSaleService from './sale/deleteSaleService';
 
 import RegisterResourcesOnSale from './resourceSale/registerResourcesOnSale';
 
-export {
-  createUserService,
-  LoginUserService,
-  GetAllCustomersPerUserService,
-  GetAllCustomersService,
-};
+export { createUserService, LoginUserService };
 
 export {
   updateAdminService,
@@ -33,7 +29,14 @@ export {
   loginAdminService,
 };
 
-export { CreateCustomerService, DeleteCustomerService, UpdateCustomerService };
+export {
+  CreateCustomerService,
+  DeleteCustomerService,
+  UpdateCustomerService,
+  GetAllCustomersPerUserService,
+  GetAllCustomersService,
+  GetOneCustomerService,
+};
 
 export {
   CreateSaleService,
