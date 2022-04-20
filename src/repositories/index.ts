@@ -2,7 +2,7 @@ import { UserRepository, IUser } from './user';
 
 import { SaleRepository, ISale, IResourceRequest } from './sale';
 
-import { AdminsRepository, IAdmin, IUpdateAdmin } from './admin';
+import { AdminsRepository, IAdmin, IUpdateAdmin, IAdminToken } from './admin';
 
 import {
   ResourceSaleRepository,
@@ -12,7 +12,7 @@ import {
 
 export { UserRepository, IUser };
 
-export { AdminsRepository, IAdmin, IUpdateAdmin };
+export { AdminsRepository, IAdmin, IUpdateAdmin, IAdminToken };
 
 export { SaleRepository, ISale, IResourceRequest };
 
