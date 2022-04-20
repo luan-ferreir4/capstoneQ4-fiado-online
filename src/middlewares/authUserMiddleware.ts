@@ -25,7 +25,7 @@ const authUser = async (
       }
       const foundUser = usersList.find(
         (user: User) => user.cpf === decoded.cpf
-      );e/user
+      );
 
       req.user = foundUser;
     });

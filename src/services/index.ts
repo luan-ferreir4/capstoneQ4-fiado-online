@@ -1,6 +1,12 @@
 import createUserService from './user/createUserService';
 import LoginUserService from './user/loginUserService';
 
+import CreateCustomerService from './customer/createCustomerService';
+import DeleteCustomerService from './customer/deleteCustomerService';
+import GetAllCustomersPerUserService from './customer/getAllCustomerPerUserService';
+import GetAllCustomersService from './customer/getAllCustomersService';
+import UpdateCustomerService from './customer/updateCustomerService';
+
 import updateAdminService from './admin/updateAdminService';
 import deleteAdminService from './admin/deleteAdminService';
 import registerAdminService from './admin/registerAdminService';
@@ -13,7 +19,12 @@ import DeleteSaleService from './sale/deleteSaleService';
 
 import RegisterResourcesOnSale from './resourceSale/registerResourcesOnSale';
 
-export { createUserService, LoginUserService };
+export {
+  createUserService,
+  LoginUserService,
+  GetAllCustomersPerUserService,
+  GetAllCustomersService,
+};
 
 export {
   updateAdminService,
@@ -21,6 +32,8 @@ export {
   registerAdminService,
   loginAdminService,
 };
+
+export { CreateCustomerService, DeleteCustomerService, UpdateCustomerService };
 
 export {
   CreateSaleService,

@@ -1,17 +1,14 @@
 import { Request, Response } from 'express';
-import { CustomerRepository, ICustomer } from '../../repositories/customer';
+import { UpdateCustomerService } from '../../services';
 
 const updateCustomerController = async (req: Request, res: Response) => {
-  const { id } = req.params;
-  const customer: ICustomer = await new CustomerRepository().getOneById(id);
-  await new CustomerRepository().updateCustomer(
-    customer.id_customers,
-    req.validated as ICustomer
+  const { id_customer } = req.params;
+
+  const customerUpdated = await new UpdateCustomerService().execute(
+    id_customer,
+    req.validated
   );
-  const updatedCustomer: ICustomer = await new CustomerRepository().getOneById(
-    customer.id_customers
-  );
-  return res.status(201).json(updatedCustomer);
+  return res.status(201).json(customerUpdated);
 };
 
 export default updateCustomerController;

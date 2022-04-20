@@ -1,11 +1,15 @@
 import { Request, Response } from 'express';
-import { CustomerRepository, ICustomer } from '../../repositories/customer';
+import { CreateCustomerService } from '../../services';
 
 const createCustomController = async (req: Request, res: Response) => {
-  const customer: ICustomer = await new CustomerRepository().saveCustomer(
-    req.validated as ICustomer
+  const requestCustomerData = req.validated;
+  const { user } = req;
+
+  const newCustomer = await new CreateCustomerService().execute(
+    requestCustomerData,
+    user
   );
-  return res.json(201).json(customer);
+  return res.status(201).json(newCustomer);
 };
 
 export default createCustomController;
