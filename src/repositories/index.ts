@@ -1,5 +1,7 @@
 import { UserRepository, IUser } from './user';
 
+import { CustomerRepository, ICustomer } from './customer';
+
 import { SaleRepository, ISale, IResourceRequest } from './sale';
 
 import { AdminsRepository, IAdmin, IUpdateAdmin, IAdminToken } from './admin';
@@ -11,6 +13,8 @@ import {
 } from './resourceSale';
 
 export { UserRepository, IUser };
+
+export { CustomerRepository, ICustomer };
 
 export { AdminsRepository, IAdmin, IUpdateAdmin, IAdminToken };
 

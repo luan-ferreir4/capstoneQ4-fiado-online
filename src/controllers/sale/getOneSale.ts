@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { Sale } from '../../entities';
-import { SaleRepository } from '../../repositories';
+import { GetOneSaleService } from '../../services';
 
 const getOneSaleController = async (
   req: Request,
@@ -8,7 +8,7 @@ const getOneSaleController = async (
 ): Promise<Response> => {
   const { id_sale } = req.params;
 
-  const saleFound: Sale = await new SaleRepository().getOneSale(id_sale);
+  const saleFound: Sale = await new GetOneSaleService().execute(id_sale);
 
   return res.json(200).json(saleFound);
 };

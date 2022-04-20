@@ -5,7 +5,7 @@ interface ICustomer {
   id_customers: string;
   name: string;
   email: string;
-  phone_number: number;
+  phone_number: string;
   user: User;
   sales: Sale[];
 }
