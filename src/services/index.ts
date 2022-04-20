@@ -1,10 +1,10 @@
 import createUserService from './user/createUserService';
 import LoginUserService from './user/loginUserService';
 
-import updateAdminService from './admin/updateAdminService';
-import deleteAdminService from './admin/deleteAdminService';
-import registerAdminService from './admin/registerAdminService';
-import loginAdminService from './admin/loginAdminService';
+import UpdateAdminService from './admin/updateAdminService';
+import DeleteAdminService from './admin/deleteAdminService';
+import RegisterAdminService from './admin/registerAdminService';
+import LoginAdminService from './admin/loginAdminService';
 
 import CreateSaleService from './sale/createSaleService';
 import FormatSaleService from './sale/formatSaleService';
@@ -16,10 +16,10 @@ import RegisterResourcesOnSale from './resourceSale/registerResourcesOnSale';
 export { createUserService, LoginUserService };
 
 export {
-  updateAdminService,
-  deleteAdminService,
-  registerAdminService,
-  loginAdminService,
+  UpdateAdminService,
+  DeleteAdminService,
+  RegisterAdminService,
+  LoginAdminService,
 };
 
 export {

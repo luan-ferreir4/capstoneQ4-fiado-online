@@ -1,7 +1,7 @@
 import { AdminsRepository } from '../../repositories';
 import { ErrorHandler } from '../../utils';
 
-class deleteAdminService {
+class DeleteAdminService {
   async execute(id_admin: string) {
     const deleteResult = await new AdminsRepository().deleteAdmin(id_admin);
 
@@ -13,4 +13,4 @@ class deleteAdminService {
   }
 }
 
-export default deleteAdminService;
+export default DeleteAdminService;
