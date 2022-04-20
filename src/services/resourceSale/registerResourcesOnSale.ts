@@ -6,6 +6,7 @@ import {
   IResourceSale,
   ResourceSaleRepository,
 } from '../../repositories';
+import { ResourceRepository } from '../../repositories/resource';
 
 import { ErrorHandler } from '../../utils';
 
@@ -14,14 +15,22 @@ class RegisterResourcesOnSale {
     try {
       const resourceSaleRepository = new ResourceSaleRepository();
 
-      const resourceSaleList: IResourceSale[] = requestData.map((item) => {
-        const resourceSaleData: IResourceSale = {
-          id_sale, // pegar id_sale após ter a criado com o service no controller
-          id_resource: 'ssss', // pegar recursos pelo nome que será uma chave unica
-          quantity: item.quantity,
-        };
-        return resourceSaleData;
-      });
+      // const resourceSaleList: Promise<IResourceSale[]> = requestData.map(
+      //   async (item) => {
+      //     // pega recursos pelo nome que são uma chave unica
+      //     const resource = await new ResourceRepository().getResourceByName(
+      //       item.resource_name
+      //     );
+      //     const resourceSaleData: IResourceSale = {
+      //       // pega o id_sale após ter a sale criada com o service no controller
+      //       id_sale,
+      //       // pegar id_sale após ter a criado com o service no controller
+      //       id_resource: resource.id_resource,
+      //       quantity: item.quantity,
+      //     };
+      //     return resourceSaleData;
+        }
+      );
 
       resourceSaleList.forEach(async (item) => {
         const newSale: ResourceSale = resourceSaleRepository.createSale(item);
