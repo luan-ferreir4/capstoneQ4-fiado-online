@@ -1,18 +1,45 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import Customer from './Customer';
+import Resource from './Resource';
+import Sale from './Sale';
 
-@Entity()
+@Entity('users')
 class User {
-  @PrimaryGeneratedColumn()
-  id: number;
+  @PrimaryGeneratedColumn('uuid')
+  id_user: string;
 
   @Column()
-  firstName: string;
+  name: string;
+
+  @Column({ unique: true })
+  email: string;
+
+  @Column({ unique: true })
+  cpf: string;
 
   @Column()
-  lastName: string;
+  password: string;
 
   @Column()
-  age: number;
+  balance: number;
+
+  @Column({ type: 'date', default: () => 'NOW()' })
+  createdIn: Date;
+
+  @Column({ nullable: true })
+  weekly_report_day: number;
+
+  @Column({ nullable: true })
+  monthly_report_day: number;
+
+  @OneToMany(() => Resource, (resource: Resource) => resource.user)
+  resources: Resource[];
+
+  @OneToMany(() => Sale, (sale: Sale) => sale.user)
+  sales: Sale[];
+
+  @OneToMany(() => Customer, (customer: Customer) => customer.user)
+  customers: Customer[];
 }
 
 export default User;
