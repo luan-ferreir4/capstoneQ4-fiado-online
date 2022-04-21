@@ -1,11 +1,7 @@
 import { Request, Response } from 'express';
 import { Sale } from '../../entities';
 import { ISale } from '../../repositories';
-import {
-  RegisterResourcesOnSale,
-  CreateSaleService,
-  FormatSaleService,
-} from '../../services';
+import { RegisterResourcesOnSale, CreateSaleService } from '../../services';
 
 const createSaleController = async (
   req: Request,
@@ -16,14 +12,27 @@ const createSaleController = async (
 
   const { resources, ...saleData } = saleRequestData;
 
-  const newSaleData: ISale = await new FormatSaleService().execute(
+  const createSaleService = new CreateSaleService();
+  const registerResourcesOnSale = new RegisterResourcesOnSale();
+
+  // const newSaleData: ISale = await new FormatSaleService().execute(
+  //   saleData,
+  //   user.id_user
+  // );
+
+  const formatedSaleData = await createSaleService.format(
     saleData,
     user.id_user
   );
 
-  const newSale: Sale = await new CreateSaleService().execute(newSaleData);
+  const newSale: Sale = await createSaleService.execute(formatedSaleData);
 
-  await new RegisterResourcesOnSale().execute(resources, newSale.id_sale);
+  const formatedResources = await registerResourcesOnSale.format(
+    resources,
+    newSale.id_sale
+  );
+
+  await registerResourcesOnSale.execute(formatedResources);
 
   return res.json(201).json(newSale);
 };

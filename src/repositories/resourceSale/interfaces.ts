@@ -15,6 +15,7 @@ interface IResourceSaleRepo {
   saveResourceSale: (
     newResourceSaleData: ResourceSale
   ) => Promise<ResourceSale>;
+  saveMultiple: (ResourceSaleList: ResourceSale[]) => Promise<any>;
 }
 
 export { IResourceSale, IResourceSaleRepo };
