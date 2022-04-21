@@ -17,7 +17,7 @@ class RegisterResourcesOnSale {
       // pega o id dos recursos pelo nome que é uma chave unica
       const resource = await resourceRepository.getResourceByName(name);
 
-      const resourceSaleData = {
+      const formatedResourceSale: IResourceSale = {
         // pegar id_sale após ter a criado com o service
         // no controller de sales
         sale: id_sale,
@@ -27,7 +27,7 @@ class RegisterResourcesOnSale {
         quantity: item.quantity,
       };
 
-      return resourceSaleData;
+      return formatedResourceSale;
     });
 
     // Aguarda e tranforma o array de promisses em

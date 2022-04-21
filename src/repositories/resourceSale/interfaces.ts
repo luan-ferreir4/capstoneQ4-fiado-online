@@ -1,13 +1,14 @@
 /* eslint-disable no-unused-vars */
 import { Resource, ResourceSale, Sale } from '../../entities';
 
+type resourceType = Resource | string;
+type saleType = Sale | string;
+
 interface IResourceSale {
   resources_sales_id?: string;
   quantity: number;
-  id_resource: string;
-  id_sale: string;
-  resource?: Resource;
-  sale?: Sale;
+  resource?: resourceType;
+  sale?: saleType;
 }
 
 interface IResourceSaleRepo {
