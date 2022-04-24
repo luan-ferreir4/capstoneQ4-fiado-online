@@ -29,6 +29,10 @@ import GetOneResourceService from './resource/getOneResourceService';
 import FormatResourceService from './resource/formatResourceService';
 import UpdateResourceService from './resource/updateResourceService';
 
+import SendEmail from './mailer/mailerService';
+
+export { SendEmail };
+
 export { createUserService, LoginUserService };
 
 export {
