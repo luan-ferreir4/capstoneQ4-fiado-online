@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
-import { JWTConfig } from '../../configs';
-import { ErrorHandler } from '../../utils';
+import { JWTConfig } from '../configs';
+import { ErrorHandler } from '../utils';
 
 const authAdmin = async (
   req: Request,

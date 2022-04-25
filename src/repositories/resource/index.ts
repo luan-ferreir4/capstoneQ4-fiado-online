@@ -1,4 +1,4 @@
-import { Repository, getRepository } from 'typeorm';
+import { Repository, getRepository, UpdateResult, DeleteResult } from 'typeorm';
 import { Resource } from '../../entities';
 import { IResource, IUpdateResource, IResourceRepo } from './interfaces';
 
@@ -25,9 +25,6 @@ class ResourceRepository implements IResourceRepo {
 
   getOneResource = (id_resource: string) =>
     this.ormRepository.findOne({ id_resource });
-
-  getResourceByName = async (name: string) =>
-    this.ormRepository.findOne({ name });
 
   getAllResourcers = () => this.ormRepository.find();
 }

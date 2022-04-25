@@ -1,7 +1,12 @@
+import { QueryFailedError } from 'typeorm';
 import { Request, Response, NextFunction } from 'express';
-import { ErrorHandler } from '../../utils';
-import { UserRepository } from '../../repositories';
-import { User } from '../../entities';
+import { ErrorHandler } from '../utils';
+import { UserRepository } from '../repositories';
+import { User } from '../entities';
+
+interface IEmailDetail extends QueryFailedError {
+  emailDetail: string;
+}
 
 const verifyEmailAlreadyExists = async (
   req: Request,

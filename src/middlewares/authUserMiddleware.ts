@@ -1,9 +1,9 @@
 import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
-import { JWTConfig } from '../../configs';
-import { User } from '../../entities';
-import { UserRepository } from '../../repositories';
-import { ErrorHandler } from '../../utils';
+import { JWTConfig } from '../configs';
+import { User } from '../entities';
+import { UserRepository } from '../repositories';
+import { ErrorHandler } from '../utils';
 
 const authUser = async (
   req: Request,

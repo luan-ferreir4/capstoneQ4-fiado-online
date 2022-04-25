@@ -4,18 +4,15 @@ import { Resource, ResourceSale, Sale } from '../../entities';
 interface IResourceSale {
   resources_sales_id?: string;
   quantity: number;
-  sale_id: string;
-  resource_id: string;
+  id_resource: string;
+  id_sale: string;
   resource?: Resource;
   sale?: Sale;
 }
 
 interface IResourceSaleRepo {
-  createResourceSale: (resourceSaleData: IResourceSale) => ResourceSale;
-  saveResourceSale: (
-    newResourceSaleData: ResourceSale
-  ) => Promise<ResourceSale>;
-  saveMultiple: (ResourceSaleList: ResourceSale[]) => Promise<any>;
+  createSale: (resourceSaleData: IResourceSale) => ResourceSale;
+  saveSale: (newResourceSaleData: ResourceSale) => Promise<ResourceSale>;
 }
 
 export { IResourceSale, IResourceSaleRepo };
