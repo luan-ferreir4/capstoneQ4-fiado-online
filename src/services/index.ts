@@ -14,7 +14,6 @@ import UpdateCustomerService from './customer/updateCustomerService';
 import GetOneCustomerService from './customer/getOneCustomerService';
 
 import CreateSaleService from './sale/createSaleService';
-import FormatSaleService from './sale/formatSaleService';
 import UpdateSaleService from './sale/updateSaleService';
 import DeleteSaleService from './sale/deleteSaleService';
 import GetAllSalesService from './sale/getAllSalesService';
@@ -28,6 +27,10 @@ import GetAllResourceService from './resource/getAllResourceService';
 import GetOneResourceService from './resource/getOneResourceService';
 import FormatResourceService from './resource/formatResourceService';
 import UpdateResourceService from './resource/updateResourceService';
+
+import SendEmail from './mailer/mailerService';
+
+export { SendEmail };
 
 export { createUserService, LoginUserService };
 
@@ -49,7 +52,6 @@ export {
 
 export {
   CreateSaleService,
-  FormatSaleService,
   UpdateSaleService,
   DeleteSaleService,
   GetAllSalesService,

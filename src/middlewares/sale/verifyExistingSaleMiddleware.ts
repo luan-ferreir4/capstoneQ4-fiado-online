@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
-import { Sale } from '../entities';
-import { SaleRepository } from '../repositories';
-import { ErrorHandler } from '../utils';
+import { Sale } from '../../entities';
+import { SaleRepository } from '../../repositories';
+import { ErrorHandler } from '../../utils';
 
 const verifyExistingSale = async (
   req: Request,
