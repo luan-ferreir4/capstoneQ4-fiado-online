@@ -9,11 +9,21 @@ class ResourceSaleRepository implements IResourceSaleRepo {
     this.ormRepository = getRepository(ResourceSale);
   }
 
-  createSale = (resourceSaleData: IResourceSale) =>
+  createResourceSale = (resourceSaleData: IResourceSale) =>
     this.ormRepository.create(resourceSaleData);
 
-  saveSale = async (newResourceSaleData: ResourceSale) =>
+  saveResourceSale = async (newResourceSaleData: ResourceSale) =>
     await this.ormRepository.save(newResourceSaleData);
+
+  saveMultiple = async (ResourceSaleList: ResourceSale[]) => {
+    return await this.ormRepository
+      .createQueryBuilder()
+      .insert()
+      .values(ResourceSaleList)
+      .returning(['*'])
+      .execute()
+      .then((ResourceSaleList) => ResourceSaleList.generatedMaps);
+  };
 }
 
 export { ResourceSaleRepository, IResourceSale, IResourceSaleRepo };
