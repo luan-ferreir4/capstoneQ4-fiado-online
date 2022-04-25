@@ -4,6 +4,8 @@ import { Resource, ResourceSale, Sale } from '../../entities';
 interface IResourceSale {
   resources_sales_id?: string;
   quantity: number;
+  sale_id: string;
+  resource_id: string;
   resource?: Resource;
   sale?: Sale;
 }

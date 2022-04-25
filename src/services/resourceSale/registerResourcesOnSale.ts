@@ -20,9 +20,9 @@ class RegisterResourcesOnSale {
       const formatedResourceSale: IResourceSale = {
         // pegar id_sale após ter a criado com o service
         // no controller de sales
-        sale: id_sale,
+        sale_id: id_sale,
         // registra o id do recurso encontrado pelo nome
-        resource: resource.id_resource,
+        resource_id: resource.id_resource,
         // quantidade do recuso encontrado a ser vendida
         quantity: item.quantity,
       };
@@ -40,7 +40,7 @@ class RegisterResourcesOnSale {
   async execute(formatedList: IResourceSale[]) {
     const resourceSaleRepository = new ResourceSaleRepository();
 
-    console.log(formatedList);
+    // console.log(formatedList);
 
     const newResourceSaleList = formatedList.map((ResourceSaleData) => {
       const newResourceSale: ResourceSale =
