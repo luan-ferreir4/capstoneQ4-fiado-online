@@ -1,6 +1,12 @@
 import { DeleteResult, UpdateResult } from 'typeorm';
 import { Admin } from '../../entities';
 
+interface IAdminToken {
+  id_admin: string;
+  email: string;
+  isAdm: boolean;
+}
+
 interface IAdmin {
   id_admin?: string;
   name: string;
@@ -30,6 +36,8 @@ interface IAdminRepo {
   getAllAdmin: () => Promise<Admin[]>;
 
   getOneAdmin: (adminEmail: string) => Promise<Admin>;
+
+  getOneAdminById: (id_admin: string) => Promise<Admin>;
 }
 
-export { IAdminRepo, IAdmin, IUpdateAdmin };
+export { IAdminRepo, IAdmin, IUpdateAdmin, IAdminToken };

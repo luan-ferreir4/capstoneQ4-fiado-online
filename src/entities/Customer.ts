@@ -16,11 +16,11 @@ class Customer {
   @Column()
   name: string;
 
-  @Column({ unique: true })
+  @Column()
   email: string;
 
   @Column()
-  phone_number: number;
+  phone_number: string;
 
   @ManyToOne(() => User, (user: User) => user.customers)
   user: User;

@@ -1,27 +1,30 @@
+/* eslint-disable no-unused-vars */
 import { DeleteResult, UpdateResult } from 'typeorm';
 import { Resource } from '../../entities';
 
 interface IResource {
   id_resource?: string;
+  name: string;
   unit_cost: number;
   units: number;
   description: string;
   createdOn: Date;
-  updatedOn: Date;
+  updatedAt: Date;
   id_user: string;
 }
 
 interface IUpdateResource {
+  name?: string;
   unit_cost?: number;
   units?: number;
   description?: string;
-  updatedOn?: Date;
+  updatedAt?: Date;
 }
 
 interface IResourceRepo {
   createResource: (requestResourceData: IResource) => Resource;
 
-  saveResource: (resourceData: IResource) => Promise<Resource>;
+  saveResource: (resourceData: Resource) => Promise<Resource>;
 
   updateResource: (
     id_resource: string,
@@ -31,6 +34,8 @@ interface IResourceRepo {
   deleteResource: (id_resource: string) => Promise<DeleteResult>;
 
   getOneResource: (id_resource: string) => Promise<Resource>;
+
+  getResourceByName: (name: string) => Promise<Resource>;
 
   getAllResourcers: () => Promise<Resource[]>;
 }

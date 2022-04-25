@@ -1,8 +1,8 @@
-import { Repository, getRepository, UpdateResult, DeleteResult } from 'typeorm';
+import { Repository, getRepository } from 'typeorm';
 import { Resource } from '../../entities';
 import { IResource, IUpdateResource, IResourceRepo } from './interfaces';
 
-class UserRepository implements IResourceRepo {
+class ResourceRepository implements IResourceRepo {
   private ormRepository: Repository<Resource>;
 
   constructor() {
@@ -12,7 +12,7 @@ class UserRepository implements IResourceRepo {
   createResource = (requestResourceData: IResource) =>
     this.ormRepository.create(requestResourceData);
 
-  saveResource = async (resourceData: IResource) =>
+  saveResource = async (resourceData: Resource) =>
     this.ormRepository.save(resourceData);
 
   updateResource = async (
@@ -26,7 +26,10 @@ class UserRepository implements IResourceRepo {
   getOneResource = (id_resource: string) =>
     this.ormRepository.findOne({ id_resource });
 
+  getResourceByName = async (name: string) =>
+    this.ormRepository.findOne({ name });
+
   getAllResourcers = () => this.ormRepository.find();
 }
 
-export default UserRepository;
+export { ResourceRepository, IResource };
