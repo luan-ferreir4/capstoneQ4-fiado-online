@@ -10,7 +10,7 @@ class ResourceSaleRepository implements IResourceSaleRepo {
   }
 
   createResourceSale = (resourceSaleData: IResourceSale) =>
-    this.ormRepository.create(resourceSaleData as ResourceSale);
+    this.ormRepository.create(resourceSaleData);
 
   saveResourceSale = async (newResourceSaleData: ResourceSale) =>
     await this.ormRepository.save(newResourceSaleData);

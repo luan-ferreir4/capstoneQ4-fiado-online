@@ -29,8 +29,6 @@ class CreateSaleService {
 
       const newSale = saleRepository.createSale(formatedSaleData);
 
-      console.log(newSale);
-
       await saleRepository.saveSale(newSale);
 
       return newSale;

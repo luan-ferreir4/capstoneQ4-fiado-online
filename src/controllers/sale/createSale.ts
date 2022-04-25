@@ -15,11 +15,6 @@ const createSaleController = async (
   const createSaleService = new CreateSaleService();
   const registerResourcesOnSale = new RegisterResourcesOnSale();
 
-  // const newSaleData: ISale = await new FormatSaleService().execute(
-  //   saleData,
-  //   user.id_user
-  // );
-
   const formatedSaleData = await createSaleService.format(
     saleData,
     user.id_user
@@ -27,10 +22,14 @@ const createSaleController = async (
 
   const newSale: Sale = await createSaleService.execute(formatedSaleData);
 
+  console.log(newSale);
+
   const formatedResources = await registerResourcesOnSale.format(
     resources,
     newSale.id_sale
   );
+
+  console.log(formatedResources);
 
   await registerResourcesOnSale.execute(formatedResources);
 
