@@ -33,7 +33,7 @@ const createSaleController = async (
 
   await registerResourcesOnSale.execute(formatedResources);
 
-  return res.json(201).json(newSale);
+  return res.status(201).json(newSale);
 };
 
 export default createSaleController;
