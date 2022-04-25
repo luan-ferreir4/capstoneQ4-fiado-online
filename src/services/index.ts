@@ -14,7 +14,6 @@ import UpdateCustomerService from './customer/updateCustomerService';
 import GetOneCustomerService from './customer/getOneCustomerService';
 
 import CreateSaleService from './sale/createSaleService';
-import FormatSaleService from './sale/formatSaleService';
 import UpdateSaleService from './sale/updateSaleService';
 import DeleteSaleService from './sale/deleteSaleService';
 import GetAllSalesService from './sale/getAllSalesService';
@@ -53,7 +52,6 @@ export {
 
 export {
   CreateSaleService,
-  FormatSaleService,
   UpdateSaleService,
   DeleteSaleService,
   GetAllSalesService,

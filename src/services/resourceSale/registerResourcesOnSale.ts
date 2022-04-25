@@ -1,41 +1,55 @@
-import { QueryFailedError } from 'typeorm';
-
+/* eslint-disable no-await-in-loop */
+/* eslint-disable no-restricted-syntax */
 import { ResourceSale } from '../../entities';
 import {
   IResourceRequest,
   IResourceSale,
   ResourceSaleRepository,
 } from '../../repositories';
-
-import { ErrorHandler } from '../../utils';
+import { ResourceRepository } from '../../repositories/resource';
 
 class RegisterResourcesOnSale {
-  async execute(requestData: IResourceRequest[], id_sale: string) {
-    try {
-      const resourceSaleRepository = new ResourceSaleRepository();
+  async format(resourcesList: IResourceRequest[], id_sale: string) {
+    const resourceRepository = new ResourceRepository();
 
-      const resourceSaleList: IResourceSale[] = requestData.map((item) => {
-        const resourceSaleData: IResourceSale = {
-          id_sale, // pegar id_sale após ter a criado com o service no controller
-          id_resource: 'ssss', // pegar recursos pelo nome que será uma chave unica
-          quantity: item.quantity,
-        };
-        return resourceSaleData;
-      });
+    const promisseResourceSaleList = resourcesList.map(async (item) => {
+      const name = item.resource_name;
+      // pega o id dos recursos pelo nome que é uma chave unica
+      const resource = await resourceRepository.getResourceByName(name);
 
-      resourceSaleList.forEach(async (item) => {
-        const newSale: ResourceSale = resourceSaleRepository.createSale(item);
-        await resourceSaleRepository.saveSale(newSale);
-      });
-    } catch (error) {
-      const { detail } = error;
+      const formatedResourceSale: IResourceSale = {
+        // pegar id_sale após ter a criado com o service
+        // no controller de sales
+        sale: id_sale,
+        // registra o id do recurso encontrado pelo nome
+        resource: resource.id_resource,
+        // quantidade do recuso encontrado a ser vendida
+        quantity: item.quantity,
+      };
 
-      if (error instanceof QueryFailedError) {
-        throw new ErrorHandler(400, `QueryFailedError:\n${detail}`);
-      }
+      return formatedResourceSale;
+    });
 
-      throw new ErrorHandler(400, detail);
-    }
+    // Aguarda e tranforma o array de promisses em
+    // um array com os resultados
+    const resourceSaleList = await Promise.all(promisseResourceSaleList);
+
+    return resourceSaleList;
+  }
+
+  async execute(formatedList: IResourceSale[]) {
+    const resourceSaleRepository = new ResourceSaleRepository();
+
+    console.log(formatedList);
+
+    const newResourceSaleList = formatedList.map((ResourceSaleData) => {
+      const newResourceSale: ResourceSale =
+        resourceSaleRepository.createResourceSale(ResourceSaleData);
+
+      return newResourceSale;
+    });
+
+    await resourceSaleRepository.saveMultiple(newResourceSaleList);
   }
 }
 

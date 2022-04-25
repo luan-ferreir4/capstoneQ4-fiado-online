@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { DeleteResult, UpdateResult } from 'typeorm';
 import { Resource } from '../../entities';
 
@@ -33,6 +34,8 @@ interface IResourceRepo {
   deleteResource: (id_resource: string) => Promise<DeleteResult>;
 
   getOneResource: (id_resource: string) => Promise<Resource>;
+
+  getResourceByName: (name: string) => Promise<Resource>;
 
   getAllResourcers: () => Promise<Resource[]>;
 }
