@@ -1,26 +1,8 @@
-import PDF from 'handlebars-pdf';
-import fs from 'fs';
 import { User } from '../../entities';
-import { CustomerRepository } from '../../repositories';
 
-const html = fs.readFileSync('src/templates/relatory.handlebars', 'utf-8');
-const relatoryOptionsEmail = async (user: User) => {
-  const customers = await new CustomerRepository().getAllPerUser(user);
-
-  const pdfDoc = {
-    template: html,
-    context: {
-      name: user,
-      customers,
-    },
-    path: `./src/templates/attachments/${
-      user.name
-    }${new Date().getHours()}.pdf`,
-  };
-  PDF.create(pdfDoc);
-
+const relatoryOptionsEmail = (user: User) => {
   const outOptions = {
-    from: 'capsstone9@gmail.com',
+    from: process.env.EMAIL_NAME,
     to: user.email,
     subject: 'Relatorio solicitado',
     template: 'relatoryHtml',
@@ -29,10 +11,8 @@ const relatoryOptionsEmail = async (user: User) => {
     },
     attachments: [
       {
-        filename: `${user.name}${new Date().getHours()}.pdf`,
-        path: `./src/templates/attachments/${
-          user.name
-        }${new Date().getHours()}.pdf`,
+        filename: `${user.cpf.slice(2, -5)}.pdf`,
+        path: `./src/templates/attachments/${user.cpf.slice(2, -5)}.pdf`,
       },
     ],
   };
