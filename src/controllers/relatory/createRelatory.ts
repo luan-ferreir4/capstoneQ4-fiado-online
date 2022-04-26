@@ -1,11 +1,12 @@
 import { Request, Response } from 'express';
-import { SendEmail } from '../../services';
+import { CreateRelatory, SendEmail } from '../../services';
 import { relatoryOptionsEmail } from '../../templates';
 
-const createRelatoryConstroller = async (req: Request, res: Response) => {
+const createRelatoryController = async (req: Request, res: Response) => {
   const { user } = req;
+  new CreateRelatory().execute(user);
   new SendEmail().register(user, relatoryOptionsEmail);
-  return res.json({ message: 'Relaroty sended per email' });
+  return res.json({ message: `Relaroty sended ${user.email}` });
 };
 
-export default createRelatoryConstroller;
+export default createRelatoryController;
