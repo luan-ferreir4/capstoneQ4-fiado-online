@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
-import { ErrorHandler } from '../utils';
+import { ErrorHandler } from '../../utils';
 
 const verifyResquestBodyToUpdateMiddleware =
   (userType: string = '') =>

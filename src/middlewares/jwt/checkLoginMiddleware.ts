@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import bcrypt from 'bcrypt';
-import { ErrorHandler } from '../utils';
-import { UserRepository } from '../repositories';
+import { ErrorHandler } from '../../utils';
+import { UserRepository } from '../../repositories';
 
 const checkLogin = async (
   req: Request,
