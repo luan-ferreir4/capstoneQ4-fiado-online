@@ -4,11 +4,12 @@ import { CreateCustomerService } from '../../services';
 
 const createCustomController = async (req: Request, res: Response) => {
   const requestCustomerData: ICustomer = req.validated;
+
   const { user } = req;
 
   const newCustomer: ICustomer = await new CreateCustomerService().execute(
     requestCustomerData,
-    user
+    user.id_user
   );
   return res.status(201).json(newCustomer);
 };
