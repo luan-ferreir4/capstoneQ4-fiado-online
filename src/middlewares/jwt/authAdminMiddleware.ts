@@ -8,21 +8,25 @@ const authAdmin = async (
   _: Response,
   next: NextFunction
 ): Promise<ErrorHandler | any> => {
-  const token = req.headers.authorization?.split(' ')[1];
+  try {
+    const token = req.headers.authorization?.split(' ')[1];
 
-  if (!token) {
-    throw new ErrorHandler(401, 'missing header authorization.');
-  }
-
-  jwt.verify(token, JWTConfig.secret, async (error: any, decoded: any) => {
-    if (error) {
-      throw new ErrorHandler(401, 'invalid token.');
+    if (!token) {
+      throw new ErrorHandler(401, 'missing header authorization.');
     }
 
-    req.admin = decoded;
-  });
+    jwt.verify(token, JWTConfig.secret, (error: any, decoded: any) => {
+      if (error) {
+        throw new ErrorHandler(401, 'invalid token.');
+      }
 
-  return next();
+      req.admin = decoded;
+    });
+
+    return next();
+  } catch (error) {
+    return next(error);
+  }
 };
 
 export default authAdmin;
