@@ -11,7 +11,7 @@ class ResourceSale {
   public quantity!: number;
 
   @Column({ type: 'float' })
-  public unity_sold_cost!: number;
+  public unit_sold_cost!: number;
 
   @ManyToOne(() => Resource, (resources) => resources.resources_sales)
   public resource!: Resource;
