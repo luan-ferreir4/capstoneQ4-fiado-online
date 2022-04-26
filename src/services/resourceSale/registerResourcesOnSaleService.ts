@@ -7,7 +7,10 @@ import {
 import { ResourceRepository } from '../../repositories/resource';
 
 class RegisterResourcesOnSale {
-  async format(resourcesList: IResourceRequest[], id_sale: string) {
+  async format(
+    resourcesList: IResourceRequest[],
+    id_sale: string
+  ): Promise<any> {
     const resourceRepository = new ResourceRepository();
 
     const promisseResourceSaleList = resourcesList.map(async (item) => {
