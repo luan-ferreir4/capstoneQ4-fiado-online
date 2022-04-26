@@ -11,9 +11,3 @@ const verifyAcceptedKeys = (data: any) => {
   return data;
 };
 export default verifyAcceptedKeys;
-
-// for (let [key] of Object.entries(data)) {
-//   if (!acceptedKeys.includes(key)) {
-//     delete data[key];
-//   }
-// }
