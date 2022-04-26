@@ -30,7 +30,9 @@ class UserRepository implements IUserRepo {
     return await this.ormRepository.findOne({ where: { email } });
   };
   getAllUsers = async () => {
-    return await this.ormRepository.find();
+    return await this.ormRepository.find({
+      relations: ['customers', 'sales', 'resources'],
+    });
   };
 }
 export { UserRepository, IUser };
