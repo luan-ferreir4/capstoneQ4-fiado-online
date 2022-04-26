@@ -32,6 +32,11 @@ const verifyStock = async (
           400,
           `Invalid quantity of ${resourceInStock.name} to sale`
         );
+      } else if (resourceInsale.unit_sold_cost <= 0) {
+        throw new ErrorHandler(
+          400,
+          `Invalid value of unit cost in ${resourceInStock.name} resource`
+        );
       }
     }
 

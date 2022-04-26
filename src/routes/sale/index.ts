@@ -10,6 +10,7 @@ import {
 import {
   authUser,
   validateShape,
+  verifyExistingCustomer,
   verifyExistingSale,
   verifyStock,
 } from '../../middlewares';
@@ -22,6 +23,7 @@ salesRouter.post(
   '/sales',
   authUser,
   validateShape(createSaleShape),
+  verifyExistingCustomer,
   verifyStock,
   createSaleController
 );
