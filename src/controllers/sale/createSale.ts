@@ -22,18 +22,14 @@ const createSaleController = async (
 
   const newSale: Sale = await createSaleService.execute(formatedSaleData);
 
-  console.log(newSale);
-
   const formatedResources = await registerResourcesOnSale.format(
     resources,
     newSale.id_sale
   );
 
-  console.log(formatedResources);
-
   await registerResourcesOnSale.execute(formatedResources);
 
-  return res.json(201).json(newSale);
+  return res.status(201).json(newSale);
 };
 
 export default createSaleController;

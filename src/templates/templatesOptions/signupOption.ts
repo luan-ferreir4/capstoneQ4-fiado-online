@@ -2,9 +2,9 @@ import { User } from '../../entities';
 
 const signupOptionsEmail = (user: User) => {
   const outOptions = {
-    from: 'capsstone9@gmail.com',
+    from: process.env.EMAIL_NAME,
     to: user.email,
-    subject: 'registration confirmation',
+    subject: 'Cadastro Confirmado',
     template: 'email',
     context: {
       name: user.name,

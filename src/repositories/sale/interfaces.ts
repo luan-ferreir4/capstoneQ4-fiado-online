@@ -5,6 +5,7 @@ import { Customer, ResourceSale, Sale, User } from '../../entities';
 interface IResourceRequest {
   resource_name: string;
   quantity: number;
+  unity_sold_cost?: number;
 }
 
 interface ISale {

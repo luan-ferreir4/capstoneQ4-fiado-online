@@ -18,6 +18,7 @@ import getOneSaleController from './sale/getOneSale';
 import updateSaleController from './sale/updateSale';
 
 import getAdminsController from './admin/getAdmins';
+import getAdminProfileController from './admin/getAdminProfile';
 import registerAdminController from './admin/registerAdmin';
 import loginAdminController from './admin/loginAdmin';
 import updateAdminController from './admin/updateAdmin';
@@ -29,6 +30,9 @@ import getOneResourceController from './resource/getOneResource';
 import getAllResourcesController from './resource/getAllResources';
 import updateResourcesController from './resource/updateResource';
 
+import createRelatoryController from './relatory/createRelatory';
+
+export { createRelatoryController };
 export {
   createUserController,
   loginUserController,
@@ -56,6 +60,7 @@ export {
 
 export {
   getAdminsController,
+  getAdminProfileController,
   registerAdminController,
   loginAdminController,
   updateAdminController,
