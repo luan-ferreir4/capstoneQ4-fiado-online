@@ -19,7 +19,7 @@ import DeleteSaleService from './sale/deleteSaleService';
 import GetAllSalesService from './sale/getAllSalesService';
 import GetOneSaleService from './sale/getOneSaleService';
 
-import RegisterResourcesOnSale from './resourceSale/registerResourcesOnSale';
+import RegisterResourcesOnSale from './resourceSale/registerResourcesOnSaleService';
 
 import DeleteResourceService from './resource/deleteResourceService';
 import CreateResourceService from './resource/createResourceService';
