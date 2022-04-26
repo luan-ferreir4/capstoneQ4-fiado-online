@@ -4,7 +4,7 @@ const signupOptionsEmail = (user: User) => {
   const outOptions = {
     from: process.env.EMAIL_NAME,
     to: user.email,
-    subject: 'Cadastro Comfirmado',
+    subject: 'Cadastro Confirmado',
     template: 'email',
     context: {
       name: user.name,
