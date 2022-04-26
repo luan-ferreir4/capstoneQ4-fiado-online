@@ -16,7 +16,7 @@ class Resource {
   @Column({ unique: true })
   name: string;
 
-  @Column()
+  @Column({ type: 'float' })
   unit_cost: number;
 
   @Column()
