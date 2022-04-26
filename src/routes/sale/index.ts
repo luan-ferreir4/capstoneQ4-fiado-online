@@ -7,7 +7,13 @@ import {
   updateSaleController,
 } from '../../controllers';
 
-import { authUser, validateShape, verifyExistingSale } from '../../middlewares';
+import {
+  authUser,
+  validateShape,
+  verifyExistingCustomer,
+  verifyExistingSale,
+  verifyStock,
+} from '../../middlewares';
 
 import { createSaleShape } from '../../shapes';
 
@@ -17,6 +23,8 @@ salesRouter.post(
   '/sales',
   authUser,
   validateShape(createSaleShape),
+  verifyExistingCustomer,
+  verifyStock,
   createSaleController
 );
 
