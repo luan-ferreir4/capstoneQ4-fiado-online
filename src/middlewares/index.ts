@@ -6,6 +6,7 @@ import authAdmin from './authAdminMiddleware';
 import verifyEmailAlreadyExists from './verifyEmailAlreadyExists';
 import verifyExistingResourceMiddleware from './verifyExistingResourceMiddleware';
 import verifyIdResourceExistsMiddleware from './verifyIdResourceExistsMiddleware';
+import verifyResquestBodyToUpdateMiddleware from './verifyRequestBodyToUpdateMiddleware';
 
 export {
   validateShape,
@@ -16,4 +17,5 @@ export {
   verifyEmailAlreadyExists,
   verifyExistingResourceMiddleware,
   verifyIdResourceExistsMiddleware,
+  verifyResquestBodyToUpdateMiddleware,
 };
