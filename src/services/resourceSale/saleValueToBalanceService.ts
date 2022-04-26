@@ -1,8 +1,10 @@
 import { User } from '../../entities';
-import { IResourceSale } from '../../repositories';
+import { IResourceSale, UserRepository } from '../../repositories';
 
 class SaleValueToBalance {
   async execute(formatedList: IResourceSale[], loggedUser: User) {
+    const userRepository = new UserRepository();
+
     const user = loggedUser;
     let totalGain = 0;
 
@@ -14,7 +16,8 @@ class SaleValueToBalance {
       totalGain += totalValuePerResource;
     });
 
-    user.balance += totalGain;
+    const newBalance = user.balance + totalGain;
+    await userRepository.updateUser(user.id_user, { balance: newBalance });
   }
 }
 
