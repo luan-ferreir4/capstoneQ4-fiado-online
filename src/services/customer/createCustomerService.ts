@@ -1,14 +1,15 @@
 import { QueryFailedError } from 'typeorm';
-import { CustomerRepository, ICustomer, IUser } from '../../repositories';
+import { CustomerRepository, ICustomer } from '../../repositories';
 import { ErrorHandler } from '../../utils';
 
 class CreateCustomerService {
-  async execute(requestData: ICustomer, user: IUser) {
+  async execute(requestData: ICustomer, id_user: string) {
     try {
       const customer = await new CustomerRepository().createCustomer({
-        user,
+        user: id_user,
         ...requestData,
       });
+
       const newCustomer = await new CustomerRepository().saveCustomer(customer);
 
       return newCustomer;
