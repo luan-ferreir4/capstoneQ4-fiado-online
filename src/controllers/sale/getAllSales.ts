@@ -8,7 +8,7 @@ const getAllSalesController = async (
 ): Promise<Response> => {
   const salesList: Sale[] = await new GetAllSalesService().execute();
 
-  return res.json(200).json(salesList);
+  return res.status(200).json(salesList);
 };
 
 export default getAllSalesController;
