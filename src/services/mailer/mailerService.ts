@@ -15,15 +15,15 @@ class SendEmail {
   transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: 'capsstone9@gmail.com',
-      pass: 'fiadoonline2020',
+      user: process.env.EMAIL_NAME,
+      pass: process.env.EMAIL_PASS,
     },
   });
   register(user: User, typeOptions) {
     this.transporter.use('compile', hbs(handlebarsOptions as any));
     this.transporter.sendMail(typeOptions(user), (err, info) => {
       if (err) console.log(err);
-      else console.log(info);
+      else console.log({ 'delivered to': info.accepted });
     });
   }
 }

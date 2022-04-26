@@ -4,11 +4,12 @@ import salesRouter from './sale';
 import adminsRouter from './admin';
 import resourcesRouter from './resource';
 import customerRouter from './customer';
+import relatoryRouter from './relatory';
 
 const router = Router();
 
 router.use('/users', userRouter);
-router.use('/user', salesRouter, resourcesRouter);
+router.use('/user', salesRouter, resourcesRouter, relatoryRouter);
 router.use('/admin', adminsRouter);
 router.use('/customer', customerRouter);
 

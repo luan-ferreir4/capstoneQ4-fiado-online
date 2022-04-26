@@ -30,6 +30,9 @@ import getOneResourceController from './resource/getOneResource';
 import getAllResourcesController from './resource/getAllResources';
 import updateResourcesController from './resource/updateResource';
 
+import createRelatoryController from './relatory/createRelatory';
+
+export { createRelatoryController };
 export {
   createUserController,
   loginUserController,

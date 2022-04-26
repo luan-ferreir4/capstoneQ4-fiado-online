@@ -29,8 +29,9 @@ import FormatResourceService from './resource/formatResourceService';
 import UpdateResourceService from './resource/updateResourceService';
 
 import SendEmail from './mailer/mailerService';
+import CreateRelatory from './pdf/relatory';
 
-export { SendEmail };
+export { SendEmail, CreateRelatory };
 
 export { createUserService, LoginUserService };
 
