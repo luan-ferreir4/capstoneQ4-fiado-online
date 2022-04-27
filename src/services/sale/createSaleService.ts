@@ -1,9 +1,8 @@
-import { QueryFailedError } from 'typeorm';
+import { User } from '../../entities';
 import { CustomerRepository, ISale, SaleRepository } from '../../repositories';
-import { ErrorHandler } from '../../utils';
 
 class CreateSaleService {
-  async format(saleData: ISale, id_User: string): Promise<any> {
+  async format(saleData: ISale, user: User): Promise<any> {
     const customerRepository = new CustomerRepository();
 
     const { sold_at, expires_in, customer_email, closed } = saleData;
@@ -16,7 +15,7 @@ class CreateSaleService {
       sold_at,
       expires_in,
       closed,
-      user: id_User,
+      user: user.id_user,
       customer: customerFound.id_customers,
     };
 
@@ -24,23 +23,13 @@ class CreateSaleService {
   }
 
   async execute(formatedSaleData: ISale) {
-    try {
-      const saleRepository = new SaleRepository();
+    const saleRepository = new SaleRepository();
 
-      const newSale = saleRepository.createSale(formatedSaleData);
+    const newSale = saleRepository.createSale(formatedSaleData);
 
-      await saleRepository.saveSale(newSale);
+    await saleRepository.saveSale(newSale);
 
-      return newSale;
-    } catch (error) {
-      const { detail } = error;
-
-      if (error instanceof QueryFailedError) {
-        throw new ErrorHandler(400, `QueryFailedError:\n${detail}`);
-      }
-
-      throw new ErrorHandler(400, detail);
-    }
+    return newSale;
   }
 }
 

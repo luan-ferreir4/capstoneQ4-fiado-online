@@ -3,9 +3,8 @@ import { IResourceSale, UserRepository } from '../../repositories';
 
 class SaleValueToBalance {
   async execute(formatedList: IResourceSale[], loggedUser: User) {
-    const userRepository = new UserRepository();
-
     const user = loggedUser;
+    const userRepository = new UserRepository();
     let totalGain = 0;
 
     formatedList.forEach((item) => {
