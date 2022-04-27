@@ -35,10 +35,12 @@ class User {
   @OneToMany(() => Resource, (resources) => resources.user, { lazy: true })
   resources: Resource[];
 
-  @OneToMany(() => Sale, (sale: Sale) => sale.user)
+  @OneToMany(() => Sale, (sale: Sale) => sale.user, { lazy: true })
   sales: Sale[];
 
-  @OneToMany(() => Customer, (customer: Customer) => customer.user)
+  @OneToMany(() => Customer, (customer: Customer) => customer.user, {
+    lazy: true,
+  })
   customers: Customer[];
 }
 
