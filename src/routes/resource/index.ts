@@ -34,7 +34,6 @@ resourcesRouter.patch(
   '/:id_resource/resources',
   authUser,
   validateShape(updatedResourceShape),
-  verifyExistingResourceMiddleware,
   verifyIdResourceExistsMiddleware,
   updateResourcesController
 );
