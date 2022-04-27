@@ -32,7 +32,7 @@ class User {
   @Column({ nullable: true })
   monthly_report_day: number;
 
-  @OneToMany((type) => Resource, (resources) => resources.user)
+  @OneToMany(() => Resource, (resources) => resources.user, { lazy: true })
   resources: Resource[];
 
   @OneToMany(() => Sale, (sale: Sale) => sale.user)

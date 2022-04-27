@@ -23,7 +23,6 @@ interface IUserRepo {
   updateUser: (id_user: string, data: any) => Promise<void>;
   getOneUser: (id_user: string) => Promise<User>;
   findUserByCpf: (cpf: string) => Promise<User>;
-  getAllResourcers: (user: IUser) => Promise<Resource[]>;
 }
 
 export { IUser, IUserRepo };

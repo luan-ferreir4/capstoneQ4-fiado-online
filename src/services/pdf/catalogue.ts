@@ -9,15 +9,16 @@ const htmlCatalogue = fs.readFileSync(
 );
 class GenerateCatalogue {
   async execute(user: User, sendTo: User) {
-    const resourcers = await new UserRepository().getAllResourcers(user);
-    console.log(resourcers);
+    const findUser = await new UserRepository().getOneUser(user.id_user);
+    const userResources = await findUser.resources;
     const pdfDoc = {
       template: htmlCatalogue,
       context: {
+        user,
         name: sendTo,
-        resourcers,
+        userResources,
       },
-      path: `./src/templates/attachments/${sendTo.name}.pdf`,
+      path: `./src/templates/attachments/catalogo-${sendTo.name}.pdf`,
     };
     PDF.create(pdfDoc);
   }

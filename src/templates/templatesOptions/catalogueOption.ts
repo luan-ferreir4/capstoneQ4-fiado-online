@@ -12,7 +12,7 @@ const catalogueOptionEmail = (recipient: User) => {
     attachments: [
       {
         filename: `${recipient.name}.pdf`,
-        path: `./src/templates/attachments/${recipient.name}.pdf`,
+        path: `./src/templates/attachments/catalogo-${recipient.name}.pdf`,
       },
     ],
   };
