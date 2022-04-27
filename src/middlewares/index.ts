@@ -10,6 +10,7 @@ import verifyStock from './sale/verifyStockMiddeware';
 import verifyEmailAlreadyExists from './user/verifyEmailAlreadyExists';
 import validateShape from './yup/validateShapeMiddleware';
 import verifyCustomersEmailMiddleware from './customer/verifyCustomersEmailMiddleware';
+import verifyResourceOwnerMiddleware from './resource/veifyResourceOwnerMiddleware';
 
 export {
   authUser,
