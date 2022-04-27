@@ -2,12 +2,12 @@ import { User } from '../../entities';
 import { IResourceSale, UserRepository } from '../../repositories';
 
 class SaleValueToBalance {
-  async execute(formatedList: IResourceSale[], loggedUser: User) {
+  async execute(resourceSalesList: IResourceSale[], loggedUser: User) {
     const user = loggedUser;
     const userRepository = new UserRepository();
     let totalGain = 0;
 
-    formatedList.forEach((item) => {
+    resourceSalesList.forEach((item) => {
       const quantitySold = item.quantity;
       const costPerUnity = item.unit_sold_cost;
 
