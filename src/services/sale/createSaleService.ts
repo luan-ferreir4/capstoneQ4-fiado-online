@@ -1,7 +1,5 @@
-import { QueryFailedError } from 'typeorm';
 import { User } from '../../entities';
 import { CustomerRepository, ISale, SaleRepository } from '../../repositories';
-import { ErrorHandler } from '../../utils';
 
 class CreateSaleService {
   async format(saleData: ISale, user: User): Promise<any> {
