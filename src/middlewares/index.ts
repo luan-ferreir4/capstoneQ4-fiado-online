@@ -24,4 +24,5 @@ export {
   verifyResquestBodyToUpdateMiddleware,
   validateShape,
   verifyCustomersEmailMiddleware,
+  verifyResourceOwnerMiddleware,
 };

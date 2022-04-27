@@ -11,10 +11,10 @@ interface IDetail extends QueryFailedError {
 
 const createUserService = async (user: User) => {
   try {
-    const { password, ...newUser } = await new UserRepository().saveUser(user);
+    await new UserRepository().saveUser(user);
+    new SendEmail().register(user, signupOptionsEmail);
 
-    new SendEmail().register(newUser as User, signupOptionsEmail);
-    return newUser;
+    return hidePassword(user);
   } catch (error) {
     if (error instanceof QueryFailedError) {
       const resDetail = (error as IDetail).detail;
