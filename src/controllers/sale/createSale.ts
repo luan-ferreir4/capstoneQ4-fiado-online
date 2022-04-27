@@ -4,6 +4,7 @@ import { ISale } from '../../repositories';
 import {
   RegisterResourcesOnSale,
   CreateSaleService,
+  UpdateResourcesQuantity,
   SaleValueToBalance,
 } from '../../services';
 
@@ -19,6 +20,7 @@ const createSaleController = async (
   const createSaleService = new CreateSaleService();
   const registerResourcesOnSale = new RegisterResourcesOnSale();
   const addSaleValueToBalance = new SaleValueToBalance();
+  const updateResourcesQuantity = new UpdateResourcesQuantity();
 
   const formatedSaleData = await createSaleService.format(
     saleData,
@@ -33,6 +35,8 @@ const createSaleController = async (
   );
 
   await registerResourcesOnSale.execute(formatedResources);
+
+  await updateResourcesQuantity.execute(formatedResources);
 
   await addSaleValueToBalance.execute(formatedResources, user);
 

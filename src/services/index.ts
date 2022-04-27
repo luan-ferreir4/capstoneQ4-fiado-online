@@ -21,6 +21,7 @@ import GetOneSaleService from './sale/getOneSaleService';
 
 import RegisterResourcesOnSale from './resourceSale/registerResourcesOnSaleService';
 import SaleValueToBalance from './resourceSale/saleValueToBalanceService';
+import UpdateResourcesQuantity from './resourceSale/updateResourcesQuantityService';
 
 import DeleteResourceService from './resource/deleteResourceService';
 import CreateResourceService from './resource/createResourceService';
@@ -60,7 +61,7 @@ export {
   GetOneSaleService,
 };
 
-export { RegisterResourcesOnSale, SaleValueToBalance };
+export { RegisterResourcesOnSale, SaleValueToBalance, UpdateResourcesQuantity };
 
 export {
   CreateResourceService,
