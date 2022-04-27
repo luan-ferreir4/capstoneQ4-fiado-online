@@ -1,5 +1,4 @@
 import { Request, Response, NextFunction } from 'express';
-import { ResourceRepository } from '../../repositories/resource';
 import { ErrorHandler } from '../../utils';
 import { Resource } from '../../entities';
 
