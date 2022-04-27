@@ -1,5 +1,3 @@
-/* eslint-disable no-await-in-loop */
-/* eslint-disable no-restricted-syntax */
 import { ResourceSale } from '../../entities';
 import {
   IResourceRequest,
@@ -9,7 +7,10 @@ import {
 import { ResourceRepository } from '../../repositories/resource';
 
 class RegisterResourcesOnSale {
-  async format(resourcesList: IResourceRequest[], id_sale: string) {
+  async format(
+    resourcesList: IResourceRequest[],
+    id_sale: string
+  ): Promise<any> {
     const resourceRepository = new ResourceRepository();
 
     const promisseResourceSaleList = resourcesList.map(async (item) => {
@@ -17,14 +18,16 @@ class RegisterResourcesOnSale {
       // pega o id dos recursos pelo nome que é uma chave unica
       const resource = await resourceRepository.getResourceByName(name);
 
-      const formatedResourceSale: IResourceSale = {
+      const formatedResourceSale = {
+        // quantidade do recurso encontrado a ser vendida
+        quantity: item.quantity,
+        // Custo da unidade do recurso na venda
+        unit_sold_cost: item.unit_sold_cost,
         // pegar id_sale após ter a criado com o service
         // no controller de sales
-        sale_id: id_sale,
+        sale: id_sale,
         // registra o id do recurso encontrado pelo nome
-        resource_id: resource.id_resource,
-        // quantidade do recuso encontrado a ser vendida
-        quantity: item.quantity,
+        resource: resource.id_resource,
       };
 
       return formatedResourceSale;
@@ -39,8 +42,6 @@ class RegisterResourcesOnSale {
 
   async execute(formatedList: IResourceSale[]) {
     const resourceSaleRepository = new ResourceSaleRepository();
-
-    // console.log(formatedList);
 
     const newResourceSaleList = formatedList.map((ResourceSaleData) => {
       const newResourceSale: ResourceSale =

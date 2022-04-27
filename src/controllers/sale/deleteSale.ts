@@ -9,7 +9,7 @@ const deleteSaleController = async (
 
   await new DeleteSaleService().execute(id_sale);
 
-  return res.json(204).json('');
+  return res.status(204).json('');
 };
 
 export default deleteSaleController;

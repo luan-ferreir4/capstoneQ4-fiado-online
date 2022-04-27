@@ -24,10 +24,12 @@ class Sale {
   @Column({ default: false })
   closed: boolean;
 
-  @ManyToOne(() => User, (user: User) => user.sales)
+  @ManyToOne(() => User, (user: User) => user.sales, { onDelete: 'CASCADE' })
   user: User;
 
-  @ManyToOne(() => Customer, (customer: Customer) => customer.sales)
+  @ManyToOne(() => Customer, (customer: Customer) => customer.sales, {
+    onDelete: 'CASCADE',
+  })
   customer: Customer;
 
   @OneToMany(

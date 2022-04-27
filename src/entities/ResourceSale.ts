@@ -13,10 +13,14 @@ class ResourceSale {
   @Column({ type: 'float' })
   public unit_sold_cost!: number;
 
-  @ManyToOne(() => Resource, (resources) => resources.resources_sales)
+  @ManyToOne(() => Resource, (resources) => resources.resources_sales, {
+    onDelete: 'CASCADE',
+  })
   public resource!: Resource;
 
-  @ManyToOne(() => Sale, (sales) => sales.resources_sales)
+  @ManyToOne(() => Sale, (sales) => sales.resources_sales, {
+    onDelete: 'CASCADE',
+  })
   public sale!: Sale;
 }
 

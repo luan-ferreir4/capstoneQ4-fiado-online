@@ -19,7 +19,8 @@ import DeleteSaleService from './sale/deleteSaleService';
 import GetAllSalesService from './sale/getAllSalesService';
 import GetOneSaleService from './sale/getOneSaleService';
 
-import RegisterResourcesOnSale from './resourceSale/registerResourcesOnSale';
+import RegisterResourcesOnSale from './resourceSale/registerResourcesOnSaleService';
+import SaleValueToBalance from './resourceSale/saleValueToBalanceService';
 
 import DeleteResourceService from './resource/deleteResourceService';
 import CreateResourceService from './resource/createResourceService';
@@ -59,7 +60,7 @@ export {
   GetOneSaleService,
 };
 
-export { RegisterResourcesOnSale };
+export { RegisterResourcesOnSale, SaleValueToBalance };
 
 export {
   CreateResourceService,
