@@ -1,4 +1,5 @@
 /* eslint-disable no-unused-vars */
+import { DeleteResult, UpdateResult } from 'typeorm';
 import { Customer, Resource, Sale, User } from '../../entities';
 
 interface IUser {
@@ -19,8 +20,8 @@ interface IUser {
 interface IUserRepo {
   createUser: (requestDataUser: IUser) => User;
   saveUser: (user: IUser) => Promise<IUser>;
-  deleteUser: (id_user: string) => Promise<void>;
-  updateUser: (id_user: string, data: any) => Promise<void>;
+  deleteUser: (id_user: string) => Promise<DeleteResult>;
+  updateUser: (id_user: string, data: any) => Promise<UpdateResult>;
   getOneUser: (id_user: string) => Promise<User>;
   findUserByCpf: (cpf: string) => Promise<User>;
 }
