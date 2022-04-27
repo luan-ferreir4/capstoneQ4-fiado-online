@@ -22,7 +22,9 @@ class Customer {
   @Column()
   phone_number: string;
 
-  @ManyToOne(() => User, (user: User) => user.customers)
+  @ManyToOne(() => User, (user: User) => user.customers, {
+    onDelete: 'CASCADE',
+  })
   user: User;
 
   @OneToMany(() => Sale, (sale: Sale) => sale.customer)

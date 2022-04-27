@@ -31,8 +31,10 @@ class Resource {
   @Column()
   updatedAt: Date;
 
-  @ManyToOne(() => User, (user: User) => user.resources)
-  user: string;
+  @ManyToOne(() => User, (user: User) => user.resources, {
+    onDelete: 'CASCADE',
+  })
+  user: User;
 
   @OneToMany(
     () => ResourceSale,

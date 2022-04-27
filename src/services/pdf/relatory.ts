@@ -1,6 +1,5 @@
 import PDF from 'handlebars-pdf';
 import fs from 'fs';
-import { CustomerRepository } from '../../repositories';
 import { User } from '../../entities';
 
 const htmlRelatory = fs.readFileSync(
@@ -9,13 +8,11 @@ const htmlRelatory = fs.readFileSync(
 );
 class CreateRelatory {
   async execute(user: User) {
-    const customers = await new CustomerRepository().getAllPerUser(user);
-
     const pdfDoc = {
       template: htmlRelatory,
       context: {
         name: user,
-        customers,
+        customers: user.customers,
       },
       path: `./src/templates/attachments/${user.cpf.slice(2, -5)}.pdf`,
     };

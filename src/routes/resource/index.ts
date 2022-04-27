@@ -4,6 +4,7 @@ import {
   authUser,
   verifyExistingResourceMiddleware,
   verifyIdResourceExistsMiddleware,
+  verifyResourceOwnerMiddleware,
 } from '../../middlewares';
 import { createResourceShape, updatedResourceShape } from '../../shapes';
 import {
@@ -28,20 +29,22 @@ resourcesRouter.get(
   '/:id_resource/resources',
   authUser,
   verifyIdResourceExistsMiddleware,
+  verifyResourceOwnerMiddleware,
   getOneResourceController
 );
 resourcesRouter.patch(
   '/:id_resource/resources',
   authUser,
   validateShape(updatedResourceShape),
-  verifyExistingResourceMiddleware,
   verifyIdResourceExistsMiddleware,
+  verifyResourceOwnerMiddleware,
   updateResourcesController
 );
 resourcesRouter.delete(
   '/:id_resource/resources',
   authUser,
   verifyIdResourceExistsMiddleware,
+  verifyResourceOwnerMiddleware,
   deleteResourceController
 );
 

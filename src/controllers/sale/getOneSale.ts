@@ -10,7 +10,7 @@ const getOneSaleController = async (
 
   const saleFound: Sale = await new GetOneSaleService().execute(id_sale);
 
-  return res.json(200).json(saleFound);
+  return res.status(200).json(saleFound);
 };
 
 export default getOneSaleController;
