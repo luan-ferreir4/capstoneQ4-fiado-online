@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { ErrorHandler } from '../../utils';
+import { ErrorHandler, regulateNames } from '../../utils';
 import { Resource } from '../../entities';
 
 const verifyExistingResourceMiddleware = async (
@@ -7,10 +7,14 @@ const verifyExistingResourceMiddleware = async (
   res: Response,
   next: NextFunction
 ): Promise<ErrorHandler | void> => {
-  const { name } = req.validated;
-  const { resources } = req.user;
+  const { resource_name } = req.validated;
+  const { user } = req;
   try {
-    const resourceFound: Resource = resources.find(
+    const name = regulateNames(resource_name);
+
+    const userResourcesList = await user.resources;
+
+    const resourceFound: Resource = userResourcesList.find(
       (resource) => resource.name === name
     );
 
