@@ -8,7 +8,7 @@ import getUserProfileController from './user/getUserProfile';
 import getAllUsersController from './user/getAllUsers';
 
 import createCustomerController from './customer/createCustomer';
-import deleteCustomerController from './customer/deleteCustomer';
+import deleteCustomerController from './customer/deleteCustomers';
 import getAllCustomersController from './customer/getAllCustomers';
 import updateCustomerController from './customer/updateCustomer';
 import getOneCustomerController from './customer/getOneCustomer';

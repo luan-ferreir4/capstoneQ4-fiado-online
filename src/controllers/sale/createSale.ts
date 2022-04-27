@@ -36,7 +36,9 @@ const createSaleController = async (
 
   await updateResourcesQuantity.execute(formatedResources);
 
-  await addSaleValueToBalance.execute(formatedResources, user);
+  if (saleData.closed) {
+    await addSaleValueToBalance.execute(formatedResources, user);
+  }
 
   return res.status(201).json(newSale);
 };

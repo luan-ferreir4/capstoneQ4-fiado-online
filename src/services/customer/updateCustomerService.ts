@@ -1,7 +1,7 @@
-import { CustomerRepository } from '../../repositories';
+import { CustomerRepository, ICustomer } from '../../repositories';
 
 class UpdateCustomerService {
-  async execute(id_customer, requestData) {
+  async execute(id_customer: string, requestData: ICustomer) {
     const customer = await new CustomerRepository().getOneById(id_customer);
     if (customer) {
       await new CustomerRepository().updateCustomer(id_customer, requestData);
