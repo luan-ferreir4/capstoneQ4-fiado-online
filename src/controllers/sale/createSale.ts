@@ -1,7 +1,11 @@
 import { Request, Response } from 'express';
 import { Sale } from '../../entities';
 import { ISale } from '../../repositories';
-import { RegisterResourcesOnSale, CreateSaleService } from '../../services';
+import {
+  RegisterResourcesOnSale,
+  CreateSaleService,
+  SaleValueToBalance,
+} from '../../services';
 
 const createSaleController = async (
   req: Request,
@@ -14,6 +18,7 @@ const createSaleController = async (
 
   const createSaleService = new CreateSaleService();
   const registerResourcesOnSale = new RegisterResourcesOnSale();
+  const addSaleValueToBalance = new SaleValueToBalance();
 
   const formatedSaleData = await createSaleService.format(
     saleData,
@@ -28,6 +33,8 @@ const createSaleController = async (
   );
 
   await registerResourcesOnSale.execute(formatedResources);
+
+  await addSaleValueToBalance.execute(formatedResources, user);
 
   return res.status(201).json(newSale);
 };

@@ -13,7 +13,9 @@ const createResourceController = async (req: Request, res: Response) => {
   );
 
   const resource: Resource = await new CreateResourceService().execute(
-    formatedResource
+    formatedResource,
+    id_user,
+    req
   );
 
   return res.status(201).json(resource);
