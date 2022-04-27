@@ -19,7 +19,7 @@ class UserRepository implements IUserRepo {
     });
   };
   getOneUser = async (id_user: string) => {
-    return await this.ormRepository.findOne(id_user);
+    return await this.ormRepository.findOne({ where: { id_user } });
   };
   findUserByCpf = async (cpf: string) => {
     return await this.ormRepository.findOne(cpf);

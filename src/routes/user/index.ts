@@ -9,6 +9,7 @@ import {
   getAllUsersController,
   deleteUserByIdController,
 } from '../../controllers';
+import getUserProfileByIdController from '../../controllers/user/getUserProfileById';
 
 import {
   validateShape,
@@ -53,7 +54,7 @@ userRouter.delete('/profile', authUser, deleteUserController);
 
 userRouter.get('', authAdmin, getAllUsersController);
 
-userRouter.get('/:id_user', authAdmin, getUserProfileController);
+userRouter.get('/:id_user', authAdmin, getUserProfileByIdController);
 
 userRouter.patch(
   '/:id_user',
