@@ -9,6 +9,7 @@ import verifyExistingCustomer from './sale/verifyExistingCustomerMiddleware';
 import verifyStock from './sale/verifyStockMiddeware';
 import verifyEmailAlreadyExists from './user/verifyEmailAlreadyExists';
 import validateShape from './yup/validateShapeMiddleware';
+import verifyEmailCustomersMiddleware from './customer/verifyEmailCustomersMiddleware';
 
 export {
   authUser,
@@ -22,4 +23,5 @@ export {
   verifyEmailAlreadyExists,
   verifyResquestBodyToUpdateMiddleware,
   validateShape,
+  verifyEmailCustomersMiddleware,
 };

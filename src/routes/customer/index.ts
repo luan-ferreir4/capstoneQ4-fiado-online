@@ -7,7 +7,11 @@ import {
   getOneCustomerController,
   updateCustomerController,
 } from '../../controllers';
-import { authUser, validateShape } from '../../middlewares';
+import {
+  authUser,
+  validateShape,
+  verifyEmailCustomersMiddleware,
+} from '../../middlewares';
 import { createCustomerShape, updateCustomerShape } from '../../shapes';
 
 const customerRouter = Router();
@@ -16,6 +20,7 @@ customerRouter.post(
   '/create',
   validateShape(createCustomerShape),
   authUser,
+  verifyEmailCustomersMiddleware,
   createCustomerController
 );
 customerRouter.get('/user', authUser, getAllCustomersPerUser);
