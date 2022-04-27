@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv='x-ua-compatible' />
+    <title>Bem-Vindo</title>
+    <style>
+      body { font-family: sans-serif} h2 { text-align: center; text-transform:
+      uppercase; color: #27AE60; } footer { text-align: center} table { width:
+      100%; margin: 40px auto; text-align: center; } table td { text-transform:
+      capitalize; }
+    </style>
+  </head>
+  <body>
+    <h2>Catálogo do vendedor {{user.name}} - FIADO ONLINE </h2>
+
+    <table border='1'>
+      <tr>
+        <th>Produto</th>
+        <th>Preço</th>
+        <th>Estoque</th>
+      </tr>
+      {{#each userResources}}
+        <tr>
+          <td>{{this.name}}</td>
+          <td>R$ {{this.unit_cost}}</td>
+          <td>{{this.units}}</td>
+        </tr>
+
+      {{/each}}
+    </table>
+
+    <footer>---<i>Fiado Online</i>---</footer>
+  </body>
+
+</html>

@@ -5,6 +5,7 @@ import deleteUserByIdController from './user/deleteUserById';
 import updateUserController from './user/upgradeUser';
 import updateUserByIdController from './user/upgradeUserById';
 import getUserProfileController from './user/getUserProfile';
+import sendCatalogueByEmailController from './user/sendCatalogue';
 import getAllUsersController from './user/getAllUsers';
 
 import createCustomerController from './customer/createCustomer';
@@ -44,6 +45,7 @@ export {
   updateUserController,
   updateUserByIdController,
   getUserProfileController,
+  sendCatalogueByEmailController,
   getAllUsersController,
 };
 

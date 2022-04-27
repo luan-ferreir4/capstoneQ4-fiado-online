@@ -1,6 +1,7 @@
 import createUserShape from './user/createUserShape';
 import loginUserShape from './user/loginUserShape';
 import upgradeUserShape from './user/upgradeUserShape';
+import sendCatalogueShape from './user/senderCatalogueShape';
 
 import createCustomerShape from './customer/createCustomerShape';
 import updateCustomerShape from './customer/updateCustomerShape';
@@ -14,7 +15,12 @@ import updateAdmin from './admin/updateAdminShape';
 
 import createSaleShape from './sale/createSaleShape';
 
-export { createUserShape, loginUserShape, upgradeUserShape };
+export {
+  createUserShape,
+  loginUserShape,
+  upgradeUserShape,
+  sendCatalogueShape,
+};
 
 export { createCustomerShape, updateCustomerShape };
 
