@@ -1,10 +1,19 @@
-import { Request, Response } from 'express';
-import { UserRepository } from '../../repositories';
+import { NextFunction, Request, Response } from 'express';
+import { DeleteUserService } from '../../services';
 
-const deleteUserController = async (req: Request, res: Response) => {
-  const authenticateUser = req.user;
-  await new UserRepository().deleteUser(authenticateUser.id_user);
+const deleteUserController = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const authenticateUser = req.user;
 
-  return res.status(204).json('');
+    await new DeleteUserService().execute(authenticateUser.id_user);
+
+    return res.status(204).json('');
+  } catch (error) {
+    return next(error);
+  }
 };
 export default deleteUserController;
