@@ -3,10 +3,10 @@ import authUser from './jwt/authUserMiddleware';
 import checkLogin from './jwt/checkLoginMiddleware';
 import verifyIdResourceExistsMiddleware from './resource/verifyIdResourceExistsMiddleware';
 import verifyExistingResourceMiddleware from './resource/verifyExistingResourceMiddleware';
-import verifyResquestBodyToUpdateMiddleware from './resource/verifyRequestBodyToUpdateMiddleware';
 import verifyExistingSale from './sale/verifyExistingSaleMiddleware';
 import verifyEmailAlreadyExists from './user/verifyEmailAlreadyExists';
 import validateShape from './yup/validateShapeMiddleware';
+import verifyResquestBodyToUpdateMiddleware from './yup/verifyRequestBodyToUpdateMiddleware';
 
 export {
   authUser,
