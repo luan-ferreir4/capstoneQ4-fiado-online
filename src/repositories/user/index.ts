@@ -12,16 +12,14 @@ class UserRepository implements IUserRepo {
   createUser = (requestDataUser: IUser) =>
     this.ormRepository.create(requestDataUser);
   saveUser = async (user: IUser) => await this.ormRepository.save(user);
-  deleteUser = async (id: string) => {
-    await this.ormRepository.delete(id);
-  };
+  deleteUser = async (id: string) => await this.ormRepository.delete(id);
   updateUser = async (id_user: string, data: any) => {
-    await this.ormRepository.update(id_user, {
+    return await this.ormRepository.update(id_user, {
       ...data,
     });
   };
   getOneUser = async (id_user: string) => {
-    return await this.ormRepository.findOne(id_user);
+    return await this.ormRepository.findOne({ where: { id_user } });
   };
   findUserByCpf = async (cpf: string) => {
     return await this.ormRepository.findOne(cpf);

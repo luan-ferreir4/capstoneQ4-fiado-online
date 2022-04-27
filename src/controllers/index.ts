@@ -1,8 +1,11 @@
 import createUserController from './user/createUser';
 import loginUserController from './user/loginUser';
 import deleteUserController from './user/deleteUser';
+import deleteUserByIdController from './user/deleteUserById';
 import updateUserController from './user/upgradeUser';
+import updateUserByIdController from './user/upgradeUserById';
 import getUserProfileController from './user/getUserProfile';
+import getAllUsersController from './user/getAllUsers';
 
 import createCustomerController from './customer/createCustomer';
 import deleteCustomerController from './customer/deleteCustomer';
@@ -37,8 +40,11 @@ export {
   createUserController,
   loginUserController,
   deleteUserController,
+  deleteUserByIdController,
   updateUserController,
+  updateUserByIdController,
   getUserProfileController,
+  getAllUsersController,
 };
 
 export {
