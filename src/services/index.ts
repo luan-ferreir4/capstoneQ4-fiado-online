@@ -1,4 +1,6 @@
 import createUserService from './user/createUserService';
+import UpdateUserService from './user/updateUserService';
+import DeleteUserService from './user/deleteUserService';
 import LoginUserService from './user/loginUserService';
 
 import UpdateAdminService from './admin/updateAdminService';
@@ -33,7 +35,12 @@ import CreateRelatory from './pdf/relatory';
 
 export { SendEmail, CreateRelatory };
 
-export { createUserService, LoginUserService };
+export {
+  createUserService,
+  LoginUserService,
+  DeleteUserService,
+  UpdateUserService,
+};
 
 export {
   UpdateAdminService,
