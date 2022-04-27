@@ -13,7 +13,7 @@ class Resource {
   @PrimaryGeneratedColumn('uuid')
   id_resource: string;
 
-  @Column({ unique: true })
+  @Column()
   name: string;
 
   @Column({ type: 'float' })
@@ -34,7 +34,7 @@ class Resource {
   @ManyToOne(() => User, (user: User) => user.resources, {
     onDelete: 'CASCADE',
   })
-  user: User;
+  user: string;
 
   @OneToMany(
     () => ResourceSale,
