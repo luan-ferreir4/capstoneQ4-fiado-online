@@ -31,8 +31,8 @@ class Resource {
   @Column()
   updatedAt: Date;
 
-  @ManyToOne(() => User, (user: User) => user.resources)
-  user: string;
+  @ManyToOne((type) => User, (user) => user.resources)
+  user: User;
 
   @OneToMany(
     () => ResourceSale,

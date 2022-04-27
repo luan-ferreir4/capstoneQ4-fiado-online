@@ -12,5 +12,4 @@ router.use('/users', userRouter);
 router.use('/user', salesRouter, resourcesRouter, relatoryRouter);
 router.use('/admin', adminsRouter);
 router.use('/customer', customerRouter);
-
 export default router;

@@ -32,5 +32,10 @@ class UserRepository implements IUserRepo {
   getAllUsers = async () => {
     return await this.ormRepository.find();
   };
+
+  getAllResourcers = async (user) => {
+    const findUser = await this.ormRepository.findOne(user);
+    return findUser.resources;
+  };
 }
 export { UserRepository, IUser };

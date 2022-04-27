@@ -6,6 +6,8 @@ import { SaleRepository, ISale, IResourceRequest } from './sale';
 
 import { AdminsRepository, IAdmin, IUpdateAdmin, IAdminToken } from './admin';
 
+import { ResourceRepository } from './resource';
+
 import {
   ResourceSaleRepository,
   IResourceSale,
@@ -19,5 +21,7 @@ export { CustomerRepository, ICustomer };
 export { AdminsRepository, IAdmin, IUpdateAdmin, IAdminToken };
 
 export { SaleRepository, ISale, IResourceRequest };
+
+export { ResourceRepository };
 
 export { ResourceSaleRepository, IResourceSale, IResourceSaleRepo };

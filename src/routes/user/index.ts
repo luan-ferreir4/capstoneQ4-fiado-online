@@ -4,6 +4,7 @@ import {
   deleteUserController,
   getUserProfileController,
   loginUserController,
+  sendCatalogueByEmailController,
   updateUserController,
 } from '../../controllers';
 
@@ -16,6 +17,7 @@ import {
 import {
   createUserShape,
   loginUserShape,
+  sendCatalogueShape,
   upgradeUserShape,
 } from '../../shapes';
 
@@ -44,4 +46,11 @@ userRouter.patch(
 );
 
 userRouter.delete('/profile', authUser, deleteUserController);
+
+userRouter.post(
+  '/catalogue',
+  validateShape(sendCatalogueShape),
+  authUser,
+  sendCatalogueByEmailController
+);
 export default userRouter;

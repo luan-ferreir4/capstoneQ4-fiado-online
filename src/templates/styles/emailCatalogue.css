@@ -1,0 +1,50 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  html {
+    font-family: sans-serif;
+    background: #FFF5EE;
+    color: #D4D4D8;
+  }
+  body {
+    font-family: sans-serif;
+    background: #27272A;
+    color: #D4D4D8;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  body figure {
+    display: flex;
+    align-items: center;
+  }
+  
+  body figure figcaption {
+    margin-right: 10px;
+    text-transform: uppercase;
+    color: #D4D4D4;
+  }
+  img {
+      height: 30px;
+  }
+  
+  body figure figcaption strong {
+    color: #10B981;
+  }
+  body h1 {
+    text-transform: uppercase;
+  }
+  body h2 {
+    text-transform: uppercase;
+    color: #1ABC9C;
+    margin-top: 20px;
+  }
+  
+  body p {
+    margin-top: 30px;
+  }
+  

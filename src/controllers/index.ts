@@ -3,6 +3,7 @@ import loginUserController from './user/loginUser';
 import deleteUserController from './user/deleteUser';
 import updateUserController from './user/upgradeUser';
 import getUserProfileController from './user/getUserProfile';
+import sendCatalogueByEmailController from './user/sendCatalogue';
 
 import createCustomerController from './customer/createCustomer';
 import deleteCustomerController from './customer/deleteCustomer';
@@ -39,6 +40,7 @@ export {
   deleteUserController,
   updateUserController,
   getUserProfileController,
+  sendCatalogueByEmailController,
 };
 
 export {
