@@ -1,22 +1,35 @@
-import { Request, Response } from 'express';
-import { User } from '../../entities';
-import { IUser, UserRepository } from '../../repositories';
-import { hidePassword, verifyAcceptedKeys } from '../../utils';
+import { NextFunction, Request, Response } from 'express';
+import { QueryFailedError } from 'typeorm';
+import { UpdateUserService } from '../../services';
+import { hidePassword, IDetail } from '../../utils';
 
-const updateUserController = async (req: Request, res: Response) => {
-  const authenticatedUser = req.user;
-  const data = req.validated;
+const updateUserController = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  try {
+    const authenticatedUser = req.user;
+    const data = req.validated;
 
-  const newData = verifyAcceptedKeys(data);
+    const updatedUser = await new UpdateUserService().execute(
+      authenticatedUser.id_user,
+      data
+    );
 
-  await new UserRepository().updateUser(authenticatedUser.id_user, newData);
+    const returnUpdatedUser = hidePassword(updatedUser);
 
-  const getUser: IUser = await new UserRepository().getOneUser(
-    authenticatedUser.id_user
-  );
+    return res.status(200).json(returnUpdatedUser);
+  } catch (error) {
+    const { detail } = error as IDetail;
 
-  const returnUpdatedUser = hidePassword(getUser);
+    if (error instanceof QueryFailedError) {
+      if (detail.includes('already exists') && detail.includes('email')) {
+        return res.status(400).json({ message: 'E-mail already registered' });
+      }
+    }
 
-  return res.status(200).json(returnUpdatedUser);
+    return next(error);
+  }
 };
 export default updateUserController;

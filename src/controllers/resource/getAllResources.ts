@@ -6,7 +6,9 @@ const getAllResourcesController = async (
   req: Request,
   res: Response
 ): Promise<Response> => {
-  const resourceList: Resource[] = await new GetAllResourceService().execute();
+  const resourceList: Resource[] = await new GetAllResourceService().execute(
+    req
+  );
 
   return res.status(200).json(resourceList);
 };

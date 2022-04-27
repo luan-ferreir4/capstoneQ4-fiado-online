@@ -20,6 +20,10 @@ const authAdmin = async (
         throw new ErrorHandler(401, 'invalid token.');
       }
 
+      if (!decoded.isAdm) {
+        throw new ErrorHandler(401, 'Not authorizade');
+      }
+
       req.admin = decoded;
     });
 

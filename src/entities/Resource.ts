@@ -13,7 +13,7 @@ class Resource {
   @PrimaryGeneratedColumn('uuid')
   id_resource: string;
 
-  @Column({ unique: true })
+  @Column()
   name: string;
 
   @Column({ type: 'float' })

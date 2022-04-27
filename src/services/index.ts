@@ -1,4 +1,6 @@
 import createUserService from './user/createUserService';
+import UpdateUserService from './user/updateUserService';
+import DeleteUserService from './user/deleteUserService';
 import LoginUserService from './user/loginUserService';
 
 import UpdateAdminService from './admin/updateAdminService';
@@ -21,6 +23,7 @@ import GetOneSaleService from './sale/getOneSaleService';
 
 import RegisterResourcesOnSale from './resourceSale/registerResourcesOnSaleService';
 import SaleValueToBalance from './resourceSale/saleValueToBalanceService';
+import UpdateResourcesQuantity from './resourceSale/updateResourcesQuantityService';
 
 import DeleteResourceService from './resource/deleteResourceService';
 import CreateResourceService from './resource/createResourceService';
@@ -34,7 +37,12 @@ import CreateRelatory from './pdf/relatory';
 
 export { SendEmail, CreateRelatory };
 
-export { createUserService, LoginUserService };
+export {
+  createUserService,
+  LoginUserService,
+  DeleteUserService,
+  UpdateUserService,
+};
 
 export {
   UpdateAdminService,
@@ -60,7 +68,7 @@ export {
   GetOneSaleService,
 };
 
-export { RegisterResourcesOnSale, SaleValueToBalance };
+export { RegisterResourcesOnSale, SaleValueToBalance, UpdateResourcesQuantity };
 
 export {
   CreateResourceService,

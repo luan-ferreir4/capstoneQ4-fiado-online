@@ -1,14 +1,9 @@
-import { ResourceRepository } from '../../repositories/resource';
+import { Request } from 'express';
 import { Resource } from '../../entities';
 
 class GetAllResourceService {
-  async execute(): Promise<Resource[]> {
-    const resourceRepository = new ResourceRepository();
-
-    const resourcesList: Resource[] =
-      await resourceRepository.getAllResourcers();
-
-    return resourcesList;
+  async execute(req: Request): Promise<Resource[]> {
+    return req.user.resources;
   }
 }
 

@@ -1,6 +1,6 @@
 import PDF from 'handlebars-pdf';
 import fs from 'fs';
-import { ResourceRepository, UserRepository } from '../../repositories';
+import { UserRepository } from '../../repositories';
 import { User } from '../../entities';
 
 const htmlCatalogue = fs.readFileSync(

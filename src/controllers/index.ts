@@ -1,12 +1,15 @@
 import createUserController from './user/createUser';
 import loginUserController from './user/loginUser';
 import deleteUserController from './user/deleteUser';
+import deleteUserByIdController from './user/deleteUserById';
 import updateUserController from './user/upgradeUser';
+import updateUserByIdController from './user/upgradeUserById';
 import getUserProfileController from './user/getUserProfile';
 import sendCatalogueByEmailController from './user/sendCatalogue';
+import getAllUsersController from './user/getAllUsers';
 
 import createCustomerController from './customer/createCustomer';
-import deleteCustomerController from './customer/deleteCustomer';
+import deleteCustomerController from './customer/deleteCustomers';
 import getAllCustomersController from './customer/getAllCustomers';
 import updateCustomerController from './customer/updateCustomer';
 import getOneCustomerController from './customer/getOneCustomer';
@@ -38,9 +41,12 @@ export {
   createUserController,
   loginUserController,
   deleteUserController,
+  deleteUserByIdController,
   updateUserController,
+  updateUserByIdController,
   getUserProfileController,
   sendCatalogueByEmailController,
+  getAllUsersController,
 };
 
 export {

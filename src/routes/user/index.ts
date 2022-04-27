@@ -6,14 +6,20 @@ import {
   loginUserController,
   sendCatalogueByEmailController,
   updateUserController,
+  updateUserByIdController,
+  getAllUsersController,
+  deleteUserByIdController,
 } from '../../controllers';
+import getUserProfileByIdController from '../../controllers/user/getUserProfileById';
 
 import {
   validateShape,
   checkLogin,
   authUser,
-  verifyEmailAlreadyExists,
+  verifyResquestBodyToUpdateMiddleware,
+  authAdmin,
 } from '../../middlewares';
+
 import {
   createUserShape,
   loginUserShape,
@@ -28,6 +34,7 @@ userRouter.post(
   validateShape(createUserShape),
   createUserController
 );
+
 userRouter.post(
   '/login',
   validateShape(loginUserShape),
@@ -39,9 +46,9 @@ userRouter.get('/profile', authUser, getUserProfileController);
 
 userRouter.patch(
   '/profile',
-  validateShape(upgradeUserShape),
-  verifyEmailAlreadyExists,
   authUser,
+  verifyResquestBodyToUpdateMiddleware('user'),
+  validateShape(upgradeUserShape),
   updateUserController
 );
 
@@ -53,4 +60,18 @@ userRouter.post(
   authUser,
   sendCatalogueByEmailController
 );
+userRouter.get('', authAdmin, getAllUsersController);
+
+userRouter.get('/:id_user', authAdmin, getUserProfileByIdController);
+
+userRouter.patch(
+  '/:id_user',
+  authAdmin,
+  verifyResquestBodyToUpdateMiddleware('user'),
+  validateShape(upgradeUserShape),
+  updateUserByIdController
+);
+
+userRouter.delete('/:id_user', authAdmin, deleteUserByIdController);
+
 export default userRouter;

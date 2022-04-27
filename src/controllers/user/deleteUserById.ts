@@ -1,19 +1,20 @@
 import { NextFunction, Request, Response } from 'express';
 import { DeleteUserService } from '../../services';
 
-const deleteUserController = async (
+const deleteUserByIdController = async (
   req: Request,
   res: Response,
   next: NextFunction
 ) => {
   try {
-    const authenticateUser = req.user;
+    const { id_user } = req.params;
 
-    await new DeleteUserService().execute(authenticateUser.id_user);
+    await new DeleteUserService().execute(id_user);
 
     return res.status(204).json('');
   } catch (error) {
     return next(error);
   }
 };
-export default deleteUserController;
+
+export default deleteUserByIdController;

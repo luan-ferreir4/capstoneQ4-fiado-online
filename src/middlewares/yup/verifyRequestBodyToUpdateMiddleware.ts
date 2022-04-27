@@ -9,6 +9,15 @@ const verifyResquestBodyToUpdateMiddleware =
     next: NextFunction
   ): void | Response | ErrorHandler | NextFunction => {
     const adminKeys = ['name', 'email', 'password'];
+    const userKeys = [
+      'name',
+      'email',
+      'password',
+      'balance',
+      'weekly_report_day',
+      'monthly_report_day',
+    ];
+
     const keys = Object.keys(req.body);
 
     if (keys.length === 0) {
@@ -27,6 +36,8 @@ const verifyResquestBodyToUpdateMiddleware =
     };
 
     switch (userType) {
+      case 'user':
+        return verifyKeys(userKeys);
       case 'admin':
         return verifyKeys(adminKeys);
       default:
