@@ -34,7 +34,7 @@ class Resource {
   @ManyToOne(() => User, (user: User) => user.resources, {
     onDelete: 'CASCADE',
   })
-  user: string;
+  user: User;
 
   @OneToMany(
     () => ResourceSale,
