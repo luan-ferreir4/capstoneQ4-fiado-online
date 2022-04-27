@@ -5,6 +5,7 @@ import verifyIdResourceExistsMiddleware from './resource/verifyIdResourceExistsM
 import verifyExistingResourceMiddleware from './resource/verifyExistingResourceMiddleware';
 import verifyExistingSale from './sale/verifyExistingSaleMiddleware';
 import verifyExistingCustomer from './sale/verifyExistingCustomerMiddleware';
+import verifyExistingResources from './sale/verifyExistingResourcesMiddlewares';
 import verifyStock from './sale/verifyStockMiddeware';
 import verifyEmailAlreadyExists from './user/verifyEmailAlreadyExists';
 import validateShape from './yup/validateShapeMiddleware';
@@ -20,6 +21,7 @@ export {
   verifyIdResourceExistsMiddleware,
   verifyExistingSale,
   verifyExistingCustomer,
+  verifyExistingResources,
   verifyStock,
   verifyEmailAlreadyExists,
   verifyResquestBodyToUpdateMiddleware,
