@@ -22,9 +22,14 @@ const authUser = async (
       if (error) {
         throw new ErrorHandler(401, 'invalid token.');
       }
+
       const foundUser = usersList.find(
         (user: User) => user.cpf === decoded.cpf
       );
+
+      if (!foundUser) {
+        throw new ErrorHandler(401, 'invalid token');
+      }
 
       req.user = foundUser;
     });
