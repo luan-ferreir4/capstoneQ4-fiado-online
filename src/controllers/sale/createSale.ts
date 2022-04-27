@@ -22,16 +22,14 @@ const createSaleController = async (
   const addSaleValueToBalance = new SaleValueToBalance();
   const updateResourcesQuantity = new UpdateResourcesQuantity();
 
-  const formatedSaleData = await createSaleService.format(
-    saleData,
-    user.id_user
-  );
+  const formatedSaleData = await createSaleService.format(saleData, user);
 
   const newSale: Sale = await createSaleService.execute(formatedSaleData);
 
   const formatedResources = await registerResourcesOnSale.format(
     resources,
-    newSale.id_sale
+    newSale.id_sale,
+    user
   );
 
   await registerResourcesOnSale.execute(formatedResources);
