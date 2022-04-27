@@ -2,7 +2,7 @@ import { Request, Response, NextFunction } from 'express';
 import { ErrorHandler } from '../../utils';
 import { Customer } from '../../entities';
 
-const verifyEmailCustomersMiddleware = async (
+const verifyCustomersEmailMiddleware = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -24,4 +24,4 @@ const verifyEmailCustomersMiddleware = async (
   }
 };
 
-export default verifyEmailCustomersMiddleware;
+export default verifyCustomersEmailMiddleware;

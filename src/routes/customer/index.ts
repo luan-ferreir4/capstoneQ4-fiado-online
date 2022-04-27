@@ -10,7 +10,7 @@ import {
 import {
   authUser,
   validateShape,
-  verifyEmailCustomersMiddleware,
+  verifyCustomersEmailMiddleware,
 } from '../../middlewares';
 import { createCustomerShape, updateCustomerShape } from '../../shapes';
 
@@ -20,7 +20,7 @@ customerRouter.post(
   '/create',
   validateShape(createCustomerShape),
   authUser,
-  verifyEmailCustomersMiddleware,
+  verifyCustomersEmailMiddleware,
   createCustomerController
 );
 customerRouter.get('/user', authUser, getAllCustomersPerUser);
