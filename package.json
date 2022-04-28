@@ -19,6 +19,7 @@
     "pg": "^8.4.0",
     "reflect-metadata": "^0.1.13",
     "typeorm": "0.2.45",
+    "uuid": "^8.3.2",
     "yup": "^0.32.11"
   },
   "devDependencies": {
@@ -30,6 +31,7 @@
     "@types/nodemailer": "^6.4.4",
     "@types/nodemailer-express-handlebars": "^4.0.2",
     "@types/supertest": "^2.0.12",
+    "@types/uuid": "^8.3.4",
     "@types/yup": "^0.29.13",
     "@typescript-eslint/eslint-plugin": "^5.19.0",
     "@typescript-eslint/parser": "^5.19.0",

@@ -6,18 +6,13 @@ import {
   loginUserController,
   sendCatalogueByEmailController,
   updateUserController,
-  updateUserByIdController,
-  getAllUsersController,
-  deleteUserByIdController,
 } from '../../controllers';
-import getUserProfileByIdController from '../../controllers/user/getUserProfileById';
 
 import {
   validateShape,
   checkLogin,
   authUser,
   verifyResquestBodyToUpdateMiddleware,
-  authAdmin,
 } from '../../middlewares';
 
 import {
@@ -60,18 +55,5 @@ userRouter.post(
   authUser,
   sendCatalogueByEmailController
 );
-userRouter.get('/all', authAdmin, getAllUsersController);
-
-userRouter.get('/:id_user', authAdmin, getUserProfileByIdController);
-
-userRouter.patch(
-  '/:id_user',
-  authAdmin,
-  verifyResquestBodyToUpdateMiddleware('user'),
-  validateShape(upgradeUserShape),
-  updateUserByIdController
-);
-
-userRouter.delete('/:id_user', authAdmin, deleteUserByIdController);
 
 export default userRouter;
