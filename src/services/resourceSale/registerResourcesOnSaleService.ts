@@ -11,7 +11,7 @@ class RegisterResourcesOnSale {
     id_sale: string,
     user: User
   ): Promise<any> {
-    const userResourcesInStock = user.resources;
+    const userResourcesInStock = await user.resources;
 
     const promisseResourceSaleList = resourcesList.map(
       async (resourceToSale) => {

@@ -2,21 +2,26 @@ import { Request, Response, NextFunction } from 'express';
 import { ErrorHandler } from '../../utils';
 import { Customer } from '../../entities';
 
-const verifyCustomersEmailMiddleware = async (
+const verifyCustomerOwner = async (
   req: Request,
   res: Response,
   next: NextFunction
 ): Promise<ErrorHandler | void> => {
-  const { user } = req;
-  const { email } = req.body;
   try {
+    const { id_customer } = req.params;
+    const { user } = req;
+
     const userCustomers = user.customers;
+
     const customer: Customer = userCustomers.find(
-      (element) => element.email === email
+      (element) => element.id_customers === id_customer
     );
 
-    if (customer) {
-      throw new ErrorHandler(409, 'Customer e-mail already exists!');
+    if (!customer) {
+      throw new ErrorHandler(
+        403,
+        'User does not have permissions to access this customer!'
+      );
     }
 
     return next();
@@ -25,4 +30,4 @@ const verifyCustomersEmailMiddleware = async (
   }
 };
 
-export default verifyCustomersEmailMiddleware;
+export default verifyCustomerOwner;

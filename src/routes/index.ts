@@ -8,7 +8,14 @@ import relatoryRouter from './relatory';
 
 const router = Router();
 
-router.use('/user', userRouter, salesRouter, resourcesRouter, relatoryRouter);
+router.use(
+  '/user',
+  userRouter,
+  customerRouter,
+  salesRouter,
+  resourcesRouter,
+  relatoryRouter
+);
 router.use('/admin', adminsRouter);
-router.use('/customer', customerRouter);
+
 export default router;

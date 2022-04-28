@@ -1,9 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
-import { Customer } from '../../entities';
-import { CustomerRepository } from '../../repositories';
 import { ErrorHandler } from '../../utils';
 
-const verifyExistingCustomer = async (
+const verifyExistingUserCustomer = async (
   req: Request,
   res: Response,
   next: NextFunction
@@ -12,10 +10,7 @@ const verifyExistingCustomer = async (
     const { user } = req;
     const { customer_email } = req.body;
 
-    const customerRepository = new CustomerRepository();
-
-    const userCustomersList: Customer[] =
-      await customerRepository.getAllPerUser(user);
+    const userCustomersList = user.customers;
 
     const customerFound = userCustomersList.find(
       (customer) => customer.email === customer_email
@@ -31,4 +26,4 @@ const verifyExistingCustomer = async (
   }
 };
 
-export default verifyExistingCustomer;
+export default verifyExistingUserCustomer;

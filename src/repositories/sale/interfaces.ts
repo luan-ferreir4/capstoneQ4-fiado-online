@@ -8,6 +8,8 @@ interface IResourceRequest {
   unit_sold_cost: number;
 }
 
+type updateSaleType = { closed: boolean };
+
 interface ISale {
   id_sale?: string;
   sold_at: Date;
@@ -28,4 +30,4 @@ interface ISaleRepo {
   getOneSale: (id_sale: string) => Promise<Sale>;
 }
 
-export { ISale, ISaleRepo, IResourceRequest };
+export { ISale, updateSaleType, ISaleRepo, IResourceRequest };

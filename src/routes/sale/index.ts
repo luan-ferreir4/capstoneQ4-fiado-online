@@ -10,7 +10,8 @@ import {
 import {
   authUser,
   validateShape,
-  verifyExistingCustomer,
+  verifyExistingUserCustomer,
+  verifyExistingResources,
   verifyExistingSale,
   verifyStock,
 } from '../../middlewares';
@@ -23,20 +24,21 @@ salesRouter.post(
   '/sales',
   authUser,
   validateShape(createSaleShape),
-  verifyExistingCustomer,
+  verifyExistingUserCustomer,
+  verifyExistingResources,
   verifyStock,
   createSaleController
 );
 
 salesRouter.patch(
-  '/:id_sale/sales',
+  '/sales/:id_sale',
   authUser,
   verifyExistingSale,
   updateSaleController
 );
 
 salesRouter.delete(
-  '/:id_sale/sales',
+  '/sales/:id_sale',
   authUser,
   verifyExistingSale,
   deleteSaleController
@@ -45,7 +47,7 @@ salesRouter.delete(
 salesRouter.get('/sales', authUser, getAllSalesController);
 
 salesRouter.get(
-  '/:id_sale/sales',
+  '/sales/:id_sale',
   authUser,
   verifyExistingSale,
   getOneSaleController

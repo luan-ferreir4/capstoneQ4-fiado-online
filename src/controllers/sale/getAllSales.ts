@@ -1,12 +1,14 @@
 import { Request, Response } from 'express';
 import { Sale } from '../../entities';
-import { GetAllSalesService } from '../../services';
+import { GetAllUserSalesService } from '../../services';
 
 const getAllSalesController = async (
   req: Request,
   res: Response
 ): Promise<Response> => {
-  const salesList: Sale[] = await new GetAllSalesService().execute();
+  const { user } = req;
+
+  const salesList: Sale[] = await new GetAllUserSalesService().execute(user);
 
   return res.status(200).json(salesList);
 };

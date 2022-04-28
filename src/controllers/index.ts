@@ -10,10 +10,9 @@ import getAllUsersController from './user/getAllUsers';
 
 import createCustomerController from './customer/createCustomer';
 import deleteCustomerController from './customer/deleteCustomers';
-import getAllCustomersController from './customer/getAllCustomers';
 import updateCustomerController from './customer/updateCustomer';
 import getOneCustomerController from './customer/getOneCustomer';
-import getAllCustomersPerUser from './customer/getAllCustomersPerUser';
+import getAllUserCustomer from './customer/getAllUserCustomer';
 
 import createSaleController from './sale/createSale';
 import deleteSaleController from './sale/deleteSale';
@@ -31,7 +30,7 @@ import deleteAdminController from './admin/deleteAdmin';
 import createResourceController from './resource/createResource';
 import deleteResourceController from './resource/deleteResource';
 import getOneResourceController from './resource/getOneResource';
-import getAllResourcesController from './resource/getAllResources';
+import getAllUserResourcesController from './resource/getAllUserResources';
 import updateResourcesController from './resource/updateResource';
 
 import createRelatoryController from './relatory/createRelatory';
@@ -52,10 +51,9 @@ export {
 export {
   createCustomerController,
   deleteCustomerController,
-  getAllCustomersController,
   updateCustomerController,
   getOneCustomerController,
-  getAllCustomersPerUser,
+  getAllUserCustomer,
 };
 
 export {
@@ -79,6 +77,6 @@ export {
   createResourceController,
   deleteResourceController,
   getOneResourceController,
-  getAllResourcesController,
+  getAllUserResourcesController,
   updateResourcesController,
 };
