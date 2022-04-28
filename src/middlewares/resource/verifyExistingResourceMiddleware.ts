@@ -8,10 +8,11 @@ const verifyExistingResourceMiddleware = async (
   next: NextFunction
 ): Promise<ErrorHandler | void> => {
   const { resource_name } = req.validated;
+  const { user } = req;
   try {
     const name = regulateNames(resource_name);
 
-    const userResourcesList: Resource[] = await req.user.resources;
+    const userResourcesList = await user.resources;
 
     const resourceFound: Resource = userResourcesList.find(
       (resource) => resource.name === name
