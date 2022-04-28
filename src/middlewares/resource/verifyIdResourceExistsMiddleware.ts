@@ -8,8 +8,12 @@ const verifyIdResourceExistsMiddleware = async (
   next: NextFunction
 ): Promise<ErrorHandler | void> => {
   const { id_resource } = req.params;
-  const { resources } = req.user;
   try {
+    const resources: Resource[] = await req.user.resources;
+
+    console.log('*********************************');
+    console.log(resources);
+
     const resourceFound: Resource = resources.find(
       (resource) => resource.id_resource === id_resource
     );
