@@ -4,6 +4,8 @@ import {
   Column,
   OneToMany,
   ManyToOne,
+  JoinColumn,
+  JoinTable,
 } from 'typeorm';
 import Customer from './Customer';
 
@@ -29,6 +31,7 @@ class Sale {
 
   @ManyToOne(() => Customer, (customer: Customer) => customer.sales, {
     onDelete: 'CASCADE',
+    eager: true,
   })
   customer: Customer;
 

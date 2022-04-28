@@ -27,6 +27,9 @@ class SaleRepository implements ISaleRepo {
 
   getAllSales = async () => await this.ormRepository.find();
 
+  getAllSalesPerCustomer = async (id_customers) =>
+    await this.ormRepository.find(id_customers);
+
   getOneSale = async (id_sale: string) =>
     await this.ormRepository.findOne({ id_sale });
 }
