@@ -14,14 +14,12 @@ class CronVerifyService {
 
         new CreateRelatory().execute(currentUser);
         new SendEmail().register(currentUser, relatoryOptionsEmail);
-        return 0;
       }
       if (e.monthly_report_day === date.getDate()) {
         const currentUser = await new FilterDays().byMonth(e, date, 30);
 
         new CreateRelatory().execute(currentUser);
         new SendEmail().register(currentUser, relatoryOptionsEmail);
-        return 0;
       }
     });
 
