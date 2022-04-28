@@ -31,7 +31,7 @@ import deleteAdminController from './admin/deleteAdmin';
 import createResourceController from './resource/createResource';
 import deleteResourceController from './resource/deleteResource';
 import getOneResourceController from './resource/getOneResource';
-import getAllResourcesController from './resource/getAllResources';
+import getAllUserResourcesController from './resource/getAllUserResources';
 import updateResourcesController from './resource/updateResource';
 
 import createRelatoryController from './relatory/createRelatory';
@@ -79,6 +79,6 @@ export {
   createResourceController,
   deleteResourceController,
   getOneResourceController,
-  getAllResourcesController,
+  getAllUserResourcesController,
   updateResourcesController,
 };
