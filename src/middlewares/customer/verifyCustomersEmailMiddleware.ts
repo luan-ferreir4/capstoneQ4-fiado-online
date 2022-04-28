@@ -7,10 +7,11 @@ const verifyCustomersEmailMiddleware = async (
   res: Response,
   next: NextFunction
 ): Promise<ErrorHandler | void> => {
-  const { customers } = req.user;
+  const { user } = req;
   const { email } = req.body;
   try {
-    const customer: Customer = customers.find(
+    const userCustomers = await user.customers;
+    const customer: Customer = userCustomers.find(
       (element) => element.email === email
     );
 
