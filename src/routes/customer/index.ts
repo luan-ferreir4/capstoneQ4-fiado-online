@@ -35,9 +35,10 @@ customerRouter.get(
 
 customerRouter.patch(
   '/customers/:id_customer',
-  validateShape(updateCustomerShape),
   authUser,
+  validateShape(updateCustomerShape),
   verifyCustomerOwner,
+  verifyCustomersEmailMiddleware,
   updateCustomerController
 );
 
