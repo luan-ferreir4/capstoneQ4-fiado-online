@@ -19,13 +19,13 @@ const updateAdminController = async (
 
     const updatedAdmin = await new UpdateAdminService().execute(req);
 
-    return res.status(201).json(hidePassword(updatedAdmin));
+    return res.status(200).json(hidePassword(updatedAdmin));
   } catch (error) {
     const { detail } = error as IDetail;
 
     if (error instanceof QueryFailedError) {
       if (detail.includes('already exists')) {
-        return res.status(400).json({ message: 'E-mail already registered' });
+        return res.status(404).json({ message: 'E-mail already registered' });
       }
     }
 
