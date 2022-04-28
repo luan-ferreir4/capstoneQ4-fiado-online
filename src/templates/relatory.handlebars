@@ -6,7 +6,8 @@
     <style>
       h2 { text-align: center; }
       table {
-        width: 100%;
+        width: 90%;
+        margin: 10px auto;
       }
       table td {
         text-align: right;
@@ -18,7 +19,7 @@
     </style>
   </head>
   <body>
-    <h2>Aqui seu Relatorio {{name.name}}</h2>
+    <h2>Aqui seu Relatorio {{name}}</h2>
     <p><strong>Clientes:</strong></p>
     <table border="1">
       <tr>
@@ -28,8 +29,8 @@
       </tr>
       {{#each customers}}
       <tr>
-      <td>{{this.name}}</td>
-      <td>Qnt. Vendas </td>
+      <td>{{customer}}</td>
+      <td>{{customerSalesList.length}}</td>
       <td>Saldo</td>
       </tr>
       {{/each}}
@@ -39,6 +40,27 @@
         <td class="result">Saldo Total</td>
       </tr>
     </table>
+    <p><strong>Meus Produtos:</strong></p>
+    <table border='1'>
+      <tr>
+        <th>Produtos</th>
+        <th>Preços</th>
+        <th>Estoque</th>
+      </tr>
+      {{#each resources}}
+        <tr>
+          <td>{{name}}</td>
+          <td>R$: {{unit_cost}}</td>
+          <td>{{this.units}}</td>
+        </tr>
+      {{/each}}
+        <tr>
+          <td class="result">Total em Produtos</td>
+          <td class="result">Valor R$: {{priceResources}}</td>
+          <td class="result">Qnt Items: {{countResources}}</td>
+        </tr>
+    </table>
+  
   </body>
 
 </html>
