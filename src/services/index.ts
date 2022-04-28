@@ -10,7 +10,7 @@ import LoginAdminService from './admin/loginAdminService';
 
 import CreateCustomerService from './customer/createCustomerService';
 import DeleteCustomerService from './customer/deleteCustomerService';
-import GetAllCustomersPerUserService from './customer/getAllCustomerPerUserService';
+import GetAllUserCustomerService from './customer/getAllUserCustomerService';
 import GetAllCustomersService from './customer/getAllCustomersService';
 import UpdateCustomerService from './customer/updateCustomerService';
 import GetOneCustomerService from './customer/getOneCustomerService';
@@ -18,7 +18,7 @@ import GetOneCustomerService from './customer/getOneCustomerService';
 import CreateSaleService from './sale/createSaleService';
 import UpdateSaleService from './sale/updateSaleService';
 import DeleteSaleService from './sale/deleteSaleService';
-import GetAllSalesService from './sale/getAllSalesService';
+import GetAllUserSalesService from './sale/getAllUserSalesService';
 import GetOneSaleService from './sale/getOneSaleService';
 
 import RegisterResourcesOnSale from './resourceSale/registerResourcesOnSaleService';
@@ -27,7 +27,7 @@ import UpdateResourcesQuantity from './resourceSale/updateResourcesQuantityServi
 
 import DeleteResourceService from './resource/deleteResourceService';
 import CreateResourceService from './resource/createResourceService';
-import GetAllResourceService from './resource/getAllResourceService';
+import GetAllUserResourceService from './resource/getAllUserResourceService';
 import GetOneResourceService from './resource/getOneResourceService';
 import FormatResourceService from './resource/formatResourceService';
 import UpdateResourceService from './resource/updateResourceService';
@@ -56,7 +56,7 @@ export {
   CreateCustomerService,
   DeleteCustomerService,
   UpdateCustomerService,
-  GetAllCustomersPerUserService,
+  GetAllUserCustomerService,
   GetAllCustomersService,
   GetOneCustomerService,
 };
@@ -65,7 +65,7 @@ export {
   CreateSaleService,
   UpdateSaleService,
   DeleteSaleService,
-  GetAllSalesService,
+  GetAllUserSalesService,
   GetOneSaleService,
 };
 
@@ -74,7 +74,7 @@ export { RegisterResourcesOnSale, SaleValueToBalance, UpdateResourcesQuantity };
 export {
   CreateResourceService,
   DeleteResourceService,
-  GetAllResourceService,
+  GetAllUserResourceService,
   GetOneResourceService,
   FormatResourceService,
   UpdateResourceService,

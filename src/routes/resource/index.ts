@@ -11,7 +11,7 @@ import {
   createResourceController,
   deleteResourceController,
   getOneResourceController,
-  getAllResourcesController,
+  getAllUserResourcesController,
   updateResourcesController,
 } from '../../controllers';
 
@@ -24,7 +24,9 @@ resourcesRouter.post(
   verifyExistingResourceMiddleware,
   createResourceController
 );
-resourcesRouter.get('/resources', authUser, getAllResourcesController);
+
+resourcesRouter.get('/resources/all', authUser, getAllUserResourcesController);
+
 resourcesRouter.get(
   '/:id_resource/resources',
   authUser,
@@ -32,6 +34,7 @@ resourcesRouter.get(
   verifyResourceOwnerMiddleware,
   getOneResourceController
 );
+
 resourcesRouter.patch(
   '/:id_resource/resources',
   authUser,
@@ -40,6 +43,7 @@ resourcesRouter.patch(
   verifyResourceOwnerMiddleware,
   updateResourcesController
 );
+
 resourcesRouter.delete(
   '/:id_resource/resources',
   authUser,

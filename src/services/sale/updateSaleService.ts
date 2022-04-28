@@ -7,7 +7,7 @@ class UpdateSaleService {
 
     const saleToupdate: Sale = await saleRepository.getOneSale(id_sale);
 
-    saleToupdate.closed = true;
+    await saleRepository.updateSale(id_sale, { closed: true });
 
     return saleToupdate;
   }

@@ -15,8 +15,6 @@ class CustomerRepository implements ICustomerRepository {
     await this.ormRepository.save(CustomerData);
 
   getAllCustomers = async () => await this.ormRepository.find();
-  getAllPerUser = async (user) =>
-    await this.ormRepository.find({ where: { user } });
 
   getOneByEmail = async (email: string) =>
     await this.ormRepository.findOne({ where: { email } });
