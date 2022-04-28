@@ -27,7 +27,7 @@ class Customer {
   })
   user: User;
 
-  @OneToMany(() => Sale, (sale: Sale) => sale.customer)
+  @OneToMany(() => Sale, (sale: Sale) => sale.customer, { lazy: true })
   sales: Sale[];
 }
 

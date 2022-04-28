@@ -5,17 +5,40 @@
     <title>Bem-Vindo</title>
     <style>
       h2 { text-align: center; }
+      table {
+        width: 100%;
+      }
+      table td {
+        text-align: right;
+      }
+      .result{
+        background-color: rgb(104, 96, 96);
+        color: white;
+      }
     </style>
   </head>
   <body>
     <h2>Aqui seu Relatorio {{name.name}}</h2>
     <p><strong>Clientes:</strong></p>
-    <ol>
+    <table border="1">
+      <tr>
+        <th>Nome:</th>
+        <th>Negociações:</th>
+        <th>Saldo Devedor:</th>
+      </tr>
       {{#each customers}}
-        <li>{{this.name}}</li>
+      <tr>
+      <td>{{this.name}}</td>
+      <td>Qnt. Vendas </td>
+      <td>Saldo</td>
+      </tr>
       {{/each}}
-    </ol>
-    <p>um exemplo do que vai ter aqui</p>
+      <tr>
+        <td class="result">{{customers.length}} Clientes</td>
+        <td class="result">Total de Vendas</td>
+        <td class="result">Saldo Total</td>
+      </tr>
+    </table>
   </body>
 
 </html>
