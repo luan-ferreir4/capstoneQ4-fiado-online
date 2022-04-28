@@ -60,7 +60,7 @@ userRouter.post(
   authUser,
   sendCatalogueByEmailController
 );
-userRouter.get('', authAdmin, getAllUsersController);
+userRouter.get('/all', authAdmin, getAllUsersController);
 
 userRouter.get('/:id_user', authAdmin, getUserProfileByIdController);
 
