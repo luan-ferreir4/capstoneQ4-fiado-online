@@ -7,11 +7,13 @@ const verifyResourceOwnerMiddleware = async (
   res: Response,
   next: NextFunction
 ): Promise<ErrorHandler | void> => {
-  const { id_resource } = req.params;
   try {
-    const resources: Resource[] = await req.user.resources;
+    const { id_resource } = req.params;
+    const { user } = req;
 
-    const resource: Resource = resources.find(
+    const userResources = await user.resources;
+
+    const resource: Resource = userResources.find(
       (element) => element.id_resource === id_resource
     );
 

@@ -1,25 +1,21 @@
 import { Request, Response, NextFunction } from 'express';
 import { ErrorHandler } from '../../utils';
 import { Resource } from '../../entities';
+import { ResourceRepository } from '../../repositories';
 
 const verifyIdResourceExistsMiddleware = async (
   req: Request,
   res: Response,
   next: NextFunction
 ): Promise<ErrorHandler | void> => {
-  const { id_resource } = req.params;
   try {
-    const resources: Resource[] = await req.user.resources;
+    const { id_resource } = req.params;
 
-    console.log('*********************************');
-    console.log(resources);
-
-    const resourceFound: Resource = resources.find(
-      (resource) => resource.id_resource === id_resource
-    );
+    const resourceFound: Resource =
+      await new ResourceRepository().getOneResource(id_resource);
 
     if (!resourceFound) {
-      throw new ErrorHandler(409, 'Resource not exists!');
+      throw new ErrorHandler(409, 'Resource do not exists!');
     }
 
     return next();

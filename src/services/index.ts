@@ -27,7 +27,7 @@ import UpdateResourcesQuantity from './resourceSale/updateResourcesQuantityServi
 
 import DeleteResourceService from './resource/deleteResourceService';
 import CreateResourceService from './resource/createResourceService';
-import GetAllResourceService from './resource/getAllResourceService';
+import GetAllUserResourceService from './resource/getAllUserResourceService';
 import GetOneResourceService from './resource/getOneResourceService';
 import FormatResourceService from './resource/formatResourceService';
 import UpdateResourceService from './resource/updateResourceService';
@@ -73,7 +73,7 @@ export { RegisterResourcesOnSale, SaleValueToBalance, UpdateResourcesQuantity };
 export {
   CreateResourceService,
   DeleteResourceService,
-  GetAllResourceService,
+  GetAllUserResourceService,
   GetOneResourceService,
   FormatResourceService,
   UpdateResourceService,
