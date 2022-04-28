@@ -18,7 +18,7 @@ import GetOneCustomerService from './customer/getOneCustomerService';
 import CreateSaleService from './sale/createSaleService';
 import UpdateSaleService from './sale/updateSaleService';
 import DeleteSaleService from './sale/deleteSaleService';
-import GetAllSalesService from './sale/getAllSalesService';
+import GetAllUserSalesService from './sale/getAllUserSalesService';
 import GetOneSaleService from './sale/getOneSaleService';
 
 import RegisterResourcesOnSale from './resourceSale/registerResourcesOnSaleService';
@@ -64,7 +64,7 @@ export {
   CreateSaleService,
   UpdateSaleService,
   DeleteSaleService,
-  GetAllSalesService,
+  GetAllUserSalesService,
   GetOneSaleService,
 };
 
