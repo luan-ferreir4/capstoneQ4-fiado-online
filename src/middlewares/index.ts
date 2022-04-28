@@ -12,6 +12,7 @@ import validateShape from './yup/validateShapeMiddleware';
 import verifyResquestBodyToUpdateMiddleware from './yup/verifyRequestBodyToUpdateMiddleware';
 import verifyCustomersEmailMiddleware from './customer/verifyCustomersEmailMiddleware';
 import verifyResourceOwnerMiddleware from './resource/veifyResourceOwnerMiddleware';
+import validateUuidMiddleware from './uuid/validateUuidMiddleware';
 
 export {
   authUser,
@@ -28,4 +29,5 @@ export {
   validateShape,
   verifyCustomersEmailMiddleware,
   verifyResourceOwnerMiddleware,
+  validateUuidMiddleware,
 };

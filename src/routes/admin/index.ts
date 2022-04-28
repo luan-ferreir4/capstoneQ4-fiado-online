@@ -18,6 +18,7 @@ import {
   validateShape,
   authAdmin,
   verifyResquestBodyToUpdateMiddleware,
+  validateUuidMiddleware,
 } from '../../middlewares';
 
 import {
@@ -48,10 +49,16 @@ adminsRouter.patch(
   authAdmin,
   verifyResquestBodyToUpdateMiddleware(),
   validateShape(updateAdmin),
+  validateUuidMiddleware,
   updateAdminController
 );
 
-adminsRouter.delete('/:id_admin', authAdmin, deleteAdminController);
+adminsRouter.delete(
+  '/:id_admin',
+  authAdmin,
+  validateUuidMiddleware,
+  deleteAdminController
+);
 
 //  Admin Routes
 
@@ -59,17 +66,28 @@ adminsRouter.delete('/:id_admin', authAdmin, deleteAdminController);
 
 adminsRouter.get('/user/all', authAdmin, getAllUsersController);
 
-adminsRouter.get('/user/:id_user', authAdmin, getUserProfileByIdController);
+adminsRouter.get(
+  '/user/:id_user',
+  authAdmin,
+  validateUuidMiddleware,
+  getUserProfileByIdController
+);
 
 adminsRouter.patch(
   '/user/:id_user',
   authAdmin,
   verifyResquestBodyToUpdateMiddleware('user'),
   validateShape(upgradeUserShape),
+  validateUuidMiddleware,
   updateUserByIdController
 );
 
-adminsRouter.delete('/user/:id_user', authAdmin, deleteUserByIdController);
+adminsRouter.delete(
+  '/user/:id_user',
+  authAdmin,
+  validateUuidMiddleware,
+  deleteUserByIdController
+);
 
 //  Admin User Routes
 

@@ -12,7 +12,7 @@ class UpdateAdminService {
     );
 
     if (updateAdminResult.affected === 0) {
-      throw new ErrorHandler(404, 'User not found');
+      throw new ErrorHandler(404, 'Admin not found');
     }
 
     const updatedAdmin = await new AdminsRepository().getOneAdminById(id_admin);
