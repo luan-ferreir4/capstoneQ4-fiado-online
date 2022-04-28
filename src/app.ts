@@ -1,10 +1,20 @@
 /* eslint-disable no-unused-vars */
 import express, { NextFunction, Request, Response } from 'express';
+import { CronJob } from 'cron';
+
 import dotenv from 'dotenv';
 import router from './routes';
 import { ErrorHandler, handleErrors } from './utils';
+import { CronVerifyService } from '../src/services';
 
 dotenv.config();
+
+const timer = process.env.CRON_EMAIL_TIME;
+
+const job = new CronJob(timer, function () {
+  new CronVerifyService().execute();
+});
+// job.start();
 
 const app = express();
 app.use(express.json());
