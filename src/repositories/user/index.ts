@@ -12,7 +12,9 @@ class UserRepository implements IUserRepo {
   createUser = (requestDataUser: IUser) =>
     this.ormRepository.create(requestDataUser);
   saveUser = async (user: IUser) => await this.ormRepository.save(user);
+
   deleteUser = async (id: string) => await this.ormRepository.delete(id);
+
   updateUser = async (id_user: string, data: any) => {
     return await this.ormRepository.update(id_user, {
       ...data,
