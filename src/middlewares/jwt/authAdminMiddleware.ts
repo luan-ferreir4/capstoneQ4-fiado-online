@@ -21,7 +21,7 @@ const authAdmin = async (
       }
 
       if (!decoded.isAdm) {
-        throw new ErrorHandler(401, 'Not authorizade');
+        throw new ErrorHandler(401, 'Not authorized');
       }
 
       req.admin = decoded;
