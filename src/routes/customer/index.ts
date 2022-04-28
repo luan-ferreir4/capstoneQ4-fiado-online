@@ -2,8 +2,7 @@ import { Router } from 'express';
 import {
   createCustomerController,
   deleteCustomerController,
-  getAllCustomersController,
-  getAllCustomersPerUser,
+  getAllUserCustomer,
   getOneCustomerController,
   updateCustomerController,
 } from '../../controllers';
@@ -17,21 +16,32 @@ import { createCustomerShape, updateCustomerShape } from '../../shapes';
 const customerRouter = Router();
 
 customerRouter.post(
-  '/create',
+  '/customers/create',
   validateShape(createCustomerShape),
   authUser,
   verifyCustomersEmailMiddleware,
   createCustomerController
 );
-customerRouter.get('/user', authUser, getAllCustomersPerUser);
-customerRouter.get('', authUser, getAllCustomersController);
-customerRouter.get('/:id_customer', authUser, getOneCustomerController);
+
+customerRouter.get('/customers/all', authUser, getAllUserCustomer);
+
+customerRouter.get(
+  '/customers/:id_customer',
+  authUser,
+  getOneCustomerController
+);
+
 customerRouter.patch(
-  '/:id_customer',
+  '/customers/:id_customer',
   validateShape(updateCustomerShape),
   authUser,
   updateCustomerController
 );
-customerRouter.delete('/:id_customer', authUser, deleteCustomerController);
+
+customerRouter.delete(
+  '/customers/:id_customer',
+  authUser,
+  deleteCustomerController
+);
 
 export default customerRouter;
