@@ -10,7 +10,7 @@ const verifyCustomersEmailMiddleware = async (
   const { user } = req;
   const { email } = req.body;
   try {
-    const userCustomers = await user.customers;
+    const userCustomers = user.customers;
     const customer: Customer = userCustomers.find(
       (element) => element.email === email
     );

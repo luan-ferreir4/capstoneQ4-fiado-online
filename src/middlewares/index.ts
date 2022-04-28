@@ -3,16 +3,16 @@ import authUser from './jwt/authUserMiddleware';
 import checkLogin from './jwt/checkLoginMiddleware';
 
 import verifyIdResourceExistsMiddleware from './resource/verifyIdResourceExistsMiddleware';
-import verifyExistingResources from './sale/verifyExistingResourcesMiddlewares';
+import verifyExistingResourceMiddleware from './resource/verifyExistingResourceMiddleware';
 import verifyResourceOwnerMiddleware from './resource/veifyResourceOwnerMiddleware';
 
-import verifyExistingCustomer from './sale/verifyExistingCustomerMiddleware';
 import verifyCustomersEmailMiddleware from './customer/verifyCustomersEmailMiddleware';
 import verifyCustomerOwner from './customer/verifyCustomerOwnerMiddleware';
 
 import verifyExistingSale from './sale/verifyExistingSaleMiddleware';
-import verifyExistingResourceMiddleware from './resource/verifyExistingResourceMiddleware';
+import verifyExistingResources from './sale/verifyExistingResourcesMiddlewares';
 import verifyStock from './sale/verifyStockMiddeware';
+import verifyExistingUserCustomer from './sale/verifyExistingUserCustomerMiddleware';
 
 import verifyEmailAlreadyExists from './user/verifyEmailAlreadyExists';
 import verifyResquestBodyToUpdateMiddleware from './yup/verifyRequestBodyToUpdateMiddleware';
@@ -28,13 +28,14 @@ export {
   verifyResourceOwnerMiddleware,
 };
 
-export {
-  verifyExistingCustomer,
-  verifyCustomersEmailMiddleware,
-  verifyCustomerOwner,
-};
+export { verifyCustomersEmailMiddleware, verifyCustomerOwner };
 
-export { verifyExistingSale, verifyExistingResources, verifyStock };
+export {
+  verifyExistingSale,
+  verifyExistingResources,
+  verifyExistingUserCustomer,
+  verifyStock,
+};
 
 export { verifyEmailAlreadyExists, verifyResquestBodyToUpdateMiddleware };
 

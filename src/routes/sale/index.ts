@@ -10,7 +10,7 @@ import {
 import {
   authUser,
   validateShape,
-  verifyExistingCustomer,
+  verifyExistingUserCustomer,
   verifyExistingResources,
   verifyExistingSale,
   verifyStock,
@@ -24,7 +24,7 @@ salesRouter.post(
   '/sales',
   authUser,
   validateShape(createSaleShape),
-  verifyExistingCustomer,
+  verifyExistingUserCustomer,
   verifyExistingResources,
   verifyStock,
   createSaleController
