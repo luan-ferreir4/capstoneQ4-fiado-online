@@ -38,7 +38,7 @@ class Sale {
   @OneToMany(
     () => ResourceSale,
     (resources_sales: ResourceSale) => resources_sales.sale,
-    { lazy: true }
+    { eager: true }
   )
   resources_sales!: ResourceSale[];
 }
