@@ -2,14 +2,14 @@ import { Router } from 'express';
 import {
   createCustomerController,
   deleteCustomerController,
-  getAllCustomersController,
-  getAllCustomersPerUser,
+  getAllUserCustomer,
   getOneCustomerController,
   updateCustomerController,
 } from '../../controllers';
 import {
   authUser,
   validateShape,
+  verifyCustomerOwner,
   verifyCustomersEmailMiddleware,
   verifyResquestBodyToUpdateMiddleware,
 } from '../../middlewares';
@@ -18,22 +18,37 @@ import { createCustomerShape, updateCustomerShape } from '../../shapes';
 const customerRouter = Router();
 
 customerRouter.post(
-  '/create',
+  '/customers/create',
   validateShape(createCustomerShape),
   authUser,
   verifyCustomersEmailMiddleware,
   createCustomerController
 );
-customerRouter.get('/user', authUser, getAllCustomersPerUser);
-customerRouter.get('', authUser, getAllCustomersController);
-customerRouter.get('/:id_customer', authUser, getOneCustomerController);
+
+customerRouter.get('/customers/all', authUser, getAllUserCustomer);
+
+customerRouter.get(
+  '/customers/:id_customer',
+  authUser,
+  verifyCustomerOwner,
+  getOneCustomerController
+);
+
 customerRouter.patch(
-  '/:id_customer',
+  '/customers/:id_customer',
   verifyResquestBodyToUpdateMiddleware('customer'),
   validateShape(updateCustomerShape),
   authUser,
+  verifyCustomerOwner,
+  verifyCustomersEmailMiddleware,
   updateCustomerController
 );
-customerRouter.delete('/:id_customer', authUser, deleteCustomerController);
+
+customerRouter.delete(
+  '/customers/:id_customer',
+  authUser,
+  verifyCustomerOwner,
+  deleteCustomerController
+);
 
 export default customerRouter;

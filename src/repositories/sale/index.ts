@@ -1,6 +1,11 @@
 import { getRepository, Repository } from 'typeorm';
 import { Sale } from '../../entities';
-import { ISale, ISaleRepo, IResourceRequest } from './interfaces';
+import {
+  ISale,
+  ISaleRepo,
+  IResourceRequest,
+  updateSaleType,
+} from './interfaces';
 
 class SaleRepository implements ISaleRepo {
   private ormRepository: Repository<Sale>;
@@ -14,10 +19,16 @@ class SaleRepository implements ISaleRepo {
 
   saveSale = async (saleData: Sale) => await this.ormRepository.save(saleData);
 
+  updateSale = async (id_sale: string, saleData: updateSaleType) =>
+    await this.ormRepository.update({ id_sale }, saleData);
+
   deleteSale = async (id_sale: string) =>
     await this.ormRepository.delete({ id_sale });
 
   getAllSales = async () => await this.ormRepository.find();
+
+  getAllSalesPerCustomer = async (id_customers) =>
+    await this.ormRepository.find(id_customers);
 
   getOneSale = async (id_sale: string) =>
     await this.ormRepository.findOne({ id_sale });
