@@ -11,6 +11,7 @@ import {
   authUser,
   validateShape,
   verifyCustomersEmailMiddleware,
+  verifyResquestBodyToUpdateMiddleware,
 } from '../../middlewares';
 import { createCustomerShape, updateCustomerShape } from '../../shapes';
 
@@ -28,6 +29,7 @@ customerRouter.get('', authUser, getAllCustomersController);
 customerRouter.get('/:id_customer', authUser, getOneCustomerController);
 customerRouter.patch(
   '/:id_customer',
+  verifyResquestBodyToUpdateMiddleware('customer'),
   validateShape(updateCustomerShape),
   authUser,
   updateCustomerController

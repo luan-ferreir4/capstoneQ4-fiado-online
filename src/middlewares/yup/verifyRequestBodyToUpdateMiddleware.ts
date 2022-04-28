@@ -9,6 +9,7 @@ const verifyResquestBodyToUpdateMiddleware =
     next: NextFunction
   ): void | Response | ErrorHandler | NextFunction => {
     const adminKeys = ['name', 'email', 'password'];
+    const customerKeys = ['name', 'email', 'phone_number'];
     const userKeys = [
       'name',
       'email',
@@ -20,14 +21,10 @@ const verifyResquestBodyToUpdateMiddleware =
 
     const keys = Object.keys(req.body);
 
-    if (keys.length === 0) {
-      throw new ErrorHandler(400, 'empty body request');
-    }
-
     const verifyKeys = (validKeys: string[]) => {
       if (!keys.some((key) => validKeys.some((validKey) => validKey === key))) {
         return res.status(400).json({
-          message: 'invalid body request.',
+          message: 'At least one change is necessary',
           avaliable_keys: validKeys,
         });
       }
@@ -40,6 +37,8 @@ const verifyResquestBodyToUpdateMiddleware =
         return verifyKeys(userKeys);
       case 'admin':
         return verifyKeys(adminKeys);
+      case 'customer':
+        return verifyKeys(customerKeys);
       default:
         return next();
     }
