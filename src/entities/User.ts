@@ -32,14 +32,14 @@ class User {
   @Column({ nullable: true })
   monthly_report_day: number;
 
-  @OneToMany(() => Resource, (resources) => resources.user, { lazy: true })
+  @OneToMany(() => Resource, (resources) => resources.user, { eager: true })
   resources: Resource[];
 
-  @OneToMany(() => Sale, (sale: Sale) => sale.user, { lazy: true })
+  @OneToMany(() => Sale, (sale: Sale) => sale.user, { eager: true })
   sales: Sale[];
 
   @OneToMany(() => Customer, (customer: Customer) => customer.user, {
-    lazy: true,
+    eager: true,
   })
   customers: Customer[];
 }

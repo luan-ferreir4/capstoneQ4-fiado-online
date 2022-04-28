@@ -34,7 +34,7 @@ import UpdateResourceService from './resource/updateResourceService';
 
 import SendEmail from './mailer/mailerService';
 import CreateRelatory from './pdf/relatory';
-import CronVerifyService from './mailer/cronVerify';
+import CronVerifyService from './cron/cronVerify';
 
 export { SendEmail, CreateRelatory, CronVerifyService };
 
