@@ -9,6 +9,7 @@ import {
 import {
   authUser,
   validateShape,
+  verifyCustomerOwner,
   verifyCustomersEmailMiddleware,
 } from '../../middlewares';
 import { createCustomerShape, updateCustomerShape } from '../../shapes';
@@ -28,6 +29,7 @@ customerRouter.get('/customers/all', authUser, getAllUserCustomer);
 customerRouter.get(
   '/customers/:id_customer',
   authUser,
+  verifyCustomerOwner,
   getOneCustomerController
 );
 
@@ -35,12 +37,14 @@ customerRouter.patch(
   '/customers/:id_customer',
   validateShape(updateCustomerShape),
   authUser,
+  verifyCustomerOwner,
   updateCustomerController
 );
 
 customerRouter.delete(
   '/customers/:id_customer',
   authUser,
+  verifyCustomerOwner,
   deleteCustomerController
 );
 

@@ -39,7 +39,7 @@ class User {
   sales: Sale[];
 
   @OneToMany(() => Customer, (customer: Customer) => customer.user, {
-    lazy: true,
+    eager: true,
   })
   customers: Customer[];
 }
