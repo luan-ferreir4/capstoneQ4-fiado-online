@@ -10,7 +10,7 @@ import LoginAdminService from './admin/loginAdminService';
 
 import CreateCustomerService from './customer/createCustomerService';
 import DeleteCustomerService from './customer/deleteCustomerService';
-import GetAllCustomersPerUserService from './customer/getAllCustomerPerUserService';
+import GetAllUserCustomerService from './customer/getAllUserCustomerService';
 import GetAllCustomersService from './customer/getAllCustomersService';
 import UpdateCustomerService from './customer/updateCustomerService';
 import GetOneCustomerService from './customer/getOneCustomerService';
@@ -55,7 +55,7 @@ export {
   CreateCustomerService,
   DeleteCustomerService,
   UpdateCustomerService,
-  GetAllCustomersPerUserService,
+  GetAllUserCustomerService,
   GetAllCustomersService,
   GetOneCustomerService,
 };

@@ -10,10 +10,9 @@ import getAllUsersController from './user/getAllUsers';
 
 import createCustomerController from './customer/createCustomer';
 import deleteCustomerController from './customer/deleteCustomers';
-import getAllCustomersController from './customer/getAllCustomers';
 import updateCustomerController from './customer/updateCustomer';
 import getOneCustomerController from './customer/getOneCustomer';
-import getAllCustomersPerUser from './customer/getAllCustomersPerUser';
+import getAllUserCustomer from './customer/getAllUserCustomer';
 
 import createSaleController from './sale/createSale';
 import deleteSaleController from './sale/deleteSale';
@@ -52,10 +51,9 @@ export {
 export {
   createCustomerController,
   deleteCustomerController,
-  getAllCustomersController,
   updateCustomerController,
   getOneCustomerController,
-  getAllCustomersPerUser,
+  getAllUserCustomer,
 };
 
 export {
