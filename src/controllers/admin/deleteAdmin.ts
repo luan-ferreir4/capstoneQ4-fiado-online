@@ -13,7 +13,7 @@ const deleteAdminController = async (
     const { admin } = req;
 
     if (id_admin !== admin.id_admin) {
-      throw new ErrorHandler(409, 'Not authorized');
+      throw new ErrorHandler(401, 'Not authorized');
     }
 
     const deleteResult = await new DeleteAdminService().execute(admin.id_admin);

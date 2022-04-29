@@ -1,7 +1,7 @@
 import { NextFunction, Request, Response } from 'express';
 
 import { UserRepository } from '../../repositories';
-import { ErrorHandler } from '../../utils';
+import { ErrorHandler, hidePassword } from '../../utils';
 
 const getUserProfileByIdController = async (
   req: Request,
@@ -17,7 +17,7 @@ const getUserProfileByIdController = async (
       throw new ErrorHandler(404, 'User not found');
     }
 
-    return res.status(200).json(user);
+    return res.status(200).json(hidePassword(user));
   } catch (error) {
     return next(error);
   }

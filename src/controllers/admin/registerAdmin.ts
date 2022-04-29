@@ -18,7 +18,7 @@ const registerAdminController = async (
 
     if (error instanceof QueryFailedError) {
       if (detail.includes('already exists')) {
-        return res.status(400).json({ message: 'E-mail already registered' });
+        return res.status(409).json({ message: 'E-mail already registered' });
       }
     }
 

@@ -47,7 +47,7 @@ adminsRouter.post('/login', validateShape(loginAdmin), loginAdminController);
 adminsRouter.patch(
   '/:id_admin',
   authAdmin,
-  verifyResquestBodyToUpdateMiddleware(),
+  verifyResquestBodyToUpdateMiddleware('admin'),
   validateShape(updateAdmin),
   validateUuidMiddleware,
   updateAdminController
