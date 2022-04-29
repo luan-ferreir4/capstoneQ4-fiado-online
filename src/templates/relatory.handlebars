@@ -31,26 +31,6 @@
         <td class='result'>Total R$: {{totalDebits}}</td>
       </tr>
     </table>
-    <p><strong>Meus Produtos:</strong></p>
-    <table border='1'>
-      <tr>
-        <th>Produtos</th>
-        <th>Preços</th>
-        <th>Estoque</th>
-      </tr>
-      {{#each resources}}
-        <tr>
-          <td>{{name}}</td>
-          <td>R$: {{unit_cost}}</td>
-          <td>{{this.units}}</td>
-        </tr>
-      {{/each}}
-      <tr>
-        <td class='result'>Total em Produtos</td>
-        <td class='result'>Valor R$: {{priceResources}}</td>
-        <td class='result'>Qnt Items: {{countResources}}</td>
-      </tr>
-    </table>
 
   </body>
 
