@@ -41,7 +41,7 @@ const generateRelatory = (
       totalSales,
       totalDebits,
     },
-    path: `../../templates/attachments/${user.cpf.slice(2, -5)}.pdf`,
+    path: `./src/templates/attachments/${user.cpf.slice(2, -5)}.pdf`,
   };
   PDF.create(pdfDoc);
 };
