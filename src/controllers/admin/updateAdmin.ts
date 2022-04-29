@@ -14,7 +14,7 @@ const updateAdminController = async (
     const { admin } = req;
 
     if (id_admin !== admin.id_admin) {
-      throw new ErrorHandler(409, 'Not authorized');
+      throw new ErrorHandler(401, 'Not authorized');
     }
 
     const updatedAdmin = await new UpdateAdminService().execute(req);
@@ -25,7 +25,7 @@ const updateAdminController = async (
 
     if (error instanceof QueryFailedError) {
       if (detail.includes('already exists')) {
-        return res.status(404).json({ message: 'E-mail already registered' });
+        return res.status(409).json({ message: 'E-mail already registered' });
       }
     }
 
