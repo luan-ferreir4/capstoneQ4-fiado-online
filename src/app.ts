@@ -5,13 +5,13 @@ import { CronJob } from 'cron';
 import dotenv from 'dotenv';
 import router from './routes';
 import { ErrorHandler, handleErrors } from './utils';
-import { CronVerifyService } from '../src/services';
+import { CronVerifyService } from './services';
 
 dotenv.config();
 
 const timer = process.env.CRON_EMAIL_TIME;
 
-const job = new CronJob(timer, function () {
+const job = new CronJob(timer, () => {
   new CronVerifyService().execute();
 });
 job.start();
