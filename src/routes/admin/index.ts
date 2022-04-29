@@ -76,7 +76,7 @@ adminsRouter.get(
 adminsRouter.patch(
   '/user/:id_user',
   authAdmin,
-  verifyResquestBodyToUpdateMiddleware('admin'),
+  verifyResquestBodyToUpdateMiddleware('user'),
   validateShape(upgradeUserShape),
   validateUuidMiddleware,
   updateUserByIdController
