@@ -18,7 +18,7 @@ class GenerateCatalogue {
         name: sendTo,
         userResources,
       },
-      path: `../../templates/attachments/catalogo-${sendTo.name}.pdf`,
+      path: `./src/templates/attachments/catalogo-${sendTo.name}.pdf`,
     };
     PDF.create(pdfDoc);
   }
