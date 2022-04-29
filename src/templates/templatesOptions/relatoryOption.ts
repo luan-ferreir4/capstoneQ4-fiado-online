@@ -7,7 +7,7 @@ const relatoryOptionsEmail = (user: User) => {
     subject: 'Relatorio solicitado',
     template: 'relatoryHtml',
     context: {
-      name: user,
+      name: user.name,
     },
     attachments: [
       {

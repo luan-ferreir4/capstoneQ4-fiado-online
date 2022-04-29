@@ -10,7 +10,7 @@ class CronVerifyService {
     const date = new Date();
     const newList = userList.forEach(async (e) => {
       if (e.weekly_report_day === date.getDay()) {
-        const currentUser = await new FilterDays().byWeek(e, date, 6);
+        const currentUser = await new FilterDays().byMonth(e, date, 7);
 
         new CreateRelatory().execute(currentUser);
         new SendEmail().register(currentUser, relatoryOptionsEmail);

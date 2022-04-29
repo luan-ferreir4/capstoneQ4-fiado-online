@@ -14,7 +14,7 @@ const timer = process.env.CRON_EMAIL_TIME;
 const job = new CronJob(timer, function () {
   new CronVerifyService().execute();
 });
-// job.start();
+job.start();
 
 const app = express();
 app.use(express.json());
